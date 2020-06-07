@@ -4,6 +4,7 @@ html {
 }
 body {
   margin-bottom: 140px;
+  font-family: 'Open Sans', sans-serif;
 }
 html,
 body {
@@ -477,6 +478,74 @@ a {
 }
 .help-block {
   color: #95a5a6;
+}
+.mininav{
+  background-color: #111;
+  color: white;
+  padding: 0.2rem 10%;
+  font-size: 14px;
+}
+.mininav .collapsenav li .dropdown-toggle{
+  color: white;
+}
+.nav-upper{
+  width: 80%;
+  margin: auto;
+}
+.nav-upper nav{
+  padding: 20px 0px 20px 0px;
+  border-bottom: 1px solid rgb(209, 209, 209);
+}
+.nav-upper nav a.navbar-brand{
+  padding: 0px;
+  height: auto;
+  font-size: unset;
+}
+.mainNavBar input{
+  width: 300px !important;
+  font-size: 16px;
+  margin-right: 0px !important;
+  border: 1px solid rgb(197, 197, 197);
+  font-size: 16px;
+  padding: .5rem;
+  color: #999;
+}
+.mainNavBar form ul li .dropdown-toggle{
+  border: 1px solid rgb(206, 206, 206);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  color: #a1a1a1;
+}
+.mainNavBar button{
+  width: auto;
+  border-radius: 0px;
+  font-size: 16px;
+  padding: 0.5rem;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  width: 60px;
+  color: white;
+  background-color: #28a745;
+}
+.mainNavBar .navtext ul li .i{
+  font-size: 25px;
+}
+.mainNavBar .navtext ul li .badge{
+  top: -20px;
+  left: -10px;
+}
+.nav-lower{
+  width: 80%;
+  margin: auto;
+}
+.nav-lower .navbar .collapse .navbar-nav .nav-item .nav-link{
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  color: rgb(48, 48, 48);
+  font-size: 15px;
+}
+.nav-lower .navbar .collapse .navbar-nav .nav-item .nav-link:hover{
+  color: #28a745;
 }
 @media only screen and (min-width: 768px) {
   .pushy {

@@ -24,8 +24,17 @@
         {{/if}}
         <meta name="csrfToken" content="{{csrfToken}}">
 		<meta name="keywords" content="{{config.cartTitle}}">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha256-L/W5Wfqfa0sdBNIKN9cG6QA5F2qx4qICmU2VgLruv9Y=" crossorigin="anonymous" />
+<!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="/stylesheets/pushy{{config.env}}.css">
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <script src="https://kit.fontawesome.com/da9abaff04.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
         {{#if admin}}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.9.13/combined/css/gijgo.min.css" integrity="sha256-bH0WSMuCFoG/dxeox/5aOWmaZl729yDg4ylckwSRTfU=" crossorigin="anonymous" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.20.2/codemirror.min.css" integrity="sha256-MdzaXfGXzZdeHw/XEV2LNNycipsLk4uZ0FYzO3hbuvI=" crossorigin="anonymous" />
@@ -37,9 +46,6 @@
         {{#if admin}}
         <link rel="stylesheet" href="/stylesheets/admin{{config.env}}.css">
         {{/if}}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" integrity="sha256-x3YZWtRjM8bJqf48dFAv/qmgL68SI4jqNWeSLMZaMGA=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha256-WqU1JavFxSAMcLP2WIOI+GB2zWmShMI82mTpLDcqFUg=" crossorigin="anonymous"></script>
         {{#if admin}}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.9.13/combined/js/gijgo.min.js" integrity="sha256-YZhUu69bCn9uTqQyKwwQ3GyRypS7eaxp/wmVS282sDI=" crossorigin="anonymous"></script>
@@ -159,53 +165,110 @@
     {{else}}
     <body>
     {{/if}}
-        {{#unless admin}}
-        <nav class="navbar navbar-expand-lg justify-content-between mainNavBar">
-            <a class="navbar-brand" href="/">
-            {{#if @root.config.cartLogo}}
-            <img src="{{@root.config.cartLogo}}" class="img-fluid">
-            {{else}}
-            {{@root.config.cartTitle}}
-            {{/if}}
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
-                {{{feather 'menu'}}}
+        <nav class="navbar navbar-expand-lg mininav">
+        <div>
+            <a class="nav-brand">Welcome to Jammu Basket</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
-            <div id="navbarText">
+        </div>
+
+        <div class="collapse navbar-collapse collapsenav" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto mr-70">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="UserAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            My Account
+            </a>
+            <div class="dropdown-menu" aria-labelledby="UserAccount">
+                <a class="dropdown-item" href="#">Register</a>
+                <a class="dropdown-item" href="#">Login</a>
+            </div>
+      </li>
+       <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="AvailableLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Language
+            </a>
+            <div class="dropdown-menu" aria-labelledby="AvailableLanguage">
+                <a class="dropdown-item" href="#">English</a>
+                <a class="dropdown-item" href="#">Italion</a>
+            </div>
+      </li>
+      </ul>
+        </div>
+        </nav>
+        {{#unless admin}}
+        <div class="nav-upper">
+            <nav class="navbar navbar-expand-lg justify-content-between mainNavBar">
+            <a class="navbar-brand logo" href="/">
+            <img src="images/loogo.jpg" alt="">
+            </a>
+            <form class="form-inline my-2 my-lg-0">
+                <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Categories
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+                </li>
+                </ul>
+                <input class="" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            <div id="navbarText" class="navtext">
                 <ul class="navbar-nav ml-auto">
-                    {{#ifCond @root.config.enableLanguages "!=" false}}
-                    <div class="dropdown d-none d-sm-block">
-                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{{feather 'globe'}}}
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            {{#availableLanguages}}
-                                <li><a class="dropdown-item" href="/lang/{{this}}">{{@root.__ this}}</a></li>
-                            {{/availableLanguages}}
-                        </div>
-                    </div>
-                    {{/ifCond}}
-                    {{#if @root.session.customerPresent}}
-                    <div class="dropdown d-none d-sm-block">
-                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{{feather 'user'}}}
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item" href="/customer/account">Account</a></li>
-                            <li><a class="dropdown-item" href="/customer/logout">Logout</a></li>
-                        </div>
-                    </div>
-                    {{else}}
-                        <li class="nav-item ml-3"><a href="/customer/account" class="btn">{{{feather 'user'}}}</a></li>
-                    {{/if}}
                     {{#if @root.session.cart}}
-                        <li class="nav-item"><a href="/checkout/cart" class="btn menu-btn">{{{feather 'shopping-cart'}}} {{ @root.__ "Cart" }} <span class="badge badge-danger" id="cart-count">{{@root.session.totalCartItems}}</span></a></li>
+                        <li class="nav-item"><a href="/checkout/cart" class="btn menu-btn"><i class="fas fa-shopping-bag i"></i> <span class="badge badge-danger" id="cart-count">{{@root.session.totalCartItems}}</span></a></li>
                         {{else}}
-                        <li class="nav-item"><a href="/checkout/cart" class="btn menu-btn">{{{feather 'shopping-cart'}}}</i> {{ @root.__ "Cart" }} <span class="badge badge-danger" id="cart-count">0</span></a></li>
+                        <li class="nav-item"><a href="/checkout/cart" class="btn menu-btn"><i class="fas fa-shopping-bag i"></i> <span class="badge badge-danger" id="cart-count">0</span></a></li>
                     {{/if}}
                 </ul>
             </div>
         </nav>
+        </div>
+        <div class="nav-lower">
+            <div class="navbar navbar-expand-lg navbar-light bg-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Fruits</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Beverages</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Flours
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dairy Products
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
         {{/unless}}
         <div class="site-overlay"></div>
         {{#unless admin}}
@@ -245,7 +308,7 @@
         {{#if @root.config.maxQuantity}} <input type="hidden" id="maxQuantity" value="{{@root.config.maxQuantity}}">{{/if}}
 		<div id="notify_message"></div>
 		{{#if showFooter}}
-            <div class="footer">
+            {{!-- <div class="footer">
                 <div class="d-flex h-100">
                     <div class="col-12 align-self-center">
                     {{#isNull @root.config.footerHtml}}
@@ -255,7 +318,7 @@
                     {{/isNull}}
                     </div>
                 </div>
-            </div>
+            </div> --}}
 		{{/if}}
         <script src="/javascripts/pushy.min.js"></script>
         {{#if admin}}

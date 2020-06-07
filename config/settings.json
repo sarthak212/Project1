@@ -1,7 +1,7 @@
 {
     "cartTitle": "Jammu Basket",
     "cartDescription": "Basket CMS",
-    "cartLogo": "",
+    "cartLogo": "images/loogo.jpg",
     "baseUrl": "http://localhost:1111",
     "emailHost": "smtp-mail.outlook.com",
     "emailPort": 587,
