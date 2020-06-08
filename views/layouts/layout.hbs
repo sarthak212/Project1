@@ -35,6 +35,7 @@
         <link rel="stylesheet" href="/stylesheets/style.css">
         <script src="https://kit.fontawesome.com/da9abaff04.js" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
         {{#if admin}}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.9.13/combined/css/gijgo.min.css" integrity="sha256-bH0WSMuCFoG/dxeox/5aOWmaZl729yDg4ylckwSRTfU=" crossorigin="anonymous" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.20.2/codemirror.min.css" integrity="sha256-MdzaXfGXzZdeHw/XEV2LNNycipsLk4uZ0FYzO3hbuvI=" crossorigin="anonymous" />
@@ -163,7 +164,7 @@
     {{#if admin}}
 	<body class="admin">
     {{else}}
-    <body>
+    <div>
     {{/if}}
         <nav class="navbar navbar-expand-lg mininav">
         <div>
@@ -267,7 +268,7 @@
                     </li>
                     </ul>
                 </div>
-            </nav>
+        </div>
         </div>
         {{/unless}}
         <div class="site-overlay"></div>
@@ -307,9 +308,14 @@
         <input type="hidden" id="currencySymbol" value="{{@root.config.currencySymbol}}">
         {{#if @root.config.maxQuantity}} <input type="hidden" id="maxQuantity" value="{{@root.config.maxQuantity}}">{{/if}}
 		<div id="notify_message"></div>
+
+        {{!-- Newsletter --}}
+        <div class="newsletter">
+
+        </div>
 		{{#if showFooter}}
-            {{!-- <div class="footer">
-                <div class="d-flex h-100">
+            <div class="footer">
+                {{!-- <div class="d-flex h-100">
                     <div class="col-12 align-self-center">
                     {{#isNull @root.config.footerHtml}}
                         <h5 class="text-center">Powered by expressCart</h5>
@@ -317,8 +323,49 @@
                         {{{@root.config.footerHtml}}}
                     {{/isNull}}
                     </div>
+                </div> --}}
+                <div class="upper-footer">
+                    <div class="contactus">
+                        <h3>Contact Us <hr></h3>
+                        <ul>
+                            <li><i class="fas fa-street-view"></i> Some Random Address, Khatoli</li>
+                            <li><i class="fas fa-envelope"></i> abcd@xyz.com</li>
+                            <li><i class="fas fa-phone"></i> 1234567890</li>
+                        </ul>
+                    </div>
+                    <div class="extra">
+                        <h3>Extra <hr></h3>
+                        <ul>
+                            <li><a href="">About Us</a></li>
+                            <li><a href="">Contact Us</a></li>
+                            <li><a href="">Privacy Policy</a></li>
+                            <li><a href="">Delivery Information</a></li>
+                            <li><a href="">Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+                    <div class="Account">
+                        <h3>Account <hr></h3>
+                        <ul>
+                            <li><a href="">My Account</a></li>
+                            <li><a href="">Cart</a></li>
+                            <li><a href="">Order History</a></li>
+                            <li><a href="">Wishlist</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div> --}}
+                <div class="lower-footer">
+                        <ul>
+                            <li><a href=""><i class="fab fa-facebook-square"></i></a></li>
+                            <li><a href=""><i class="fab fa-twitter-square"></i></a></li>
+                            <li><a href=""><i class="fab fa-instagram-square"></i></a></li>
+                            <li><a href=""><i class="fab fa-linkedin"></i></a></li>
+                        </ul>
+                </div>
+                <div class="most-lower">
+                    <h5>Made with love by Shri Shri Om Tyagi © 2020</h5>
+                    <a href=""><i class="fas fa-caret-up"></i></a>
+                </div>
+            </div>
 		{{/if}}
         <script src="/javascripts/pushy.min.js"></script>
         {{#if admin}}
