@@ -168,15 +168,9 @@
     {{else}}
     <body>
     {{/if}}
-        <nav class="navbar navbar-expand-lg mininav">
-        <div>
-            <a class="nav-brand">Welcome to Jammu Basket</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
+        <nav class="mininav">
+            <div class="brand">Welcome to Jammu Basket</div>
 
-        <div class="collapse navbar-collapse collapsenav" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto mr-70">
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="UserAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -197,16 +191,18 @@
             </div>
       </li>
       </ul>
-        </div>
         </nav>
         {{#unless admin}}
         <div class="nav-upper">
             <nav class="navbar navbar-expand-lg justify-content-between mainNavBar">
+                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-ellipsis-v"></i><i class="fas fa-ellipsis-v"></i>
+                </button>
             <a class="navbar-brand logo" href="/">
             <img src="images/loogo.jpg" alt="">
             </a>
             <form class="form-inline my-2 my-lg-0">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav categories">
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Categories
@@ -220,7 +216,7 @@
                 </li>
                 </ul>
                 <input class="" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+                <button class="btn btn-outline-success my-2 my-sm-0 search" type="submit"><i class="fas fa-search"></i></button>
             </form>
             <div id="navbarText" class="navtext">
                 <ul class="navbar-nav ml-auto">
@@ -235,9 +231,6 @@
         </div>
         <div class="nav-lower">
             <div class="navbar navbar-expand-lg navbar-light bg-light">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
@@ -327,17 +320,23 @@
                     </div>
                 </div> --}}
                 <div class="upper-footer">
-                    <div class="contactus">
+                    <div class="contactus navbar-expand-lg">
                         <h3>Contact Us <hr></h3>
-                        <ul>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#address" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="far fa-plus-square"></i>
+                        </button>
+                        <ul class="collapse navbar-collapse" id="address">
                             <li><i class="fas fa-street-view"></i> Some Random Address, Khatoli</li>
                             <li><i class="fas fa-envelope"></i> abcd@xyz.com</li>
                             <li><i class="fas fa-phone"></i> 1234567890</li>
                         </ul>
                     </div>
-                    <div class="extra">
+                    <div class="extra navbar-expand-lg">
                         <h3>Extra <hr></h3>
-                        <ul>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#extras" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="far fa-plus-square"></i>
+                        </button>
+                        <ul class="collapse navbar-collapse" id="extras">
                             <li><a href="">About Us</a></li>
                             <li><a href="">Contact Us</a></li>
                             <li><a href="">Privacy Policy</a></li>
@@ -345,9 +344,12 @@
                             <li><a href="">Terms & Conditions</a></li>
                         </ul>
                     </div>
-                    <div class="Account">
+                    <div class="Account navbar-expand-lg">
                         <h3>Account <hr></h3>
-                        <ul>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myaccount" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="far fa-plus-square"></i>
+                        </button>
+                        <ul class="collapse navbar-collapse" id="myaccount">
                             <li><a href="">My Account</a></li>
                             <li><a href="">Cart</a></li>
                             <li><a href="">Order History</a></li>

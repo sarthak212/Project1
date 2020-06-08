@@ -477,10 +477,27 @@ a {
   color: white;
   padding: 0.2rem 10%;
   font-size: 14px;
+  display: flex;
+  flex-direction: row;
   font-family: 'Roboto', sans-serif;
 }
-.mininav .collapsenav li .dropdown-toggle{
+.mininav .brand{
+  margin: auto 0px;
+}
+.mininav ul{
+  display: flex;
+  flex-direction: row;
+}
+.mininav ul li{
+  margin: 0px 5px;
+}
+.mininav ul li a.dropdown-toggle{
   color: white;
+}
+@media only screen and (max-width: 480px){
+  .mininav .brand{
+    display: none;
+  }
 }
 .nav-upper{
   width: 80%;
@@ -510,7 +527,7 @@ a {
   border-bottom-left-radius: 5px;
   color: #a1a1a1;
 }
-.mainNavBar button{
+.mainNavBar button.search{
   width: auto;
   border-radius: 0px;
   font-size: 16px;
@@ -563,6 +580,8 @@ a {
 .upper-footer div ul{
   list-style: none;
   padding-left: 0px;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .upper-footer div h3{
   font-size: 14px;
@@ -570,7 +589,7 @@ a {
 }
 .upper-footer div ul li{
   font-size: 14px;
-  margin: 13px 0px;
+  margin: 6px 0px;
 }
 .upper-footer div ul li a{
   color: white;
@@ -632,6 +651,48 @@ a {
 .most-lower h5{
   color: white;
   font-size: 15px;
+}
+.mininav .navbar-toggle{
+  color: rgb(255, 253, 254);
+}
+.upper-footer div button{
+  display: inline;
+  float: right;
+}
+.upper-footer div button .far{
+  color: white;
+}
+@media only screen and (max-width: 872px){
+  .nav-upper{
+    width: 90%;
+  }
+  .nav-upper .mainNavBar form .categories{
+    display: none;
+  }
+  .upper-footer{
+    flex-direction: column;
+  }
+  .upper-footer div{
+    width: 100%;
+  }
+  .upper-footer div h3{
+    width: 50%;
+    display: inline-block;
+  }
+}
+@media only screen and (max-width: 480px){
+  .nav-upper{
+    width: 95%;
+  }
+  .mainNavBar input{
+    width: 200px !important;
+  }
+  .upper-footer div h3{
+    display: inline-block;
+  }
+  .most-lower{
+    width: 90%;
+  }
 }
 @media only screen and (min-width: 768px) {
   .pushy {
@@ -709,12 +770,6 @@ a {
   }
   #cart {
     padding-bottom: 15px;
-  }
-  .footer {
-    height: 100px;
-  }
-  body {
-    margin-bottom: 100px;
   }
   .navbar-brand {
     padding-left: 0px;
