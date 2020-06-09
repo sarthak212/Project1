@@ -293,7 +293,7 @@
             {{/ifCond}}
             {{/ifCond}}
         {{/unless}}
-		<div class="container-fluid content-body h-100" id="container">
+		<div class="container-fluid h-100" id="container">
             <div class="row">
                 {{{body}}}
             </div>
@@ -305,11 +305,6 @@
         <input type="hidden" id="currencySymbol" value="{{@root.config.currencySymbol}}">
         {{#if @root.config.maxQuantity}} <input type="hidden" id="maxQuantity" value="{{@root.config.maxQuantity}}">{{/if}}
 		<div id="notify_message"></div>
-
-        {{!-- Newsletter --}}
-        <div class="newsletter">
-
-        </div>
 		{{#if showFooter}}
             <div class="footer">
                 {{!-- <div class="d-flex h-100">
@@ -390,6 +385,7 @@
             loop:true,
             margin:10,
             responsiveClass:true,
+            rewind: true,
             responsive:{
                 0:{
                     items:1,
@@ -410,6 +406,7 @@
             loop:true,
             margin:10,
             responsiveClass:true,
+            rewind: true,
             responsive:{
                 0:{
                     items:1,
