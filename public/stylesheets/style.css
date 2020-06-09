@@ -779,3 +779,111 @@ a {
     min-height: 0;
   }
 }
+
+/* Purva css */
+.parent-box{
+	background-color: white;
+	display: flex;
+}
+
+.box{
+	height: 300px;
+	margin:5px;
+	background-color: lightgreen;
+}
+
+.owl-carousel .owl-nav button.owl-prev{
+	background: none;
+	color: inherit;
+	border:none;
+	padding: 0;
+	font:inherit;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 40px;
+	height: 40px;
+
+}
+
+.owl-carousel .owl-nav button.owl-next{
+	background: none;
+	color: inherit;
+	border:none;
+	padding: 0;
+	font:inherit;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 0;
+	width: 40px;
+	height: 40px;
+	
+}
+.box .product-card {
+  width: 173px;
+  position: relative;
+  box-shadow: 0 2px 7px #dfdfdf;
+  margin: 0px auto;
+  background: #fafafa;
+}
+
+.box .badge {
+  position: absolute;
+  left: 0;
+  top: 20px;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 700;
+  background: red;
+  color: #fff;
+  padding: 3px 10px;
+}
+
+.box .product-tumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  padding: 25px;
+  background: #f0f0f0;
+}
+
+.box .product-tumb img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.box .product-details {
+  padding: 20px;
+  background-color: white;
+}
+.box .save{
+margin:0px;
+padding: 0px;
+font-size: 15px;
+color: orange;
+}
+.box .product-catagory {
+  display: block;
+  font-size: 22px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: black;
+  margin-bottom: 18px;
+}
+
+.box .product-details p{
+font-size: 18px;
+color:blue;
+}
+.box .btn{
+position: absolute;
+padding: 0px;
+left:40px;  
+  bottom:8px;
+  color: #CC5500;
+  font-weight: bold;
+  font-size: 20px;
+
+}
