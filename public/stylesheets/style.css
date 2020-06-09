@@ -789,12 +789,12 @@ a {
   font-size: 20px;
   font-weight: 600;
 }
-.Categories .owl-nav{
+.Categories .owl-nav, .parent-box .owl-nav{
   position: absolute;
   top: -55px;
   right: 20px;
 }
-.owl-carousel .owl-nav button{
+.owl-carousel .owl-nav button, .parent-box .own-nav button{
   margin: 0px 10px;
   background-color: #eeeeee !important;
   color: rgb(80, 80, 80) !important;
@@ -807,7 +807,7 @@ a {
   display: flex;
   flex-direction: row;
   width: 100%;
-  margin-top: 40px;
+  margin-top: 70px;
   justify-content: space-between;
   align-items: center;
   padding: 10px 10%;
@@ -886,79 +886,22 @@ a {
   }
 }
 /* Purva css */
+.productslider1{
+  width: 85%;
+  margin: auto;
+}
 .parent-box{
   background-color: white;
   display: flex;
 }
+.productslider1 h3.title{
+  font-size: 20px;
+  font-weight: 600;
+}
 
 .box{
-  height: 320px;
-  margin:5px;
+  margin:0px 8px;
   background-color: white;
-}
-
-
-.owl-carousel .owl-nav button.owl-prev{
-  background: none;
-  color: inherit;
-  border:none;
-  padding: 0;
-  font:inherit;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-
-}
-
-.owl-carousel .owl-nav button.owl-next{
-  background: none;
-  color: inherit;
-  border:none;
-  padding: 0;
-  font:inherit;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 0;
-  width: 40px;
-  height: 40px;
-}
-.parent-box .owl-nav button.owl-prev{
-	background: none;
-	color: inherit;
-	border:none;
-	padding: 0;
-	font:inherit;
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	width: 40px;
-	height: 40px;
-
-}
-
-.parent-box .owl-nav button.owl-next{
-	background: none;
-	color: inherit;
-	border:none;
-	padding: 0;
-	font:inherit;
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	right: 0;
-	width: 40px;
-	height: 40px;
-	
-}
-.box .product-card {
-  width: 173px;
-  position: relative;
-  box-shadow: 0 2px 7px #dfdfdf;
-  margin: 0px auto;
-  background: #fafafa;
 }
 
 .single-product{
@@ -966,51 +909,51 @@ a {
         inset -2px -2px 12px rgba(255,255,255,0.5),
         inset 2px 2px 4px rgba(255,255,255,0.1),
         inset 2px 2px 8px rgba(0,0,0,0.15);
-
-        padding: 20px;
+        padding: 5px;
         border-radius: 12px;
-        margin-bottom: 50px;
 }
 
 .single-product .product-thumb{
-  margin-bottom: 30px;
+  height: 200px;
+  position: relative;
 }
 
-img
+.single-product .product-thumb img
 {
   display:inline-block;
-  max-width: 100%;
+  height: 100%;
 }
 
 .single-product .product-title{
-  margin-bottom: 20px;
   text-align: center;
   align-items: center;
+  margin-top: 7px;
 }
 
 .single-product .product-title h3{
-  color: green;
-  font-family: "Lucida";
-  font-size: 20px;
-  font-weight: 300;
-
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 0px;
 }
 
 .single-product .product-title .save{
-  color: green;
-  font-family: "Didact Gothic";
-  font-size: 20px;
-  font-weight: 300;
-
+  font-family: "Roboto";
+  font-size: 13px;
+  margin-top: 3px;
+  color: #5c5a5a;
 }
 
 .single-product .product-title p{
-  color: black;
-  font-family: "Didact Gothic";
-  font-size: 17px;
-  font-weight: 400;
+  color: #28a745;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 0px;
+  margin-top: 7px;
+}
+.single-product .product-title p span{
+  color: #888;
   text-decoration: line-through;
-
+  margin: 0px 5px;
 }
 .single-product:hover{
   box-shadow:  -2px -2px 8px white,
@@ -1050,9 +993,12 @@ a{
 .btn-round
 {
   display: inline-block;
-  font-weight: 14px;
-  font-size: 700;
-  
+  font-size: 14px;
+  font-weight: 700;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: white;
   height: 40px;
   width: 40px;
   text-align: center;
