@@ -1,5 +1,5 @@
 {{> themes/Cloth/front-menu}}
-<div class="productsWrapper col-sm-12 col-md-8 offset-md-2">
+{{!-- <div class="productsWrapper col-sm-12 col-md-8 offset-md-2">
     {{#if filtered}}
         <div class="product-layout product-results col-sm-12">
             {{#ifCond @root.paginateUrl '==' 'category'}}
@@ -77,8 +77,37 @@
             </div>
         {{/each}}
     </div>
-</div>
+</div> --}}
 
+<div class="Categories">
+    <h3>Categories <hr></h3>
+    <div class="carousel-category owl-carousel">
+        <div>
+            <a href=""><img src="/images/flour.jpg" alt=""></a>
+        </div>
+        <div>
+            <a href=""><img src="/images/fruit.jpg" alt=""></a>
+        </div>
+        <div>
+            <a href=""><img src="/images/eggs.jpg" alt=""></a>
+        </div>
+        <div>
+            <a href=""><img src="/images/milk.jpg" alt=""></a>
+        </div>
+        <div>
+            <a href=""><img src="/images/non-veg.jpg" alt=""></a>
+        </div>
+        <div>
+            <a href=""><img src="/images/veget.jpg" alt=""></a>
+        </div>
+        <div>
+            <a href=""><img src="/images/vegetables.jpg" alt=""></a>
+        </div>
+        <div>
+            <a href=""><img src="/images/flour.jpg" alt=""></a>
+        </div>
+    </div>
+</div>
 {{!-- Purva's Code --}}
 
     <div class="parent-box owl-carousel">
