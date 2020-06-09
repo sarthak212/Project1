@@ -887,16 +887,44 @@ a {
 }
 /* Purva css */
 .parent-box{
-	background-color: white;
-	display: flex;
+  background-color: white;
+  display: flex;
 }
 
 .box{
-	height: 300px;
-	margin:5px;
-	background-color: lightgreen;
+  height: 320px;
+  margin:5px;
+  background-color: white;
 }
 
+
+.owl-carousel .owl-nav button.owl-prev{
+  background: none;
+  color: inherit;
+  border:none;
+  padding: 0;
+  font:inherit;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+
+}
+
+.owl-carousel .owl-nav button.owl-next{
+  background: none;
+  color: inherit;
+  border:none;
+  padding: 0;
+  font:inherit;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  width: 40px;
+  height: 40px;
+}
 .parent-box .owl-nav button.owl-prev{
 	background: none;
 	color: inherit;
@@ -933,62 +961,124 @@ a {
   background: #fafafa;
 }
 
-.box .badge {
-  position: absolute;
-  left: 0;
-  top: 20px;
-  text-transform: uppercase;
-  font-size: 13px;
-  font-weight: 700;
-  background: red;
-  color: #fff;
-  padding: 3px 10px;
+.single-product{
+  box-shadow: inset -2px -2px 8px white,
+        inset -2px -2px 12px rgba(255,255,255,0.5),
+        inset 2px 2px 4px rgba(255,255,255,0.1),
+        inset 2px 2px 8px rgba(0,0,0,0.15);
+
+        padding: 20px;
+        border-radius: 12px;
+        margin-bottom: 50px;
 }
 
-.box .product-tumb {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 150px;
-  padding: 25px;
-  background: #f0f0f0;
+.single-product .product-thumb{
+  margin-bottom: 30px;
 }
 
-.box .product-tumb img {
+img
+{
+  display:inline-block;
   max-width: 100%;
-  max-height: 100%;
 }
 
-.box .product-details {
-  padding: 20px;
-  background-color: white;
+.single-product .product-title{
+  margin-bottom: 20px;
+  text-align: center;
+  align-items: center;
 }
-.box .save{
-margin:0px;
-padding: 0px;
-font-size: 15px;
-color: orange;
+
+.single-product .product-title h3{
+  color: green;
+  font-family: "Lucida";
+  font-size: 20px;
+  font-weight: 300;
+
 }
-.box .product-catagory {
-  display: block;
-  font-size: 22px;
+
+.single-product .product-title .save{
+  color: green;
+  font-family: "Didact Gothic";
+  font-size: 20px;
+  font-weight: 300;
+
+}
+
+.single-product .product-title p{
+  color: black;
+  font-family: "Didact Gothic";
+  font-size: 17px;
+  font-weight: 400;
+  text-decoration: line-through;
+
+}
+.single-product:hover{
+  box-shadow:  -2px -2px 8px white,
+         -2px -2px 12px rgba(255,255,255,0.5),
+         2px 2px 4px rgba(255,255,255,0.1),
+         2px 2px 8px rgba(0,0,0,0.15);
+
+}
+
+.product-btns{
+  display: flex;
+  justify-content: center;
+}
+
+a{
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #292929;
+}
+
+.btn-small
+{
+  display: inline-block;
+  font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
-  color: black;
-  margin-bottom: 18px;
+  padding: 12px 20px;
+  border-radius: 50px;
+  box-shadow: inset -2px -2px 8px white,
+        inset -2px -2px 12px rgba(255,255,255,0.5),
+        inset 2px 2px 4px rgba(255,255,255,0.1),
+        inset 2px 2px 8px rgba(0,0,0,0.15);
+  transition: 0.4s;
 }
 
-.box .product-details p{
-font-size: 18px;
-color:blue;
-}
-.box .btn{
-position: absolute;
-padding: 0px;
-left:40px;  
-  bottom:8px;
-  color: #CC5500;
-  font-weight: bold;
-  font-size: 20px;
+.btn-round
+{
+  display: inline-block;
+  font-weight: 14px;
+  font-size: 700;
+  
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 45px;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: inset -2px -2px 8px white,
+        inset -2px -2px 12px rgba(255,255,255,0.5),
+        inset 2px 2px 4px rgba(255,255,255,0.1),
+        inset 2px 2px 8px rgba(0,0,0,0.15);
 
+}
+
+.btn-small:hover{
+  box-shadow:  -2px -2px 8px white,
+         -2px -2px 12px rgba(255,255,255,0.5),
+         2px 2px 4px rgba(255,255,255,0.1),
+         2px 2px 8px rgba(0,0,0,0.15);
+      color: #7289ab;
+      text-decoration: none;
+}
+
+.btn-round:hover{
+  box-shadow:  -2px -2px 8px white,
+         -2px -2px 12px rgba(255,255,255,0.5),
+         2px 2px 4px rgba(255,255,255,0.1),
+         2px 2px 8px rgba(0,0,0,0.15);
+        color:#7289ab;
 }
