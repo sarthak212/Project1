@@ -780,6 +780,111 @@ a {
   }
 }
 
+/* categories */
+.Categories{
+  width: 85%;
+  margin: 50px auto;
+}
+.Categories h3{
+  font-size: 20px;
+  font-weight: 600;
+}
+.Categories .owl-nav{
+  position: absolute;
+  top: -55px;
+  right: 20px;
+}
+.owl-carousel .owl-nav button{
+  margin: 0px 10px;
+  background-color: #eeeeee !important;
+  color: rgb(80, 80, 80) !important;
+  width: 25px;
+  height: 25px;
+  border-radius: 20%;
+} 
+.newsletter{
+  background-color: #28a745;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 40px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10%;
+  color: white;
+}
+.newsletter .side{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.newsletter .side .fas{
+  font-size: 35px;
+  color: white;
+  margin: 0px 10px;
+}
+.newsletter .side .signupnews small{
+  font-size: 16px;
+  font-family: 'Roboto';
+}
+.newsletter .side .signupnews h4{
+  font-size: 22px;
+  font-weight: bolder;
+  font-family: 'Open Sans';
+}
+.newsletter .right-side form input{
+  border: none;
+  border-radius: 20px;
+  width: 400px;
+  padding: 10px 15px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  font-size: 14px;
+}
+.newsletter .right-side form button{
+  border: none;
+  border-radius: 20px;
+  padding: 10px 18px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  background-color: #222;
+  color: white;
+  font-size: 14px;
+}
+@media screen and (max-width: 974px){
+  .newsletter{
+    padding: 7px 3%;
+  }
+}
+@media screen and (max-width: 816px){
+  .newsletter .side .fas{
+    display: none;
+  }
+  .newsletter .side .signupnews small{
+    font-size: 15px;
+  }
+  .newsletter .side .signupnews h4{
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 718px){
+  .newsletter .right-side form input{
+    width: auto;
+  }
+}
+@media screen and (max-width: 506px){
+  .newsletter{
+    flex-direction: column;
+    padding-bottom: 13px;
+    padding-top: 13px;
+  }
+  .newsletter .side small{
+    display: none;
+  }
+  .newsletter .side h4{
+    margin-bottom: 10px;
+  }
+}
 /* Purva css */
 .parent-box{
   background-color: white;
@@ -791,6 +896,7 @@ a {
   margin:5px;
   background-color: white;
 }
+
 
 .owl-carousel .owl-nav button.owl-prev{
   background: none;
@@ -819,6 +925,42 @@ a {
   width: 40px;
   height: 40px;
   
+}
+.parent-box .owl-nav button.owl-prev{
+	background: none;
+	color: inherit;
+	border:none;
+	padding: 0;
+	font:inherit;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 40px;
+	height: 40px;
+
+}
+
+.parent-box .owl-nav button.owl-next{
+	background: none;
+	color: inherit;
+	border:none;
+	padding: 0;
+	font:inherit;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 0;
+	width: 40px;
+	height: 40px;
+	
+}
+.box .product-card {
+  width: 173px;
+  position: relative;
+  box-shadow: 0 2px 7px #dfdfdf;
+  margin: 0px auto;
+  background: #fafafa;
+
 }
 
 .single-product{

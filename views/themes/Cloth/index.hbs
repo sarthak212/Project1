@@ -1,5 +1,5 @@
 {{> themes/Cloth/front-menu}}
-<div class="productsWrapper col-sm-12 col-md-8 offset-md-2">
+{{!-- <div class="productsWrapper col-sm-12 col-md-8 offset-md-2">
     {{#if filtered}}
         <div class="product-layout product-results col-sm-12">
             {{#ifCond @root.paginateUrl '==' 'category'}}
@@ -77,8 +77,37 @@
             </div>
         {{/each}}
     </div>
-</div>
+</div> --}}
 
+<div class="Categories">
+    <h3>Categories <hr></h3>
+    <div class="carousel-category owl-carousel">
+        <div>
+            <a href=""><img src="/images/flour.jpg" alt=""></a>
+        </div>
+        <div>
+            <a href=""><img src="/images/fruit.jpg" alt=""></a>
+        </div>
+        <div>
+            <a href=""><img src="/images/eggs.jpg" alt=""></a>
+        </div>
+        <div>
+            <a href=""><img src="/images/milk.jpg" alt=""></a>
+        </div>
+        <div>
+            <a href=""><img src="/images/non-veg.jpg" alt=""></a>
+        </div>
+        <div>
+            <a href=""><img src="/images/veget.jpg" alt=""></a>
+        </div>
+        <div>
+            <a href=""><img src="/images/vegetables.jpg" alt=""></a>
+        </div>
+        <div>
+            <a href=""><img src="/images/flour.jpg" alt=""></a>
+        </div>
+    </div>
+</div>
 {{!-- Purva's Code --}}
 
        <div class="parent-box owl-carousel">
@@ -318,4 +347,20 @@
 <input type="hidden" id="searchTerm" value="{{searchTerm}}">
 <div class="col-md-12">
     <div id="pager" class="d-flex justify-content-center"></div>
+</div>
+
+<div class="newsletter">
+    <div class="side">
+        <i class="fas fa-mail-bulk"></i>
+        <div class="signupnews">
+            <h4>Sign Up for Newsletter</h4>
+            <small>Keep me updated</small>
+        </div>
+    </div>
+    <div class="right-side">
+        <form action="">
+                <input type="text" placeholder="Enter your Email Address">
+                <button type="submit"><i class="far fa-paper-plane"></i></button>
+        </form>
+    </div>
 </div>
