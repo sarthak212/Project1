@@ -780,6 +780,28 @@ a {
   }
 }
 
+/* categories */
+.Categories{
+  width: 85%;
+  margin: 50px auto;
+}
+.Categories h3{
+  font-size: 20px;
+  font-weight: 600;
+}
+.Categories .owl-nav{
+  position: absolute;
+  top: -55px;
+  right: 20px;
+}
+.owl-carousel .owl-nav button{
+  margin: 0px 10px;
+  background-color: #95a5a6 !important;
+  color: white !important;
+  width: 25px;
+  height: 25px;
+  border-radius: 20%;
+} 
 /* Purva css */
 .parent-box{
 	background-color: white;
@@ -792,7 +814,7 @@ a {
 	background-color: lightgreen;
 }
 
-.owl-carousel .owl-nav button.owl-prev{
+.parent-box .owl-nav button.owl-prev{
 	background: none;
 	color: inherit;
 	border:none;
@@ -806,7 +828,7 @@ a {
 
 }
 
-.owl-carousel .owl-nav button.owl-next{
+.parent-box .owl-nav button.owl-next{
 	background: none;
 	color: inherit;
 	border:none;
