@@ -13,7 +13,6 @@
                     </li>
                     {{/each}}
                 </ul>
-<<<<<<< HEAD
             </div>
 
             <div class="row sm-scr">
@@ -27,21 +26,6 @@
                 </ul>
             </div>
 
-=======
-            </div>
-
-            <div class="row sm-scr">
-                <ul id="etalage1">
-                    {{#each @root.images}}
-                    <li>
-                        <img class="etalage_thumb_image" src="{{this.path}}">
-                        <img class="etalage_source_image" src="{{this.path}}">
-                    </li>
-                    {{/each}}
-                </ul>
-            </div>
-
->>>>>>> 0e05f482ea10c6dfd6727ebdafdd83b8adc7b85a
             {{else}}
             <div class="title-image-container">
                 <img src="/uploads/placeholder.png" id="product-title-image" class="product-title-image img-fluid"
@@ -108,7 +92,6 @@
                 <div class="features">
                         <h1 class="heading">Features</h1>
                         <div class="body_text">
-                            {{!-- {{{fixTags result.productDescription}}} --}}
                             <ul>
                                 <li>Removes stains effectively</li>
                                 <li>Leaves a pleasant fragrance</li>
@@ -149,14 +132,14 @@
                     {{#if productPermalink}}
                     <div class="product-wrapper">
                         <a href="/product/{{this.productPermalink}}">
-                            <div class="vertical-center img-thumbnail">
+                            <div class="vertical-center recom-img img-thumbnail">
                                 {{#if productImage}}
                                 <img class="img-fluid" src="{{this.productImage}}" alt="...">
                                 {{else}}
                                 <img class="img-fluid" src="/uploads/placeholder.png" alt="...">
                                 {{/if}}
                             </div>
-                            <h3 class="product-title product-title-home top-pad-10">
+                            <h3 class="product-title recom-title product-title-home top-pad-10">
                                 {{this.productTitle}}
                             </h3>
                         </a>
@@ -175,17 +158,17 @@
                         </h3>
                     </a>
                     {{/if}}
-                    <h3 class="product-price mp-0 text-center">
+                    <h3 class="product-price recom-price mp-0 text-center">
                         {{currencySymbol ../config.currencySymbol}}{{formatAmount productPrice}}
                     </h3>
                     <p class="text-center">
                         {{#if productPermalink}}
-                        <div class="col-md-4 btnAddToCart">
+                        <div class="col-md-4 recom-btn-cart btnAddToCart">
                             <button class="btn btn-primary btn-block recom-btn product-add-to-cart "
                                 type="button">{{ @root.__ "Add to cart" }}</button>
                         </div>
                         {{else}}
-                        <div class="col-md-4 recom-btn btnAddToCart">
+                        <div class="col-md-4 recom-btn-cart btnAddToCart">
                             <button class="btn btn-primary btn-block product-add-to-cart recom-btn"
                                 type="button">{{ @root.__ "Add to cart" }}</button>
                         </div>
