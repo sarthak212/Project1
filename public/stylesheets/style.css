@@ -1147,6 +1147,11 @@ input[type=number] {
   width: 265px;
   line-height: 2;
 }
+
+.recom-btn {
+  width: 27vh;
+}
+
 /* offers1 */
 .offers1{
   display: flex;
