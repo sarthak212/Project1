@@ -1076,4 +1076,8 @@ a{
     flex-direction: column;
     height: auto;
   }
+  .offer2 a{
+    width: 100%;
+    margin: 5px 0px;
+  }
 }
