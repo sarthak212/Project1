@@ -1,3 +1,100 @@
+/* Home Page */
 .carousel {
   width: 100%;
+}
+
+/* Product Page */
+.product-title {
+  font-size: 1.3rem;
+  font-weight: bolder;
+}
+
+.price {
+  font-size: 1rem;
+  font-weight: 100;
+}
+
+.taxes {
+  margin-top: -10px;
+  color: rgb(109, 107, 107);
+  ;
+}
+
+.product-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: black;
+  padding-top: 20px;
+}
+
+/* .qty {
+  font-size: 1.2rem;
+  color: rgb(109, 107, 107);
+  margin-right: 3%;
+} */
+
+.btn-number {
+  width: 45px;
+  text-align: center;
+  color: #232d2a;
+  box-shadow: none;
+}
+
+.productOptions {
+  display: ruby;
+  padding-bottom: 0;
+}
+
+.col-quan {
+  width: 6vh;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.input-btn {
+  height: 4.2vh;
+}
+
+.btnAddToCart {
+  padding-top: 0;
+  padding-bottom: 5vh;
+}
+
+@media only screen and (max-width: 846px) {
+  .btnAddToCart {
+    padding-left: 0;
+    padding-top: 5%;
+  }
+}
+
+.product-add-to-cart {
+  width: 19vh;
+  background: #51AA1B;
+  border-color: #51AA1B;
+}
+
+@media only screen and (max-width: 846px) {
+  .product-add-to-cart {
+    margin-top: 2px;
+  }
+}
+
+.heading {
+  font-size: 1.1rem;
+  color: black;
+  font-weight: bolder;
+  padding-bottom: 1%;
+}
+
+.body_text {
+  padding-left: 5%;
+  color: rgb(109, 107, 107);
 }
