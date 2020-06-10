@@ -13,6 +13,7 @@
                     </li>
                     {{/each}}
                 </ul>
+<<<<<<< HEAD
             </div>
 
             <div class="row sm-scr">
@@ -26,6 +27,21 @@
                 </ul>
             </div>
 
+=======
+            </div>
+
+            <div class="row sm-scr">
+                <ul id="etalage1">
+                    {{#each @root.images}}
+                    <li>
+                        <img class="etalage_thumb_image" src="{{this.path}}">
+                        <img class="etalage_source_image" src="{{this.path}}">
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+
+>>>>>>> 0e05f482ea10c6dfd6727ebdafdd83b8adc7b85a
             {{else}}
             <div class="title-image-container">
                 <img src="/uploads/placeholder.png" id="product-title-image" class="product-title-image img-fluid"
@@ -168,9 +184,7 @@
                             <button class="btn btn-primary btn-block recom-btn product-add-to-cart "
                                 type="button">{{ @root.__ "Add to cart" }}</button>
                         </div>
-                        {{!-- <a class="btn btn-primary" href="/product/{{this.productPermalink}}">{{ @root.__ "Add to Cart" }}</a> --}}
                         {{else}}
-                        {{!-- <a class="btn btn-primary" href="/product/{{this._id}}">{{ @root.__ "Add to Cart" }}</a> --}}
                         <div class="col-md-4 recom-btn btnAddToCart">
                             <button class="btn btn-primary btn-block product-add-to-cart recom-btn"
                                 type="button">{{ @root.__ "Add to cart" }}</button>
