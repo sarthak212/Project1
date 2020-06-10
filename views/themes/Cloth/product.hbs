@@ -124,12 +124,12 @@
     {{!-- Related Products --}}
     {{#if config.showRelatedProducts}}
     {{#if relatedProducts}}
-    <div class="col-sm-12 mt-5">
-        <h4>Related products</h4>
+    <div class="col-sm-12 mt-5 mb-5">
+        <p class="font-weight-bolder">Related products</p>
         <div class="row">
             {{#each relatedProducts}}
             <div class="col-md-3">
-                <div>
+                <div class="border rounded">
                     {{#if productPermalink}}
                     <div class="product-wrapper">
                         <a href="/product/{{this.productPermalink}}">
@@ -164,11 +164,17 @@
                     </h3>
                     <p class="text-center">
                         {{#if productPermalink}}
-                        <a class="btn btn-primary" href="/product/{{this.productPermalink}}">{{ @root.__ "View" }}</a>
-                        <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                        <div class="col-md-4 btnAddToCart">
+                            <button class="btn btn-primary btn-block recom-btn product-add-to-cart "
+                                type="button">{{ @root.__ "Add to cart" }}</button>
+                        </div>
+                        {{!-- <a class="btn btn-primary" href="/product/{{this.productPermalink}}">{{ @root.__ "Add to Cart" }}</a> --}}
                         {{else}}
-                        <a class="btn btn-primary" href="/product/{{this._id}}">{{ @root.__ "View" }}</a>
-                        <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                        {{!-- <a class="btn btn-primary" href="/product/{{this._id}}">{{ @root.__ "Add to Cart" }}</a> --}}
+                        <div class="col-md-4 recom-btn btnAddToCart">
+                            <button class="btn btn-primary btn-block product-add-to-cart recom-btn"
+                                type="button">{{ @root.__ "Add to cart" }}</button>
+                        </div>
                         {{/if}}
                     </p>
                 </div>
