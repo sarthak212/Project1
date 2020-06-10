@@ -1419,6 +1419,26 @@ input[type=number] {
   border-radius: 5px;
 }
 
+.offer2 .second-offer {
+  width: 39%;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  justify-content: space-between;
+}
+
+.offer2 .third-offer {
+  width: 59%;
+}
+
+.offer2 .second-offer a:nth-child(1) {
+  height: 49%;
+}
+
+.offer2 .second-offer a:nth-child(2) {
+  height: 49%;
+}
+
 @media screen and (max-width: 800px) {
   .offer2 {
     flex-direction: column;
