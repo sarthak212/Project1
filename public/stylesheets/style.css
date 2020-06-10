@@ -900,6 +900,7 @@ a {
 }
 
 .box{
+  width: 206px;
   margin:0px 8px;
   background-color: white;
 }
@@ -1027,4 +1028,9 @@ a{
          2px 2px 4px rgba(255,255,255,0.1),
          2px 2px 8px rgba(0,0,0,0.15);
         color:#7289ab;
+}
+@media screen and (max-width: 500px){
+  .box{
+    margin: 0px auto;
+  }
 }
