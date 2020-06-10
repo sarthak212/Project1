@@ -1,30 +1,42 @@
 <div class="product-layout col-sm-8 offset-sm-2">
     <div class="row">
+        {{!-- Product Images --}}
         <div class="col-sm-12 col-md-6 mr-auto">
             {{#if result.productImage}}
-            <div class="title-image-container" data-ride="carousel">
-                <div class="image-prev image-button"> {{{feather 'chevron-left'}}}</div>
-                <img src="{{result.productImage}}" id="product-title-image" class="product-title-image img-fluid"
-                    alt="...">
-                <div class="image-next image-button"> {{{feather 'chevron-right'}}}</div>
+
+            <div class="row bg-scr">
+                <ul id="etalage">
+                    {{#each @root.images}}
+                    <li>
+                        <img class="etalage_thumb_image" src="{{this.path}}">
+                        <img class="etalage_source_image" src="{{this.path}}">
+                    </li>
+                    {{/each}}
+                </ul>
             </div>
+
+            <div class="row sm-scr">
+                <ul id="etalage1">
+                    {{#each @root.images}}
+                    <li>
+                        <img class="etalage_thumb_image" src="{{this.path}}">
+                        <img class="etalage_source_image" src="{{this.path}}">
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+
             {{else}}
             <div class="title-image-container">
                 <img src="/uploads/placeholder.png" id="product-title-image" class="product-title-image img-fluid"
                     alt="...">
             </div>
             {{/if}}
-            {{#ifCond @root.images.length '>' 1}}
-            <div class="row">
-                {{#each @root.images}}
-                <div class="vertical-center top-pad-20 col-6">
-                    <img src="{{this.path}}" class="thumbnail-image img-fluid">
-                </div>
-                {{/each}}
-            </div>
-            {{/ifCond}}
         </div>
-        <div class="col-sm-12 col-md-6 ml-auto">
+
+
+        {{!-- Product Details --}}
+        <div class="col-sm-12 col-md-6 pro-details">
             <div class="row">
                 <h1 class="col-md-10 product-title text-truncate">{{result.productTitle}}</h1>
                 {{#if variants}}
@@ -55,7 +67,6 @@
                 {{/ifCond}}
                 {{/if}}
                 <div class="col-md-10 productOptions">
-                    {{!-- <p class="product-option-text qty">{{ @root.__ "QTY: " }}</p> --}}
                     <div class="input-group">
                         <div class="input-group-prepend input-btn">
                             <button class="form-control pull-left btn-number qty-btn-minus" type="button">
@@ -77,8 +88,18 @@
                                 type="button">{{ @root.__ "Add to cart" }}</button>
                         </div>
                     </div>
-
                 </div>
+                <div class="features">
+                        <h1 class="heading">Features</h1>
+                        <div class="body_text">
+                            {{!-- {{{fixTags result.productDescription}}} --}}
+                            <ul>
+                                <li>Removes stains effectively</li>
+                                <li>Leaves a pleasant fragrance</li>
+                                <li>Has the power of 10 hands</li>
+                            </ul>
+                        </div>
+                    </div>
                 {{#if result.productComment}}
                 <div class="col-md-10">
                     {{ @root.__ "Leave a comment?" }}
@@ -86,13 +107,21 @@
                 </div>
                 {{/if}}
 
-                <h1 class="heading">Specification</h1>
-                <div class="col-md-10 body_text">
-                    {{{fixTags result.productDescription}}}
-                </div>
             </div>
         </div>
     </div>
+    <hr>
+    <div class="row pl-0">
+        <div class="description col">
+            <h1 class="heading">Description</h1>
+            <div class="body_text">
+                {{{fixTags result.productDescription}}}
+            </div>
+        </div>
+    </div>
+    <hr>
+
+    {{!-- Related Products --}}
     {{#if config.showRelatedProducts}}
     {{#if relatedProducts}}
     <div class="col-sm-12 mt-5">
@@ -136,8 +165,10 @@
                     <p class="text-center">
                         {{#if productPermalink}}
                         <a class="btn btn-primary" href="/product/{{this.productPermalink}}">{{ @root.__ "View" }}</a>
+                        <i class="fa fa-cart-plus" aria-hidden="true"></i>
                         {{else}}
                         <a class="btn btn-primary" href="/product/{{this._id}}">{{ @root.__ "View" }}</a>
+                        <i class="fa fa-cart-plus" aria-hidden="true"></i>
                         {{/if}}
                     </p>
                 </div>
