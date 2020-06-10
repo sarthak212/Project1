@@ -1034,3 +1034,68 @@ a{
     margin: 0px auto;
   }
 }
+
+/* offers1 */
+.offers1{
+  display: flex;
+  flex-direction: row;
+  width: 85%;
+  margin: 50px auto;
+}
+.offers1 a{
+  margin: 0px 10px;
+}
+.offers1 a img{
+  max-width: 100%;
+  border-radius: 5px;
+}
+@media screen and (max-width: 800px){
+  .offers1{
+    flex-direction: column;
+  }
+  .offers1 a{
+    margin: 10px auto;
+  }
+}
+.offer2{
+  width: 85%;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 450px;
+}
+.offer2 img{
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+.offer2 .second-offer{
+  width: 39%;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  justify-content: space-between;
+}
+.offer2 .third-offer{
+  width: 59%;
+}
+.offer2 .second-offer a:nth-child(1){
+  height: 49%;
+}
+.offer2 .second-offer a:nth-child(2){
+  height: 49%;
+}
+@media screen and (max-width: 800px){
+  .offer2{
+    flex-direction: column;
+    height: auto;
+  }
+  .offer2 .second-offer{
+    width: 100%;
+    margin-top: 10px;
+  }
+  .offer2 .third-offer{
+    width: 100%;
+  }
+}
