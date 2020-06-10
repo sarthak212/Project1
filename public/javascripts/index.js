@@ -15,8 +15,8 @@ $(document).ready(function () {
   //Product Details image slider
   $('#etalage').etalage({
     smallthumbs_position: 'left',
-    thumb_image_width: 380,
-    thumb_image_height: 480,
+    thumb_image_width: 320,
+    thumb_image_height: 420,
     source_image_width: 900,
     source_image_height: 1100
   });
