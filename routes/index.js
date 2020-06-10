@@ -774,7 +774,7 @@ router.get('/search/:searchTerm/:pageNum?', (req, res) => {
             return;
         }
 
-        res.render(`${config.themeViews}index`, {
+        res.render(`${config.themeViews}category`, {
             title: 'Results',
             results: results.data,
             filtered: true,
