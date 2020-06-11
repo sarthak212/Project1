@@ -708,6 +708,7 @@ router.post('/product/addtocart', async (req, res, next) => {
         productObj.title = product.productTitle;
         productObj.quantity = productQuantity;
         productObj.totalItemPrice = productPrice * productQuantity;
+        productObj.productDescription = product.productDescription;
         productObj.productImage = product.productImage;
         productObj.productComment = productComment;
         productObj.productSubscription = product.productSubscription;
