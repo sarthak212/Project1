@@ -43,8 +43,14 @@
                 <h4 class="col-md-10 product-price mp-0">{{currencySymbol config.currencySymbol}}{{variants.0.price}}
                 </h4>
                 {{else}}
+                <div class="d-inline-flex">
+                    <p class="col-md-10 mrp-top"> <span class="price">M.R.P: </span>
+                    <span class="mrp">{{currencySymbol config.currencySymbol}} 496</span></p>
+
                 <h4 class="col-md-10 product-price mp-0"> <span class="price">Price: </span>
                     {{currencySymbol config.currencySymbol}}{{result.productPrice}}</h4>
+                </div>
+                
                 <p class="taxes col-md-10">Inclusive of all taxes</p>
                 {{/if}}
                 {{#if variants}}

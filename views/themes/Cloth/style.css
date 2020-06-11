@@ -1,0 +1,9 @@
+.mrp {
+  font-size: 20px;
+  text-decoration: line-through;
+}
+
+.mrp-top{
+  max-width: max-content;
+  padding-top: 8%;
+}
