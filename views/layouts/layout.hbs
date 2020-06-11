@@ -177,23 +177,31 @@
             <div class="brand">Welcome to Jammu Basket</div>
 
             <ul class="navbar-nav ml-auto mr-70">
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="UserAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            My Account
-            </a>
-            <div class="dropdown-menu" aria-labelledby="UserAccount">
-                <a class="dropdown-item" href="#">Login</a>
-            </div>
-      </li>
-       <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="AvailableLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Language
-            </a>
-            <div class="dropdown-menu" aria-labelledby="AvailableLanguage">
-                <a class="dropdown-item" href="#">English</a>
-                <a class="dropdown-item" href="#">Italion</a>
-            </div>
-      </li>
+                 {{#if @root.session.customerPresent}}
+                    <div class="dropdown d-none d-sm-block">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: aliceblue;">
+                            My Account
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="/customer/account">Account</a></li>
+                            <li><a class="dropdown-item" href="/customer/logout">Logout</a></li>
+                        </div>
+                    </div>
+                    {{else}}
+                        <li class="nav-item ml-3"><a href="/customer/account" class="btn" style="color: aliceblue;">My Account</a></li>
+                    {{/if}}
+       {{#ifCond @root.config.enableLanguages "!=" false}}
+                    <div class="dropdown d-none d-sm-block">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Languages
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            {{#availableLanguages}}
+                                <li><a class="dropdown-item" href="/lang/{{this}}">{{@root.__ this}}</a></li>
+                            {{/availableLanguages}}
+                        </div>
+                    </div>
+                    {{/ifCond}}
       </ul>
         </nav>
         {{/unless}}
