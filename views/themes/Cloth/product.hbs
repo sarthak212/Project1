@@ -1,7 +1,7 @@
 <div class="product-layout col-sm-8 offset-sm-2">
     <div class="row">
         {{!-- Product Images --}}
-        <div class="col-sm-12 col-md-6 mr-auto">
+        <div class="col-sm-12 col-md-6 m-auto">
             {{#if result.productImage}}
 
             <div class="row bg-scr">
@@ -36,7 +36,7 @@
 
 
         {{!-- Product Details --}}
-        <div class="col-sm-12 col-md-6 pro-details">
+        <div class="col-sm-12 col-md-6 pro-details m-auto">
             <div class="row">
                 <h1 class="col-md-10 product-title text-truncate">{{result.productTitle}}</h1>
                 {{#if variants}}
@@ -45,12 +45,12 @@
                 {{else}}
                 <div class="d-inline-flex">
                     <p class="col-md-10 mrp-top"> <span class="price">M.R.P: </span>
-                    <span class="mrp">{{currencySymbol config.currencySymbol}} 496</span></p>
+                        <span class="mrp">{{currencySymbol config.currencySymbol}} 496</span></p>
 
-                <h4 class="col-md-10 product-price mp-0"> <span class="price">Price: </span>
-                    {{currencySymbol config.currencySymbol}}{{result.productPrice}}</h4>
+                    <h4 class="col-md-10 product-price mp-0"> <span class="price">Price: </span>
+                        {{currencySymbol config.currencySymbol}}{{result.productPrice}}</h4>
                 </div>
-                
+
                 <p class="taxes col-md-10">Inclusive of all taxes</p>
                 {{/if}}
                 {{#if variants}}
@@ -96,21 +96,21 @@
                     </div>
                 </div>
                 <div class="features">
-                        <h1 class="heading">Features</h1>
-                        <div class="body_text">
-                            <ul>
-                                <li>Removes stains effectively</li>
-                                <li>Leaves a pleasant fragrance</li>
-                                <li>Has the power of 10 hands</li>
-                            </ul>
-                        </div>
+                    <h1 class="heading">Features</h1>
+                    <div class="body_text">
+                        <ul>
+                            <li>Removes stains effectively</li>
+                            <li>Leaves a pleasant fragrance</li>
+                            <li>Has the power of 10 hands</li>
+                        </ul>
                     </div>
-                {{#if result.productComment}}
+                </div>
+                {{!-- {{#if result.productComment}}
                 <div class="col-md-10">
                     {{ @root.__ "Leave a comment?" }}
                     <textarea class="form-control" id="product_comment"></textarea>
                 </div>
-                {{/if}}
+                {{/if}} --}}
 
             </div>
         </div>
@@ -129,58 +129,36 @@
     {{!-- Related Products --}}
     {{#if config.showRelatedProducts}}
     {{#if relatedProducts}}
-    <div class="col-sm-12 mt-5 mb-5">
-        <p class="font-weight-bolder">Related products</p>
-        <div class="row">
+
+    <div class="recom-slider">
+        <h3 class="heading">Related Products
+            <hr>
+        </h3>
+        <div class="parent-box owl-carousel">
             {{#each relatedProducts}}
-            <div class="col-md-3">
-                <div class="border rounded">
-                    {{#if productPermalink}}
-                    <div class="product-wrapper">
-                        <a href="/product/{{this.productPermalink}}">
-                            <div class="vertical-center recom-img img-thumbnail">
-                                {{#if productImage}}
-                                <img class="img-fluid" src="{{this.productImage}}" alt="...">
-                                {{else}}
-                                <img class="img-fluid" src="/uploads/placeholder.png" alt="...">
-                                {{/if}}
-                            </div>
-                            <h3 class="product-title recom-title product-title-home top-pad-10">
-                                {{this.productTitle}}
-                            </h3>
-                        </a>
-                    </div>
-                    {{else}}
-                    <a href="/product/{{this._id}}">
-                        <div class="vertical-center img-thumbnail">
-                            {{#if productImage}}
-                            <img class="img-fluid" src="{{this.productImage}}" alt="...">
-                            {{else}}
-                            <img class="img-fluid" src="/uploads/placeholder.png" alt="...">
-                            {{/if}}
-                        </div>
-                        <h3 class="product-title product-title-home top-pad-10">
-                            {{this.productTitle}}
-                        </h3>
-                    </a>
-                    {{/if}}
-                    <h3 class="product-price recom-price mp-0 text-center">
-                        {{currencySymbol ../config.currencySymbol}}{{formatAmount productPrice}}
-                    </h3>
-                    <p class="text-center">
-                        {{#if productPermalink}}
-                        <div class="col-md-4 recom-btn-cart btnAddToCart">
-                            <button class="btn btn-primary btn-block recom-btn product-add-to-cart "
-                                type="button">{{ @root.__ "Add to cart" }}</button>
-                        </div>
+
+            <div class="box">
+                <a href="/product/{{this._id}}">
+                <div class="single-product">
+                    <div class="product-thumb">
+                        {{#if productImage}}
+                        <img class="img-fluid" src="{{this.productImage}}" alt="...">
+                        <a href="#" class="btn-round"><i class="fa fa-shopping-cart"></i></a>
                         {{else}}
-                        <div class="col-md-4 recom-btn-cart btnAddToCart">
-                            <button class="btn btn-primary btn-block product-add-to-cart recom-btn"
-                                type="button">{{ @root.__ "Add to cart" }}</button>
-                        </div>
+                        <img class="img-fluid" src="/uploads/placeholder.png" alt="...">
+                        <a href="#" class="btn-round btnAddToCart"><i class="fa fa-shopping-cart"></i></a>
                         {{/if}}
-                    </p>
+                    </div>
+
+                    <div class="product-title">
+                        <a href="/product/{{this._id}}"><h3>{{this.productTitle}}</h3></a>
+                        <p>{{currencySymbol ../config.currencySymbol}}{{formatAmount productPrice}}
+                            <span>{{currencySymbol ../config.currencySymbol}}496</span>
+                        </p>
+                        <span class="save">Save ₹80</span>
+                    </div>
                 </div>
+                </a>
             </div>
             {{/each}}
         </div>
