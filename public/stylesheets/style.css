@@ -1283,7 +1283,6 @@ a {
   }
 }
 
-<<<<<<< HEAD
 /* Home Page */
 .carousel {
   width: 100%;
@@ -1577,7 +1576,6 @@ input[type=number] {
     display: none;
   }
 }
-=======
 .customer-details-login{
   width: 100%;
   padding-top: 0px;
@@ -1785,7 +1783,7 @@ label {
     color:white;
     border: none; 
     padding-right: 40px;
-    transition: background .5s ease;
+    transition: all .5s ease;
  }
 
 [type="checkbox"]:not(:checked),
@@ -2023,4 +2021,3 @@ a.btn1-goback:hover {
 
 
 
->>>>>>> Modifications in Checkout Page
