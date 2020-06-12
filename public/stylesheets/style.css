@@ -1357,6 +1357,10 @@ input[type=number] {
   padding-bottom: 5%;
 }
 
+.related-box {
+  margin: auto;
+}
+
 /* offers1 */
 .offers1 {
   display: flex;

@@ -403,7 +403,7 @@ router.get('/product/:id', async (req, res) => {
         });
         relatedProducts = await db.products.find({
             _id: { $in: lunrIdArray, $ne: product._id }
-        }).limit(4).toArray();
+        }).limit(6).toArray();
     }
 
     res.render(`${config.themeViews}product`, {
