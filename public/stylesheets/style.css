@@ -587,38 +587,6 @@ a {
   color: #95a5a6;
 }
 
-.mininav {
-  background-color: #111;
-  color: white;
-  padding: 0.2rem 10%;
-  font-size: 14px;
-  display: flex;
-  flex-direction: row;
-  font-family: 'Roboto', sans-serif;
-}
-
-.mininav .brand {
-  margin: auto 0px;
-}
-
-.mininav ul {
-  display: flex;
-  flex-direction: row;
-}
-
-.mininav ul li {
-  margin: 0px 5px;
-}
-
-.mininav ul li a.dropdown-toggle {
-  color: white;
-}
-
-@media only screen and (max-width: 480px) {
-  .mininav .brand {
-    display: none;
-  }
-}
 
 .nav-upper {
   width: 80%;
@@ -665,7 +633,7 @@ a {
   background-color: #28a745;
 }
 
-.mainNavBar .navtext ul li .i {
+.mainNavBar .navtext ul .i {
   font-size: 25px;
 }
 
@@ -673,7 +641,9 @@ a {
   top: -20px;
   left: -10px;
 }
-
+.mainNavBar .navtext .navbar-nav{
+  flex-direction: row;
+}
 .nav-lower {
   width: 80%;
   margin: auto;
@@ -802,10 +772,6 @@ a {
   font-size: 15px;
 }
 
-.mininav .navbar-toggle {
-  color: rgb(255, 253, 254);
-}
-
 .upper-footer div button {
   display: inline;
   float: right;
@@ -814,14 +780,15 @@ a {
 .upper-footer div button .far {
   color: white;
 }
+@media screen and (max-width: 990px){
+  .nav-upper .mainNavBar form .categories {
+    display: none;
+  }
+}
 
 @media only screen and (max-width: 872px) {
   .nav-upper {
     width: 90%;
-  }
-
-  .nav-upper .mainNavBar form .categories {
-    display: none;
   }
 
   .upper-footer {
@@ -837,16 +804,28 @@ a {
     display: inline-block;
   }
 }
-
+@media screen and (max-width: 780px){
+  .mainNavBar input {
+    width: 200px !important;
+  }
+}
+@media screen and (max-width: 670px){
+  .mainNavBar input {
+    width: 300px !important;
+  }
+}
+@media screen and (max-width: 550px){
+  .mainNavBar input {
+    width: 250px !important;
+  }
+}
 @media only screen and (max-width: 480px) {
   .nav-upper {
     width: 95%;
   }
-
   .mainNavBar input {
     width: 200px !important;
   }
-
   .upper-footer div h3 {
     display: inline-block;
   }
@@ -855,7 +834,16 @@ a {
     width: 90%;
   }
 }
-
+@media screen and (max-width: 430px){
+  .mainNavBar input {
+    width: 145px !important;
+  }
+}
+@media screen and (max-width: 360px){
+  .mainNavBar input {
+    width: 100px !important;
+  }
+}
 @media only screen and (min-width: 768px) {
   .pushy {
     width: 700px;
