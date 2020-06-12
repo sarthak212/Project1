@@ -39,6 +39,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tokenfield/0.12.0/css/bootstrap-tokenfield.min.css" integrity="sha256-4qBzeX420hElp9/FzsuqUNqVobcClz1BjnXoxUDSYQ0=" crossorigin="anonymous" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="/stylesheets/codemirror-style.min.css">
+        <link rel="stylesheet" href="/stylesheets/etalage.css">
         <link rel="stylesheet" href="/stylesheets/style{{config.env}}.css">
         {{#if admin}}
         <link rel="stylesheet" href="/stylesheets/admin{{config.env}}.css">
@@ -63,6 +64,8 @@
         <script src="/javascripts/jquery.bootpag.min.js"></script>
         <script src="/javascripts/cssbeautify.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js"></script>
+        <script src="/javascripts/jquery.etalage.min.js"></script>
+        <script src="/javascripts/index.js"></script>
         <script src="/javascripts/common{{config.env}}.js"></script>
 		<script src="/javascripts/expressCart{{config.env}}.js"></script>
         {{#if admin}}
@@ -169,31 +172,6 @@
     {{else}}
     <body>
     {{/if}}
-    {{#unless admin}}
-        <nav class="mininav">
-            <div class="brand">Welcome to Jammu Basket</div>
-
-            <ul class="navbar-nav ml-auto mr-70">
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="UserAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            My Account
-            </a>
-            <div class="dropdown-menu" aria-labelledby="UserAccount">
-                <a class="dropdown-item" href="#">Login</a>
-            </div>
-      </li>
-       <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="AvailableLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Language
-            </a>
-            <div class="dropdown-menu" aria-labelledby="AvailableLanguage">
-                <a class="dropdown-item" href="#">English</a>
-                <a class="dropdown-item" href="#">Italion</a>
-            </div>
-      </li>
-      </ul>
-        </nav>
-        {{/unless}}
         {{#unless admin}}
         <div class="nav-upper">
             <nav class="navbar navbar-expand-lg justify-content-between mainNavBar">
@@ -222,6 +200,19 @@
             </form>
             <div id="navbarText" class="navtext">
                 <ul class="navbar-nav ml-auto">
+                    {{#if @root.session.customerPresent}}
+                    <div class="dropdown d-none d-sm-block">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-user-alt i"></i>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="/customer/account">Account</a></li>
+                            <li><a class="dropdown-item" href="/customer/logout">Logout</a></li>
+                        </div>
+                    </div>
+                    {{else}}
+                        <li class="nav-item ml-3"><a href="/customer/account" class="btn" style=""><i class="fas fa-user-alt i"></i></a></li>
+                    {{/if}}
                     {{#if @root.session.cart}}
                         <li class="nav-item"><a href="/checkout/cart" class="btn menu-btn"><i class="fas fa-shopping-bag i"></i> <span class="badge badge-danger" id="cart-count">{{@root.session.totalCartItems}}</span></a></li>
                         {{else}}
@@ -409,15 +400,24 @@
             rewind: true,
             responsive:{
                 0:{
-                    items:2,
-                    nav:true
-                },
-                600:{
-                    items:4,
+                    items:1,
                     nav:false
                 },
+                450:{
+                    items:2,
+                    nav:false
+                },
+                700:{
+                    items:3,
+                    nav:true
+                },
                 1000:{
-                    items:7,
+                    items:4,
+                    nav:true,
+                    loop:false
+                },
+                1300:{
+                    items:5,
                     nav:true,
                     loop:false
                 }

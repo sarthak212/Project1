@@ -708,6 +708,7 @@ router.post('/product/addtocart', async (req, res, next) => {
         productObj.title = product.productTitle;
         productObj.quantity = productQuantity;
         productObj.totalItemPrice = productPrice * productQuantity;
+        productObj.productDescription = product.productDescription;
         productObj.productImage = product.productImage;
         productObj.productComment = productComment;
         productObj.productSubscription = product.productSubscription;
@@ -774,7 +775,7 @@ router.get('/search/:searchTerm/:pageNum?', (req, res) => {
             return;
         }
 
-        res.render(`${config.themeViews}index`, {
+        res.render(`${config.themeViews}category`, {
             title: 'Results',
             results: results.data,
             filtered: true,
