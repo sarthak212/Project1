@@ -1,4 +1,4 @@
-<div class="product-layout col-sm-8 offset-sm-2">
+<div class="product-layout col-sm-9 offset-sm-1">
     <div class="row">
         {{!-- Product Images --}}
         <div class="col-sm-12 col-md-6 m-auto">
@@ -138,27 +138,24 @@
             {{#each relatedProducts}}
 
             <div class="box">
-                <a href="/product/{{this._id}}">
                 <div class="single-product">
                     <div class="product-thumb">
                         {{#if productImage}}
-                        <img class="img-fluid" src="{{this.productImage}}" alt="...">
-                        <a href="#" class="btn-round"><i class="fa fa-shopping-cart"></i></a>
+                        <img src="{{this.productImage}}" alt="...">
                         {{else}}
-                        <img class="img-fluid" src="/uploads/placeholder.png" alt="...">
-                        <a href="#" class="btn-round btnAddToCart"><i class="fa fa-shopping-cart"></i></a>
+                        <img src="/uploads/placeholder.png" alt="...">
                         {{/if}}
+                        <a href="#" class="btn-round"><i class="fa fa-shopping-cart"></i></a>
                     </div>
 
                     <div class="product-title">
-                        <a href="/product/{{this._id}}"><h3>{{this.productTitle}}</h3></a>
+                        <h3><a href="/product/{{this._id}}">{{this.productTitle}}</a></h3>
                         <p>{{currencySymbol ../config.currencySymbol}}{{formatAmount productPrice}}
                             <span>{{currencySymbol ../config.currencySymbol}}496</span>
                         </p>
                         <span class="save">Save ₹80</span>
                     </div>
                 </div>
-                </a>
             </div>
             {{/each}}
         </div>

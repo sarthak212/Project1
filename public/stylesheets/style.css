@@ -1082,49 +1082,6 @@ a {
   font-weight: 600;
 }
 
-
-.owl-carousel .owl-nav button.owl-next{
-  background: none;
-  color: inherit;
-  border:none;
-  padding: 0;
-  font:inherit;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 0;
-  width: 40px;
-  height: 40px;
-  
-}
-.parent-box .owl-nav button.owl-prev{
-	background: none;
-	color: inherit;
-	border:none;
-	padding: 0;
-	font:inherit;
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	width: 40px;
-	height: 40px;
-
-}
-
-.parent-box .owl-nav button.owl-next{
-	background: none;
-	color: inherit;
-	border:none;
-	padding: 0;
-	font:inherit;
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	right: 0;
-	width: 40px;
-	height: 40px;
-	
-}
 .box .product-card {
   width: 173px;
   position: relative;
@@ -1399,7 +1356,7 @@ input[type=number] {
 }
 
 .recom-slider {
-  width: 90%;
+  width: 100%;
   margin: auto;
   padding-bottom: 5%;
 }
