@@ -5,18 +5,28 @@ $(document).ready(function() {
     $('.noUi-handle').on('click', function() {
       $(this).width(50);
     });
+    $('.expand-filter').on('click',function(){
+        $('.Wrapper-product .filter').css('display','block');
+        $('body').css('overflow','hidden');
+        $('.closefilter').css('display','block');
+    });
+    $('.closefilter button').on('click',function(){
+        $('.closefilter').css('display','none');
+        $('.Wrapper-product .filter').css('display','none');
+        $('body').css('overflow','auto');
+    });
     var rangeSlider = document.getElementById('slider-range');
     var moneyFormat = wNumb({
       decimals: 0,
       thousand: ',',
-      prefix: '$'
+      prefix: '₹'
     });
     noUiSlider.create(rangeSlider, {
-      start: [500000, 1000000],
+      start: [200, 5000],
       step: 1,
       range: {
-        'min': [100000],
-        'max': [1000000]
+        'min': [20],
+        'max': [10000]
       },
       format: moneyFormat,
       connect: true
