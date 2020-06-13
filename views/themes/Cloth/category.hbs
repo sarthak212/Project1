@@ -1,6 +1,46 @@
 <div class="Wrapper-product">
 <div class="filter">
-
+    <div class="filter-title">
+        <h3>Filter</h3>
+        <button><i class="fas fa-sync-alt"></i> Clear All</button>
+    </div>
+    <div class="price-range">
+        <h4>Price</h4>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                <div id="slider-range"></div>
+                </div>
+            </div>
+            <div class="row slider-labels">
+                <div class="col-xs-6 caption">
+                <strong>Min:</strong> <span id="slider-range-value1"></span>
+                </div>
+                <div class="col-xs-6 text-right caption">
+                <strong>Max:</strong> <span id="slider-range-value2"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                <form>
+                    <input type="hidden" name="min-value" value="">
+                    <input type="hidden" name="max-value" value="">
+                </form>
+                </div>
+            </div>
+    </div>
+    <div class="filter-stock">
+        <h4>Stock</h4>
+        <div class="stockinner">
+            <input type="checkbox" name="instock" id="instock">
+            <label for="instock">In Stock</label>
+        </div>
+        <div class="stockinner">
+            <input type="checkbox" name="outstock" id="outstock">
+            <label for="instock">Out of Stock</label>
+        </div>
+    </div>
+    </div>
 </div>
 <div class="productsWrapper">
     {{#if filtered}}
