@@ -413,6 +413,26 @@ $(document).ready(function (){
         });
     });
 
+    $(document).on('click', '.btn-round', function(e){
+        $.ajax({
+            method: 'POST',
+            url: '/product/addtocart',
+            data: {
+                productId: $(this).attr('data-id'),
+                productQuantity: '1',
+                productVariant: $('#productVariant-' + $(this).attr('data-id')).val()
+            }
+        })
+		.done(function(msg){
+            updateCartDiv();
+            showNotification(msg.message, 'success');
+        })
+        .fail(function(msg){
+            showNotification(msg.responseJSON.message, 'danger');
+        });
+    });
+
+
     $('#product_quantity').on('keyup', function(e){
         checkMaxQuantity(e, $('#product_quantity'));
     });
