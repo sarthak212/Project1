@@ -1404,6 +1404,156 @@ input[type=number] {
   padding-bottom: 5%;
 }
 
+
+/* Account Page */
+body {
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  font-size: 14px;
+}
+
+a {
+  text-transform: none;
+}
+
+.account-part a {
+  text-transform: capitalize;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 25px 25px;
+  display: inline-block;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  margin-bottom: 30px;
+  background-color: #fff;
+  transition: all .3s ease-in-out;
+  color: #222;
+}
+
+.account-part a:hover {
+  color: #51aa1b;
+}
+
+.account-part a img {
+  max-width: 50px;
+}
+
+.account-part a span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.account-part a span:last-child {
+  margin-left: 23px;
+  padding-left: 23px;
+  border-left: 1px solid #ddd;
+}
+
+.account-part a img {
+  max-width: 50px;
+}
+
+.account-part a h5 {
+  font-size: 12px;
+  color: #bcbcbc;
+}
+
+.breadcrumb {
+  background-color: #f5f5f5;
+  width: 580px;
+  min-width: 388px;
+  margin-bottom: 15px;
+}
+
+.row .acc-box {
+  min-width: 600px;
+}
+
+@media screen and (max-width: 1281px) {
+  .row .acc-box {
+    min-width: 500px;
+    height: 115px;
+  }
+
+  .account-part a {
+    font-size: 14px;
+    padding: 20px 25px;
+  }
+
+  .account-part a h5 {
+    font-size: 11px;
+  }
+
+  .breadcrumb {
+    width: 480px;
+  }
+}
+
+@media screen and (max-width: 799px) {
+  .row .acc-box {
+    width: 400px;
+    min-width: 400px;
+  }
+
+  .account-part a {
+    font-size: 13px;
+    padding: 15px 25px;
+  }
+
+  .account-part a img {
+    max-width: 40px;
+  }
+
+  .breadcrumb {
+    width: 375px;
+    min-width: 375px;
+  }
+
+  .breadcrumb-item {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 501px) {
+  #account {
+    margin-left: 8.33%;
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  .row .acc-box {
+    width: 370px;
+    min-width: 370px;
+    margin: 0 auto;
+    height: 110px;
+  }
+
+  .breadcrumb {
+    width: 350px;
+    min-width: 350px;
+    margin: 0 auto 15px auto;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .row .acc-box {
+    width: 350px;
+    min-width: 350px;
+    height: 100px;
+  }
+
+  .breadcrumb {
+    width: 330px;
+    min-width: 330px;
+  }
+
+  .breadcrumb-item {
+    font-size: 14px;
+  }
+}
+
 /* offers1 */
 .offers1 {
   display: flex;
