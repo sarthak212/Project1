@@ -6,6 +6,9 @@ html {
 body {
   margin-bottom: 0px;
   font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  font-size: 14px;
 }
 
 html,
@@ -1341,7 +1344,7 @@ input[type=number] {
 }
 
 .features {
-  width: 265px;
+  width: 275px;
   line-height: 2;
 }
 
@@ -1363,14 +1366,24 @@ input[type=number] {
 
 
 /* Account Page */
-body {
-  font-weight: 400;
-  letter-spacing: 0.5px;
-  font-size: 14px;
-}
-
 a {
   text-transform: none;
+}
+
+.no-pad-right {
+  position: absolute;
+  background-image: url("/images/grocery.png");
+  background-repeat: no-repeat;
+  width: 720px;
+  height: 435px;
+  margin-left: 53%;
+  margin-top: 6%;
+}
+
+@media screen and (max-width: 1070px){
+  .no-pad-right{
+    display: none;
+  }
 }
 
 .account-part a {
@@ -1425,6 +1438,7 @@ a {
 
 .row .acc-box {
   min-width: 600px;
+  height: 120px;
 }
 
 @media screen and (max-width: 1281px) {
