@@ -1,29 +1,46 @@
-<div class="card top-marg-15 bottom-marg-15">
-    <div class="card-header">
-        <h5 class="card-title">{{ @root.__ "Cart contents" }}</h5>
-    </div>
-    <div class="card-body cart-body">
+<div class="top-marg-15 bottom-marg-20">
+    <div class="cart-body">
         <div class="cartBodyWrapper">
             {{#each @root.session.cart}}
-            <div class="d-flex flex-row bottom-pad-15">
-                <div class="p-2 cart-product">
-                    <div class="row h-200">
-                        <div class="col-12 no-pad-left mt-md-4">
-                            <div class="col-4 col-md-3 d-flex justify-content-center">
-                                <h6><a href="/product/{{this.link}}" class="card-title">{{this.title}}</a></h6>
-                                {{#if this.variantId}}
-                                <strong>Option:</strong> {{this.variantTitle}}
+            <div class="cart-card">
+                            <div class="cart-image">                          
+                                {{#if productImage}}
+                                <img class="img-fluid" src="{{this.productImage}}" alt="{{this.title}} product image">
+                                {{else}}
+                                <img class="img-fluid" src="/uploads/placeholder.png" alt="{{this.title}} product image"> 
                                 {{/if}}
                             </div>
+                        <div class="cart-details">
+                                <div class="cart-main-details">
+                                    <h3><a href="/product/{{this.link}}" class="card-title">{{this.title}}</a></h3>
+                                    <h6> {{currencySymbol @root.config.currencySymbol}} <span>{{formatAmount this.totalItemPrice}}</span></h6>
+                                    <div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit culpa vero laborum laudantium voluptatibus, dolores totam id! Cum, dignissimos itaque! Laborum, aspernatur quidem atque natus dolor fugiat quia ducimus dolores?</div>
+                                </div>
+                                <div class="cart-buttons">
+                                {{#ifCond @root.cartReadOnly '!=' true}}
+                                <div class="cart-quantity">
+                                            <button class="" type="button"><i class="fas fa-minus"></i></button>
+                                        <input type="number" 
+                                            class="" 
+                                            data-cartid="{{@key}}" 
+                                            data-id="{{../this.productId}}"
+                                            maxlength="2" 
+                                            value="{{../this.quantity}}"
+                                        >
+                                            <button class="" type="button"><i class="fas fa-plus"></i></button>
+                                </div>
+                                <div class="cart-delete">
+                                    <button class="btn btn-danger btn-delete-from-cart" data-cartid="{{@key}}" type="button">{{{feather 'trash-2'}}}</button>
+                                </div>
+                                {{else}}
+                                <div class="col-4 col-md-6 col-lg-5 col-xl-7 no-pad-left mb-2"></div>
+                                {{/ifCond}}
+                                </div>
+                                {{!-- {{#if this.variantId}}
+                                <strong>Option:</strong> {{this.variantTitle}}
+                                {{/if}} --}}
                         </div>
-                        <div class="col-4 col-md-3 no-pad-left">                          
-                            {{#if productImage}}
-                            <img class="img-fluid" src="{{this.productImage}}" alt="{{this.title}} product image">
-                            {{else}}
-                            <img class="img-fluid" src="/uploads/placeholder.png" alt="{{this.title}} product image"> 
-                            {{/if}}
-                        </div>
-                        <div class="col-8 col-md-9">
+                        {{!-- <div class="col-8 col-md-9">
                             <div class="row">
                                 
                                 {{#ifCond @root.cartReadOnly '!=' true}}
@@ -54,17 +71,14 @@
                                     <strong class="my-auto">{{currencySymbol @root.config.currencySymbol}}{{formatAmount this.totalItemPrice}}</strong>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                        </div> --}}
             </div>
-            <hr class="bg-light" />
             {{/each}}
         </div>
         <div class="cartTotalsWrapper">
             {{#if @root.session.cart}}
             <div class="d-flex flex-row">
-                <div class="cart-contents-shipping col-md-12 no-pad-right">
+                <div class="cart-contents-shipping col-md-12">
                     {{#ifCond @root.session.totalCartShipping '>' 0}}
                     <div class="text-right">
                         {{@root.session.shippingMessage}}: <strong id="shipping-amount">{{currencySymbol @root.config.currencySymbol}}{{formatAmount @root.session.totalCartShipping}}</strong>

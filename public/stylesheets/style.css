@@ -5,7 +5,7 @@ html {
 
 body {
   margin-bottom: 0px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 html,
@@ -486,11 +486,14 @@ input.form-control.customerDetails {
   color: #000000;
 }
 
-.btn-warning,
-.btn-primary {
-  color: #ffffff !important;
-  background-color: #000000;
-  border-color: #000000;
+.pushy-link {
+  background-color: white;
+  color: #494949;
+  border: none;
+  font-family: 'Roboto';
+}
+.pushy-link .fas{
+  margin-right: 25px;
 }
 
 .btn-primary:hover,
@@ -770,6 +773,102 @@ a {
 
 .upper-footer div button .far {
   color: white;
+}
+.back-checkout{
+  padding: 15px 0px;
+  border-bottom: 1px solid rgb(172, 172, 172);
+  box-shadow: 2px 2px 2px 2px rgb(190,190,190);
+}
+.cart-card{
+  width: 80%;
+  margin: 15px auto;
+  border: 1px solid rgb(218, 218, 218);
+  display: flex;
+  flex-direction: row;
+  height: 200px;
+}
+.cart-image{
+  height: 100%;
+  width: 40%;
+}
+.cart-image img{
+  height: 100%;
+  max-width: 100%;
+}
+.cart-details{
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+.cart-main-details{
+  display: flex;
+  flex-direction: column;
+  padding: 8px 15px;
+  height: 75%;
+}
+.cart-main-details h3 a{
+  font-size: 22px;
+  text-transform: capitalize;
+  margin-top: 15px;
+  word-spacing: 2px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: rgb(41, 41, 41);
+  transition: all 0.5s;
+}
+.cart-main-details h3 a:hover{
+  text-decoration: none;
+  color: #28a745;
+}
+.cart-main-details h6{
+  font-size: 12px;
+  color: #303030;
+}
+.cart-main-details h6 span{
+  font-size: 17px;
+  margin-left: 5px;
+}
+.cart-main-details .description{
+  font-size: 13px;
+  overflow: hidden;
+  font-weight: 600;
+  color: #808080;
+}
+.cart-buttons{
+  height: 22%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.cart-buttons .cart-quantity{
+  margin: 3px 0px;
+  background-color: white;
+  border: 1px solid rgb(201, 201, 201);
+  display: flex;
+  flex-direction: row;
+  border-radius: 5px;
+  justify-content: center;
+}
+.cart-buttons .cart-quantity button{
+  border: none;
+  background-color: transparent;
+}
+.cart-buttons .cart-quantity input{
+  border: none;
+  background-color: transparent;
+  width: 30px;
+  text-align: center;
+}
+.cart-buttons .cart-delete button{
+  background-color: transparent;
+  color: #cc3a2c;
+}
+.cart-buttons .cart-quantity button .fas{
+  font-size: 13px;
+}
+.btn-checkout{
+  background-color: #28a745;
+  border-color: #28a745;
 }
 @media screen and (max-width: 990px){
   .nav-upper .mainNavBar form .categories {

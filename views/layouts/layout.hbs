@@ -33,6 +33,7 @@
         <script src="https://kit.fontawesome.com/da9abaff04.js" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">  
         {{#if admin}}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.9.13/combined/css/gijgo.min.css" integrity="sha256-bH0WSMuCFoG/dxeox/5aOWmaZl729yDg4ylckwSRTfU=" crossorigin="anonymous" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.20.2/codemirror.min.css" integrity="sha256-MdzaXfGXzZdeHw/XEV2LNNycipsLk4uZ0FYzO3hbuvI=" crossorigin="anonymous" />
@@ -41,7 +42,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="/stylesheets/codemirror-style.min.css">
         <link rel="stylesheet" href="/stylesheets/etalage.css">
-        <link rel="stylesheet" href="/stylesheets/style{{config.env}}.css">
+        {{!-- <link rel="stylesheet" href="/stylesheets/style{{config.env}}.css"> --}}
         {{#if admin}}
         <link rel="stylesheet" href="/stylesheets/admin{{config.env}}.css">
         {{/if}}
@@ -269,19 +270,19 @@
         {{#unless admin}}
             {{#ifCond page '!=' 'checkout'}}
             {{#ifCond page '!=' 'pay'}}
-                <div id="cart" class="col-md-12 pad-left-12 top-pad-10 pushy pushy-right">
-                    <div class="row {{checkout}}">
-                        <div class="col-sm-12 text-right">
-                            <button class="pushy-link btn btn-primary" type="button">{{{feather 'x'}}}</button>
+                <div id="cart" class="col-md-12 pad-left-12 pushy pushy-right">
+                    <div class="row {{checkout}} back-checkout">
+                        <div class="col-sm-12">
+                            <button class="pushy-link" type="button"><i class="fas fa-chevron-left"></i> Back to Grocery</button>
                         </div>
                     </div>
                     <div class="row">
                         <div id="cart" class="col-md-12">
                         {{> (getTheme 'cart')}}
                         <div class="row">
-                        <div class="col-sm-12 {{showCartButtons @root.session.cart}} cart-buttons">
+                        <div class="col-sm-12 {{showCartButtons @root.session.cart}}bottom-marg-20">
                             <button class="btn btn-danger float-left" id="empty-cart" type="button">{{ @root.__ "Empty cart" }}</button>
-                            <a href="/checkout/information" class="btn btn-primary float-right">Checkout</a>
+                            <a href="/checkout/information" class="btn btn-primary float-right btn-checkout">Checkout</a>
                         </div>
                     </div>
                         </div>
