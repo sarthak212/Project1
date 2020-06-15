@@ -1429,18 +1429,18 @@ a {
   text-transform: none;
 }
 
-.no-pad-right {
+.grocery-background {
   position: absolute;
   background-image: url("/images/grocery.png");
   background-repeat: no-repeat;
   width: 720px;
   height: 435px;
   margin-left: 53%;
-  margin-top: 6%;
+  margin-top: 4%;
 }
 
 @media screen and (max-width: 1070px) {
-  .no-pad-right {
+  .grocery-background {
     display: none;
   }
 }
@@ -1582,6 +1582,44 @@ a {
     .breadcrumb-item {
       font-size: 14px;
     }
+  }
+
+  #addressForm, #orderForm, #passwordForm, #newsletterForm { 
+    display: none;
+    border: 6px solid salmon; 
+    padding: 2em;
+    width: 400px;
+    text-align: center;
+    background: #fff;
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%)
+  }
+  
+  .accountInput input, .accountInput textarea { 
+    margin: .8em auto;
+    font-family: inherit; 
+    text-transform: inherit; 
+    font-size: inherit;
+    
+    display: block; 
+    width: 280px; 
+    padding: .4em;
+  }
+  .accountInput textarea { height: 80px; resize: none; }
+  
+  .formBtn { 
+    width: 160px;
+    display: inline-block;
+    
+    background: teal;
+    color: #fff;
+    font-weight: 100;
+    font-size: 1.2em;
+    border: none;
+    height: 40px;
   }
 
 /* offers1 */
@@ -2344,9 +2382,6 @@ Price Range */
 
 .noUi-target {
   border-radius: 2px;
-}
-
-.noUi-target.noUi-connect {
 }
 
 /* Handles and cursors;
