@@ -61,7 +61,7 @@ $(document).ready(function () {
     });
 
     $(".btn1-signup").on('click',function() {
-        $(".nav").toggleClass("nav-up");
+        $("frame.nav").toggleClass("nav-up");
         $(".form-signup-left").toggleClass("form-signup-down");
         $(".success").toggleClass("success-left"); 
         $(".frame").toggleClass("frame-short");
