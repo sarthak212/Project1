@@ -1222,7 +1222,7 @@ a {
 }
 
 .single-product .product-title h3,.single-product .product-title h3 a{
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   margin-bottom: 0px;
   transition: all 0.5s;
@@ -2013,7 +2013,7 @@ Price Range */
   margin-bottom: 20px;
 }
 .filter-com .checkinner{
-  margin: 5px 0px;
+  margin: 8px 0px;
   position: relative;
   display: flex;
   flex-direction: row;
@@ -2022,6 +2022,7 @@ Price Range */
   font-family: 'Roboto';
   font-size: 15px;
   margin-left: 17px;
+  margin-bottom: 0px;
 }
 .filter-com .container{
   margin-top: 0px;
@@ -2032,6 +2033,7 @@ Price Range */
 .filter-com .container .slider-labels .caption{
   font-size: 15px;
   margin: 8px 0px;
+  font-family: 'Roboto';
 }
 .expand-filter{
   display: none;
