@@ -93,7 +93,7 @@
             {{> (getTheme 'cart')}}
             {{#if @root.session.cart}}
             <div class="row">
-                <div class="col-sm-12 {{showCartButtons @root.session.cart}} cart-buttons">
+                <div class="col-sm-12 {{showCartButtons @root.session.cart}} text-right mb-4">
                     <button class="btn btn-danger float-right" id="empty-cart" type="button">{{ @root.__ "Empty cart" }}</button>
                 </div>
             {{/if}}
