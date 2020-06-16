@@ -2126,20 +2126,22 @@ Price Range */
   opacity: 0;
 }
 
-.customer-details-login .frame .nav .links li {
+.frame .nav ul li {
   padding-left: 10px;
   font-size: 18px;
   display: inline;
   text-align: left;
   text-transform: uppercase;
   padding-right: 10px;
-  color: white;
+  color: red;
 }
 
 .customer-details-login .frame .nav .signin-active a {
   padding-bottom: 10px;
   color: white;
+  font-size: 18px;
   text-decoration: none;
+  text-transform: uppercase;
   border-bottom: solid 2px white;
   transition: all .25s ease;
   cursor: pointer;
@@ -2148,6 +2150,7 @@ Price Range */
 .customer-details-login .frame .nav .signin-inactive a {
   padding-bottom: 0;
   color: rgba(255,255,255,.3);
+   text-transform: uppercase;
   text-decoration: none;
   border-bottom: none;
   cursor: pointer;
@@ -2157,7 +2160,9 @@ Price Range */
   cursor: pointer;
   color: white;
   text-decoration: none;
+   color: white;
   border-bottom: solid 2px white;
+  text-transform: uppercase;
   transition: all .25s ease;
   padding-bottom: 10px;
 }
@@ -2165,6 +2170,7 @@ Price Range */
 .customer-details-login .frame .nav .signup-inactive a {
   cursor: pointer;
   color: rgba(255,255,255,.3);
+   text-transform: uppercase;
   text-decoration: none;
   transition: all .25s ease;
 }
