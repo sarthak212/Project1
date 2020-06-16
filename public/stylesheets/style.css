@@ -871,6 +871,11 @@ a {
   width: 80%;
   margin: 0 auto;
 }
+.cart-empty-align {
+  width: 80%;
+  margin: 0 auto;
+  font-size: 1.2rem;
+}
 .btn-checkout{
   background-color: #28a745;
   border-color: #28a745;
