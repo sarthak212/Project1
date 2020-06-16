@@ -1,12 +1,24 @@
-<div class="col-md-4 offset-md-4 top-pad-100">
-	<form class="form-signin"  method="post" role="form" data-toggle="validator">
-		<h2 class="form-signin-heading">{{ @root.__ "Please sign in" }}</h2>
-		<div class="form-group">
-			<input type="email" id="email" name="email" class="form-control" placeholder="email address" required autofocus>
-		</div>
-		<div class="form-group">
-			<input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
-		</div>
-		<button class="btn btn-outline-primary btn-block" id="customerloginForm" type="submit">{{ @root.__ "Sign in" }}</button>
-	</form>
+<div class="log"> 
+  <div class="content">
+ 
+        <div class="text">Login Form</div>
+        <form action="#">
+        <div class="field">
+          <span class="fas fa-user"></span>
+          <input type="text" required>
+          <label>Email or Phone</label>
+        </div>
+        <div class="field">
+          <span class="fas fa-lock"></span>
+          <input type="password">
+          <label>Password</label>
+        </div>
+      
+        <button class="b1">Sign in</button>
+        <div class="signup">Not a member?
+          <a href="#">Signup now</a>
+        </div>
+      </form>
+  </div>
 </div>
+
