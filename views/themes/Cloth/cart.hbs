@@ -75,7 +75,7 @@
             </div>
             {{/each}}
         </div>
-        <div class="cartTotalsWrapper">
+        <div class="cartTotalsWrapper top-marg-25">
             {{#if @root.session.cart}}
             <div class="d-flex flex-row">
                 <div class="cart-contents-shipping col-md-12">
@@ -85,7 +85,7 @@
                     </div>
                     {{else}}
                     <div class="text-right">
-                        <span id="shipping-amount">{{@root.session.shippingMessage}}</span>
+                        <span id="shipping-amount"><strong>{{@root.session.shippingMessage}}</strong></span>
                     </div>
                     {{/ifCond}}
                     {{#ifCond @root.session.totalCartDiscount '>' 0}}
