@@ -37,7 +37,10 @@ $(document).ready(function () {
     $('#content').removeClass('blur');
   }
 
-
+  var submit = document.getElementById('customerSave', 'addressSave', 'passwordSave');
+  submit.addEventListener('click', clicked);
+  submit.addEventListener('click', validate);
+  
   // Account Page Popups
   $('#editDetails').click(function () {
     $('#detailsForm').fadeToggle();
@@ -74,6 +77,32 @@ $(document).ready(function () {
       removeBlur();
       e.stopPropagation();
     });
-
   });
+  $(".btn1").on('click', function () {
+    $(".form-signin").toggleClass("form-signin-left");
+    $(".form-signup").toggleClass("form-signup-left");
+    $(".frame").toggleClass("frame-long");
+    $(".signup-inactive").toggleClass("signup-active");
+    $(".signin-active").toggleClass("signin-inactive");
+    $(".forgot").toggleClass("forgot-left");
+    $(this).removeClass("idle").addClass("active");
+  });
+
+  $(".btn1-signup").on('click', function () {
+    $("frame.nav").toggleClass("nav-up");
+    $(".form-signup-left").toggleClass("form-signup-down");
+    $(".success").toggleClass("success-left");
+    $(".frame").toggleClass("frame-short");
+  });
+
+  $(".btn1-signin").on('click', function () {
+    $(".btn1-animate").toggleClass("btn1-animate-grow");
+    $(".welcome").toggleClass("welcome-left");
+    $(".cover-photo").toggleClass("cover-photo-down");
+    $(".frame").toggleClass("frame-short");
+    $(".profile-photo").toggleClass("profile-photo-down");
+    $(".btn1-goback").toggleClass("btn1-goback-up");
+    $(".forgot").toggleClass("forgot-fade");
+  });
+
 });

@@ -22,16 +22,16 @@
             <div class="card top-marg-15">
                 <div class="card-body customer-details-login">
                     
-                         <div class="frame">
+    <div class="frame">
     <div class="nav">
-      <ul class"links">
+      <ul>
         <li class="signin-active"><a class="btn1">Sign in</a></li>
         <li class="signup-inactive"><a class="btn1">Sign up </a></li>
       </ul>
     </div>
     <div ng-app ng-init="checked = false">
                         <form class="form-signin" action="" method="post" name="form">
-          <label for="username">Phone Number</label>
+          <span class="la">Phone Number</span>
         
           <input class="form-styling" type="text" name="password" placeholder=""/>
        
@@ -41,15 +41,17 @@
                         </form>
         
                         <form class="form-signup" action="" method="post" name="form">
-          <label for="fullname">Full name</label>
+          <span class="la">Full name</span>
           <input class="form-styling" type="text" name="fullname" placeholder=""/>
-          <label for="email">Email</label>
-          <input class="form-styling" type="text" name="email" placeholder=""/>
-          <label for="password">Password</label>
+          <span class="la">Address</span>
+          <input class="form-styling" type="text" name="address" placeholder=""/>
+          <span class="la">Phone Number</span>
+          <input class="form-styling" type="text" name="phonenumber" placeholder=""/>
+          <span class="la">Password</span>
           <input class="form-styling" type="text" name="password" placeholder=""/>
-          <label for="confirmpassword">Confirm password</label>
-          <input class="form-styling" type="text" name="confirmpassword" placeholder=""/>
-          <a ng-click="checked = !checked" class="btn1-signup">Sign Up</a>
+          <div class="">
+          <a class="btn1-signup">Sign Up</a>
+          </div>
                         </form>
       
             <div  class="success">
@@ -65,7 +67,7 @@
       </div>
       
       <div class="forgot">
-        <a href="#">Resend An OTP</a>
+        <a href="#" class="resend">Resend An OTP</a>
       </div>
       <div>
       <h1 class="welcome">Welcome, Chris</h1>
@@ -93,7 +95,7 @@
             {{> (getTheme 'cart')}}
             {{#if @root.session.cart}}
             <div class="row">
-                <div class="col-sm-12 {{showCartButtons @root.session.cart}} cart-buttons">
+                <div class="col-sm-12 {{showCartButtons @root.session.cart}} text-right mb-4">
                     <button class="btn btn-danger float-right" id="empty-cart" type="button">{{ @root.__ "Empty cart" }}</button>
                 </div>
             {{/if}}
