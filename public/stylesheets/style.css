@@ -2577,18 +2577,16 @@ a.btn1-goback:hover {
   width: 100%;
   height: 100%;
   position: relative;
-  background-color: #ebecf0;
+  background-color: #fdfdfd;
  
 }
 
 
-.content{
-  width: 550px;
-  background-color: rgba(235,236,240,0.9);
-  border-radius: 10px;
-  padding: 40px 30px;
-  box-shadow: -3px -3px 7px #ffffff73,
-              2px 2px 5px rgba(94, 104, 121, 0.288);
+.log .content{
+  width: 50%;
+  background-color: #227e38;
+  border-radius: 5px;
+  box-shadow: 0px 0px 4px 4px rgb(165, 165, 165);
   margin: 40px auto;
 }
 
@@ -2693,3 +2691,80 @@ a.btn1-goback:hover {
 }
 
 
+/* Contact Page */
+.contact-main{
+  width: 70%;
+  display: flex;
+  margin: 40px auto;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.contact-form {
+  width: 50%;
+}
+.contact-icon {
+  width: 30%;
+  display: flex;
+  height: 90%;
+}
+.contact-icon img{
+  max-width: 100%;
+}
+.contact-form h2{
+  font-size: 30px;
+  font-weight: bold;
+}
+.contact-form form{
+  margin-top: 25px;
+}
+.contact-form form .contact-item{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 38px 0px;
+  position: relative;
+}
+.contact-form form .contact-item input{
+  border: none;
+  border-bottom: 1px solid rgb(170, 170, 170);
+  padding: 8px;
+  font-size: 15px;
+  width: 400px;
+  background-color: transparent;
+}
+.contact-form form .contact-item label{
+  color: rgb(151, 151, 151);
+  font-family: 'Roboto';
+  font-size: 14px;
+  position: absolute;
+  margin-bottom: 0px;
+  bottom: 10px;
+  transition: all 0.5s;
+}
+.contact-form form .contact-item input:focus{
+  background-color: transparent;
+}
+.contact-form form .contact-item input:focus + label{
+  bottom: 35px;
+}
+.contact-form form .contact-item button {
+  background-color: #049713;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 9px 17px;
+}
+
+@media screen and (max-width: 800px){
+  .contact-icon {
+    display: none;
+  }
+  .contact-form{
+    width: 100%;
+  }
+}
+@media screen and (max-width: 500px){
+  .contact-form form .contact-item input{
+    width: auto;
+  }
+}
