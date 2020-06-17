@@ -1485,21 +1485,19 @@ a {
     }
   }
 
-  #addressForm, #orderForm, #passwordForm, #newsletterForm { 
+  #addressForm, #orderForm, #passwordForm, #newsletterForm, #detailsForm { 
     display: none;
-    border: 6px solid salmon; 
     padding: 2em;
-    width: 400px;
+    /* width: 400px; */
     text-align: center;
-    background: #fff;
     position: fixed;
-    top:50%;
+    top:60%;
     left:50%;
     transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%)
   }
   
-  .accountInput input, .accountInput textarea { 
+  /* .accountInput input, .accountInput textarea { 
     margin: .8em auto;
     font-family: inherit; 
     text-transform: inherit; 
@@ -1521,7 +1519,7 @@ a {
     font-size: 1.2em;
     border: none;
     height: 40px;
-  }
+  } */
 
 /* offers1 */
 .offers1 {
