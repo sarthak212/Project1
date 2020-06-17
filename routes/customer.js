@@ -436,6 +436,18 @@ router.get('/customer/login', async (req, res, next) => {
         helpers: req.handlebars.helpers
     });
 });
+router.get('/customer/contact', async (req, res, next) => {
+    const config = req.app.config;
+
+    res.render(`${config.themeViews}customer-contact`, {
+        title: 'Contact',
+        config: req.app.config,
+        session: req.session,
+        message: clearSessionValue(req.session, 'message'),
+        messageType: clearSessionValue(req.session, 'messageType'),
+        helpers: req.handlebars.helpers
+    });
+});
 
 // login the customer and check the password
 router.post('/customer/login_action', async (req, res) => {
