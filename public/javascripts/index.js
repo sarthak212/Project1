@@ -27,54 +27,82 @@ $(document).ready(function () {
   });
 
 
-    // Account Page Popups
-    $('#editAddress').click(function() {
-      $('#addressForm').fadeToggle();
-    });
-    $('#orderDetails').click(function() {
-      $('#orderForm').fadeToggle();
-    });
-    $('#passwordDetails').click(function() {
-      $('#passwordForm').fadeToggle();
-    });
-    $('#newsletterDetails').click(function() {
-      $('#newsletterForm').fadeToggle();
-    });
-    $(document).mouseup(function (e) {
-      var container = $("#addressForm, #orderForm, #passwordForm, #newsletterForm");
+  function addBlur() {
+    $('#background').addClass('blur');
+    $('#content').addClass('blur');
+  }
+
+  function removeBlur() {
+    $('#background').removeClass('blur');
+    $('#content').removeClass('blur');
+  }
+
+  var submit = document.getElementById('customerSave', 'addressSave', 'passwordSave');
+  submit.addEventListener('click', clicked);
+  submit.addEventListener('click', validate);
   
-      if (!container.is(e.target) // if the target of the click isn't the container...
-          && container.has(e.target).length === 0) // ... nor a descendant of the container
-      {
-          container.fadeOut();
-      }
-    });
+  // Account Page Popups
+  $('#editDetails').click(function () {
+    $('#detailsForm').fadeToggle();
+    addBlur();
+  });
+  $('#editAddress').click(function () {
+    $('#addressForm').fadeToggle();
+    addBlur();
+  });
+  $('#orderDetails').click(function () {
+    $('#orderForm').fadeToggle();
+    addBlur();
+  });
+  $('#passwordDetails').click(function () {
+    $('#passwordForm').fadeToggle();
+    addBlur();
+  });
+  $('#newsletterDetails').click(function () {
+    $('#newsletterForm').fadeToggle();
+    addBlur();
+  });
+  $(document).mouseup(function (e) {
+    var container = $("#addressForm, #orderForm, #passwordForm, #newsletterForm, #detailsForm");
 
-    $(".btn1").on('click',function() {
-        $(".form-signin").toggleClass("form-signin-left");
-        $(".form-signup").toggleClass("form-signup-left");
-        $(".frame").toggleClass("frame-long");
-        $(".signup-inactive").toggleClass("signup-active");
-        $(".signin-active").toggleClass("signin-inactive");
-        $(".forgot").toggleClass("forgot-left");   
-        $(this).removeClass("idle").addClass("active");
+    if (!container.is(e.target) // if the target of the click isn't the container...
+      &&
+      container.has(e.target).length === 0) // ... nor a descendant of the container
+    {
+      container.fadeOut();
+      removeBlur();
+    }
+    $('.close-button').click(function (e) {
+      container.fadeOut();
+      removeBlur();
+      e.stopPropagation();
     });
+  });
+  $(".btn1").on('click', function () {
+    $(".form-signin").toggleClass("form-signin-left");
+    $(".form-signup").toggleClass("form-signup-left");
+    $(".frame").toggleClass("frame-long");
+    $(".signup-inactive").toggleClass("signup-active");
+    $(".signin-active").toggleClass("signin-inactive");
+    $(".forgot").toggleClass("forgot-left");
+    $(this).removeClass("idle").addClass("active");
+  });
 
-    $(".btn1-signup").on('click',function() {
-        $("frame.nav").toggleClass("nav-up");
-        $(".form-signup-left").toggleClass("form-signup-down");
-        $(".success").toggleClass("success-left"); 
-        $(".frame").toggleClass("frame-short");
-    });
+  $(".btn1-signup").on('click', function () {
+    $("frame.nav").toggleClass("nav-up");
+    $(".form-signup-left").toggleClass("form-signup-down");
+    $(".success").toggleClass("success-left");
+    $(".frame").toggleClass("frame-short");
+  });
 
-    $(".btn1-signin").on('click',function() {
-        $(".btn1-animate").toggleClass("btn1-animate-grow");
-        $(".welcome").toggleClass("welcome-left");
-        $(".cover-photo").toggleClass("cover-photo-down");
-        $(".frame").toggleClass("frame-short");
-        $(".profile-photo").toggleClass("profile-photo-down");
-        $(".btn1-goback").toggleClass("btn1-goback-up");
-        $(".forgot").toggleClass("forgot-fade");
-    });
+  $(".btn1-signin").on('click', function () {
+    $(".btn1-animate").toggleClass("btn1-animate-grow");
+    $(".welcome").toggleClass("welcome-left");
+    $(".cover-photo").toggleClass("cover-photo-down");
+    $(".frame").toggleClass("frame-short");
+    $(".profile-photo").toggleClass("profile-photo-down");
+    $(".btn1-goback").toggleClass("btn1-goback-up");
+    $(".forgot").toggleClass("forgot-fade");
+  });
 
 });
