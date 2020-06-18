@@ -3,31 +3,31 @@
         <div class="cartBodyWrapper">
             {{#each @root.session.cart}}
             <div class="cart-card">
-                            <div class="cart-image">                          
+                            <div class="cart-image p-3">                          
                                 {{#if productImage}}
-                                <img class="img-fluid" src="{{this.productImage}}" alt="{{this.title}} product image">
+                                <img class="img-fluid mx-auto d-block" src="{{this.productImage}}" alt="{{this.title}} product image">
                                 {{else}}
-                                <img class="img-fluid" src="/uploads/placeholder.png" alt="{{this.title}} product image"> 
+                                <img class="img-fluid mx-auto d-block" src="/uploads/placeholder.png" alt="{{this.title}} product image"> 
                                 {{/if}}
                             </div>
                         <div class="cart-details">
                                 <div class="cart-main-details">
                                     <h3><a href="/product/{{this.link}}" class="card-title">{{this.title}}</a></h3>
-                                    <h6> {{currencySymbol @root.config.currencySymbol}} <span>{{formatAmount this.totalItemPrice}}</span></h6>
-                                    <div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit culpa vero laborum laudantium voluptatibus, dolores totam id! Cum, dignissimos itaque! Laborum, aspernatur quidem atque natus dolor fugiat quia ducimus dolores?</div>
+                                    <h6> {{currencySymbol @root.config.currencySymbol}} <span>{{formatAmount this.totalItemPrice}}</span></h6>                                   
+                                    <div class="description">{{{this.productDescription}}}</div>
                                 </div>
                                 <div class="cart-buttons">
                                 {{#ifCond @root.cartReadOnly '!=' true}}
                                 <div class="cart-quantity">
-                                            <button class="" type="button"><i class="fas fa-minus"></i></button>
+                                        <button class="btn btn-qty-minus" type="button"><i class="fas fa-minus"></i></button>
                                         <input type="number" 
-                                            class="" 
+                                            class="cart-product-quantity text-center" 
                                             data-cartid="{{@key}}" 
                                             data-id="{{../this.productId}}"
                                             maxlength="2" 
                                             value="{{../this.quantity}}"
                                         >
-                                            <button class="" type="button"><i class="fas fa-plus"></i></button>
+                                        <button class="btn btn-qty-add" type="button"><i class="fas fa-plus"></i></button>
                                 </div>
                                 <div class="cart-delete">
                                     <button class="btn btn-danger btn-delete-from-cart" data-cartid="{{@key}}" type="button">{{{feather 'trash-2'}}}</button>
@@ -40,38 +40,6 @@
                                 <strong>Option:</strong> {{this.variantTitle}}
                                 {{/if}} --}}
                         </div>
-                        {{!-- <div class="col-8 col-md-9">
-                            <div class="row">
-                                
-                                {{#ifCond @root.cartReadOnly '!=' true}}
-                                <div class="col-12 col-md-4 col-lg-3 col-xl-3 no-pad-left mb-2">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <button class="btn btn-primary btn-qty-minus" type="button">-</button>
-                                        </div>
-                                        <input type="number" 
-                                            class="form-control cart-product-quantity text-center" 
-                                            data-cartid="{{@key}}" 
-                                            data-id="{{../this.productId}}"
-                                            maxlength="2" 
-                                            value="{{../this.quantity}}"
-                                        >
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary btn-qty-add" type="button">+</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-4 col-md-2 col-lg-2 col-xl-2 no-pad-left">
-                                    <button class="btn btn-danger btn-delete-from-cart" data-cartid="{{@key}}" type="button">{{{feather 'trash-2'}}}</button>
-                                </div>
-                                {{else}}
-                                <div class="col-4 col-md-6 col-lg-5 col-xl-7 no-pad-left mb-2"></div>
-                                {{/ifCond}}
-                                <div class="col-8 col-md-6 col-lg-7 col-xl-7 align-self-center text-right">
-                                    <strong class="my-auto">{{currencySymbol @root.config.currencySymbol}}{{formatAmount this.totalItemPrice}}</strong>
-                                </div>
-                            </div>
-                        </div> --}}
             </div>
             {{/each}}
         </div>
@@ -100,7 +68,7 @@
                 </div>
             </div>
             {{else}}
-            <div id="cart-empty" class="d-flex flex-row">
+            <div id="cart-empty" class="d-flex flex-row cart-empty-align">
                 <div class="cart-contents-shipping col-md-12 no-pad-left">
                     Cart empty
                 </div>
