@@ -11359,7 +11359,7 @@ dd {
 [class*=" czi-"] {
   display: inline-block;
   font-family: 'cartzilla-icons' !important;
-  speak: none;
+  /* speak: none; */
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
