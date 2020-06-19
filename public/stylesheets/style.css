@@ -4,8 +4,8 @@ html {
 }
 
 body {
-  margin-bottom: 0px;
-  font-family: 'Source Sans Pro', sans-serif;
+  /* margin-bottom: 0px; */
+  /* font-family: 'Source Sans Pro', sans-serif; */
 }
 
 html,
@@ -120,7 +120,7 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-.navbar-brand {
+/* .navbar-brand {
   color: #cc3a2c;
   letter-spacing: 4px;
   padding-left: 20px;
@@ -132,7 +132,7 @@ input[type=number]::-webkit-outer-spin-button {
 .navbar-brand>img {
   width: auto;
   height: 100%;
-}
+} */
 
 .thumbnail {
   min-height: 415px;
@@ -477,7 +477,7 @@ input.form-control.customerDetails {
   opacity: 0.7 !important;
 }
 
-.navbar-default {
+/* .navbar-default {
   background-color: #ffffff;
 }
 
@@ -488,7 +488,7 @@ input.form-control.customerDetails {
 .navbar-default .navbar-nav>li>a:hover,
 .navbar-default .navbar-nav>li>a:focus {
   color: #000000;
-}
+} */
 
 .pushy-link {
   background-color: white;
@@ -539,7 +539,7 @@ a {
   border-color: #000000;
 }
 
-.navbar-default .navbar-brand {
+/* .navbar-default .navbar-brand {
   color: #000000;
   font-size: 40px;
   font-weight: 700;
@@ -553,7 +553,7 @@ a {
 .navbar-brand-image {
   padding: 0px;
   height: 70px;
-}
+} */
 
 .pagination>li>a {
   background-color: #000000 !important;
@@ -572,7 +572,7 @@ a {
   color: #aaaaaa !important;
 }
 
-.navbar-default .navbar-toggle:hover,
+/* .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
   background-color: #000000;
 }
@@ -656,7 +656,7 @@ a {
 
 .nav-lower .navbar .collapse .navbar-nav .nav-item .nav-link:hover {
   color: #28a745;
-}
+} */
 
 /* Footer */
 .footer {
@@ -883,16 +883,16 @@ a {
   background-color: #28a745;
   border-color: #28a745;
 }
-@media screen and (max-width: 990px){
+/* @media screen and (max-width: 990px){
   .nav-upper .mainNavBar form .categories {
     display: none;
   }
-}
+} */
 
 @media only screen and (max-width: 872px) {
-  .nav-upper {
+  /* .nav-upper {
     width: 90%;
-  }
+  } */
 
   .upper-footer {
     flex-direction: column;
@@ -907,7 +907,7 @@ a {
     display: inline-block;
   }
 }
-@media screen and (max-width: 780px){
+/* @media screen and (max-width: 780px){
   .mainNavBar input {
     width: 200px !important;
   }
@@ -921,14 +921,14 @@ a {
   .mainNavBar input {
     width: 250px !important;
   }
-}
+} */
 @media only screen and (max-width: 480px) {
-  .nav-upper {
+  /* .nav-upper {
     width: 95%;
   }
   .mainNavBar input {
     width: 200px !important;
-  }
+  } */
   .upper-footer div h3 {
     display: inline-block;
   }
@@ -937,7 +937,7 @@ a {
     width: 90%;
   }
 }
-@media screen and (max-width: 430px){
+/* @media screen and (max-width: 430px){
   .mainNavBar input {
     width: 145px !important;
   }
@@ -946,7 +946,7 @@ a {
   .mainNavBar input {
     width: 100px !important;
   }
-}
+} */
 @media only screen and (min-width: 768px) {
   .pushy {
     width: 700px;
@@ -1042,10 +1042,10 @@ a {
     padding-bottom: 15px;
   }
 
-  .navbar-brand {
+  /* .navbar-brand {
     padding-left: 0px;
     height: auto;
-  }
+  } */
 
   .thumbnail {
     min-height: 0;
@@ -2076,15 +2076,8 @@ a {
   }
 }
 
-
-
-
 /* 
 Price Range */
-
-.container {
-  margin-top: 125px;
-}
 
 .slider-labels {
   margin-top: 10px;
@@ -2356,20 +2349,20 @@ Price Range */
   box-shadow: 0px 2px 7px rgba(0,0,0,0.1);
 }
 
-.customer-details-login .frame .nav {
+/* .customer-details-login .frame .nav {
   width: 100%;
   height: 100px;
   padding-top: 40px;
   opacity: 1;
   transition: all .5s ease;
-}
+} */
 
-.customer-details-login .frame .nav-up {
+/* .customer-details-login .frame .nav-up {
   transform: translateY(-100px);
   opacity: 0;
-}
+} */
 
-.frame .nav ul li {
+/* .frame .nav ul li {
   padding-left: 10px;
   font-size: 18px;
   display: inline;
@@ -2377,9 +2370,9 @@ Price Range */
   text-transform: uppercase;
   padding-right: 10px;
   color: red;
-}
+} */
 
-.customer-details-login .frame .nav .signin-active a {
+/* .customer-details-login .frame .nav .signin-active a {
   padding-bottom: 10px;
   color: white;
   font-size: 24px;
@@ -2388,9 +2381,9 @@ Price Range */
   border-bottom: solid 2px #e7e7e7;
   transition: all .25s ease;
   cursor: pointer;
-}
+} */
 
-.customer-details-login .frame .nav .signin-inactive a {
+/* .customer-details-login .frame .nav .signin-inactive a {
   padding-bottom: 0;
   color: white;
    text-transform: uppercase;
@@ -2417,7 +2410,7 @@ Price Range */
    text-transform: uppercase;
   text-decoration: none;
   transition: all .25s ease;
-}
+} */
 
 .customer-details-login .frame .form-signin {
   width: 430px;
