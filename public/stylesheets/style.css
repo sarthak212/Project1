@@ -323,9 +323,13 @@ input[type=number]::-webkit-outer-spin-button {
   margin-top: 10px;
 }
 
-.breadcrumb {
+#account .breadcrumb {
   background-color: #f8f9fa;
   margin-top: 10px;
+}
+
+#account nav {
+  margin-top: 30px;
 }
 
 .breadcrumbProPerRow-3 {
@@ -674,8 +678,12 @@ a {
   color: white;
 }
 
-.upper-footer div {
+.upper-footer div{
   width: 30%;
+  color: white;
+}
+
+.upper-footer div  h3 {
   color: white;
 }
 
@@ -846,7 +854,7 @@ a {
   justify-content: space-around;
 }
 .cart-buttons .cart-quantity{
-  margin: 3px 0px;
+  margin: 3px 23px 3px 0;
   background-color: white;
   border: 1px solid rgb(201, 201, 201);
   display: flex;
@@ -1093,6 +1101,10 @@ a {
   color: white;
 }
 
+.signupnews h4 {
+  color: white;
+}
+
 .newsletter .side {
   display: flex;
   flex-direction: row;
@@ -1237,7 +1249,6 @@ a {
 
 .single-product .product-title h3,.single-product .product-title h3 a{
   font-size: 16px;
-  font-weight: 600;
   margin-bottom: 0px;
   transition: all 0.5s;
 }
@@ -1317,7 +1328,6 @@ a {
 /* Product Page */
 .product-title {
   font-size: 1.3rem;
-  font-weight: bolder;
 }
 
 .price {
@@ -1333,7 +1343,6 @@ a {
 
 .product-price {
   font-size: 1.5rem;
-  font-weight: bold;
   color: black;
   padding-top: 20px;
 }
@@ -1453,6 +1462,10 @@ a {
   margin-top: 4%;
 }
 
+.breadcrumb-item {
+  font-size: 1.2rem;
+}
+
 @media screen and (max-width: 1070px) {
   .grocery-background {
     display: none;
@@ -1462,7 +1475,6 @@ a {
   .account-part a {
     text-transform: capitalize;
     font-size: 16px;
-    font-weight: 500;
     padding: 25px 25px;
     display: inline-block;
     width: 100%;
@@ -1502,11 +1514,12 @@ a {
     color: #bcbcbc;
   }
 
-  .breadcrumb {
+  #account .breadcrumb {
     background-color: #f5f5f5;
     width: 580px;
     min-width: 388px;
     margin-bottom: 15px;
+    padding: 10px 20px;
   }
 
   .row .acc-box {
@@ -1529,7 +1542,7 @@ a {
       font-size: 11px;
     }
 
-    .breadcrumb {
+    #account .breadcrumb {
       width: 480px;
     }
   }
@@ -1549,13 +1562,13 @@ a {
       max-width: 40px;
     }
 
-    .breadcrumb {
+    #account .breadcrumb {
       width: 375px;
       min-width: 375px;
     }
 
     .breadcrumb-item {
-      font-size: 16px;
+      font-size: 0.8rem;
     }
   }
 
@@ -1574,7 +1587,7 @@ a {
       height: 110px;
     }
 
-    .breadcrumb {
+    #account .breadcrumb {
       width: 350px;
       min-width: 350px;
       margin: 0 auto 15px auto;
@@ -1594,7 +1607,7 @@ a {
     }
 
     .breadcrumb-item {
-      font-size: 14px;
+      font-size: 0.8rem;
     }
   }
 
@@ -1795,7 +1808,7 @@ a {
   
   @media screen and (max-width: 500px) {
     .breadcrumb-item {
-      font-size: 14px;
+      font-size: 0.8rem;
     }
   
     .form {
