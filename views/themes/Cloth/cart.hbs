@@ -3,11 +3,11 @@
         <div class="cartBodyWrapper">
             {{#each @root.session.cart}}
             <div class="cart-card">
-                            <div class="cart-image p-3">                          
+                            <div class="cart-image">                          
                                 {{#if productImage}}
-                                <img class="img-fluid mx-auto d-block" src="{{this.productImage}}" alt="{{this.title}} product image">
+                                <img class="" src="{{this.productImage}}" alt="{{this.title}} product image">
                                 {{else}}
-                                <img class="img-fluid mx-auto d-block" src="/uploads/placeholder.png" alt="{{this.title}} product image"> 
+                                <img class="" src="/uploads/placeholder.png" alt="{{this.title}} product image"> 
                                 {{/if}}
                             </div>
                         <div class="cart-details">
@@ -19,7 +19,7 @@
                                 <div class="cart-buttons">
                                 {{#ifCond @root.cartReadOnly '!=' true}}
                                 <div class="cart-quantity">
-                                        <button class="btn btn-qty-minus" type="button"><i class="fas fa-minus"></i></button>
+                                        <button class="btn-qty-minus" type="button"><i class="fas fa-minus"></i></button>
                                         <input type="number" 
                                             class="cart-product-quantity text-center" 
                                             data-cartid="{{@key}}" 
@@ -27,7 +27,7 @@
                                             maxlength="2" 
                                             value="{{../this.quantity}}"
                                         >
-                                        <button class="btn btn-qty-add" type="button"><i class="fas fa-plus"></i></button>
+                                        <button class="btn-qty-add" type="button"><i class="fas fa-plus"></i></button>
                                 </div>
                                 <div class="cart-delete">
                                     <button class="btn btn-danger btn-delete-from-cart" data-cartid="{{@key}}" type="button">{{{feather 'trash-2'}}}</button>

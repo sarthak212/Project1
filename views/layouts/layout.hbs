@@ -933,11 +933,14 @@
                 <div id="cart" class="col-md-12">
                     {{> (getTheme 'cart')}}
                     <div class="row">
-                        <div class="col-sm-12 {{showCartButtons @root.session.cart}} cart-buttons">
-                            <button class="btn btn-danger float-left" id="empty-cart"
-                                type="button">{{ @root.__ "Empty cart" }}</button>
-                            <a href="/checkout/information"
-                                class="btn btn-primary float-right btn-checkout">Checkout</a>
+                        <div id="cart" class="col-md-12">
+                        {{> (getTheme 'cart')}}
+                            <div class="row">
+                                <div class="col-sm-12 {{showCartButtons @root.session.cart}} bottom-marg-25">
+                                    <button class="btn btn-danger float-left" id="empty-cart" type="button">{{ @root.__ "Empty cart" }}</button>
+                                    <a href="/checkout/information" class="btn btn-primary float-right btn-checkout">Checkout</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -970,20 +973,43 @@
                     {{/isNull}}
                     </div>
                 </div> --}}
-            <div class="upper-footer">
-                <div class="contactus navbar-expand-lg">
-                    <h3>Contact Us
-                        <hr>
-                    </h3>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#address"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="far fa-plus-square"></i>
-                    </button>
-                    <ul class="collapse navbar-collapse" id="address">
-                        <li><i class="fas fa-street-view"></i> Some Random Address, Khatoli</li>
-                        <li><i class="fas fa-envelope"></i> abcd@xyz.com</li>
-                        <li><i class="fas fa-phone"></i> 1234567890</li>
-                    </ul>
+                <div class="upper-footer">
+                    <div class="contactus navbar-expand-lg">
+                        <h3>Contact Us <hr></h3>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#address" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="far fa-plus-square"></i>
+                        </button>
+                        <ul class="collapse navbar-collapse" id="address">
+                            <li><i class="fas fa-street-view"></i> Some Random Address, Khatoli</li>
+                            <li><i class="fas fa-envelope"></i> abcd@xyz.com</li>
+                            <li><i class="fas fa-phone"></i> 1234567890</li>
+                        </ul>
+                    </div>
+                    <div class="extra navbar-expand-lg">
+                        <h3>Extra <hr></h3>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#extras" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="far fa-plus-square"></i>
+                        </button>
+                        <ul class="collapse navbar-collapse" id="extras">
+                            <li><a href="">About Us</a></li>
+                            <li><a href="/customer/contact">Contact Us</a></li>
+                            <li><a href="">Privacy Policy</a></li>
+                            <li><a href="">Delivery Information</a></li>
+                            <li><a href="">Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+                    <div class="Account navbar-expand-lg">
+                        <h3>Account <hr></h3>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myaccount" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="far fa-plus-square"></i>
+                        </button>
+                        <ul class="collapse navbar-collapse" id="myaccount">
+                            <li><a href="">My Account</a></li>
+                            <li><a href="">Cart</a></li>
+                            <li><a href="">Order History</a></li>
+                            <li><a href="">Wishlist</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="extra navbar-expand-lg">
                     <h3>Extra
