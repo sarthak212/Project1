@@ -37,9 +37,9 @@ $(document).ready(function () {
     $('#content').removeClass('blur');
   }
 
-  var submit = document.getElementById('customerSave', 'addressSave', 'passwordSave');
-  submit.addEventListener('click', clicked);
-  submit.addEventListener('click', validate);
+  // var submit = document.getElementById('customerSave', 'addressSave', 'passwordSave');
+  // submit.addEventListener('click', clicked);
+  // submit.addEventListener('click', validate);
   
   // Account Page Popups
   $('#editDetails').click(function () {

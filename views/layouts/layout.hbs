@@ -280,7 +280,7 @@
                         <div id="cart" class="col-md-12">
                         {{> (getTheme 'cart')}}
                             <div class="row">
-                                <div class="col-sm-12 {{showCartButtons @root.session.cart}} cart-buttons">
+                                <div class="col-sm-12 {{showCartButtons @root.session.cart}} bottom-marg-25">
                                     <button class="btn btn-danger float-left" id="empty-cart" type="button">{{ @root.__ "Empty cart" }}</button>
                                     <a href="/checkout/information" class="btn btn-primary float-right btn-checkout">Checkout</a>
                                 </div>
@@ -333,7 +333,7 @@
                         </button>
                         <ul class="collapse navbar-collapse" id="extras">
                             <li><a href="">About Us</a></li>
-                            <li><a href="">Contact Us</a></li>
+                            <li><a href="/customer/contact">Contact Us</a></li>
                             <li><a href="">Privacy Policy</a></li>
                             <li><a href="">Delivery Information</a></li>
                             <li><a href="">Terms & Conditions</a></li>
