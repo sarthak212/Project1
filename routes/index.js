@@ -115,6 +115,52 @@ router.get('/payment/:orderId', async (req, res, next) => {
     });
 });
 
+// Extra Pages
+router.get('/privacy', (req, res) => {
+    const config = req.app.config;
+
+    res.render(`${config.themeViews}privacy`, {
+      title: 'Privacy Policy',
+      page: req.query.path,
+      config,
+      session: req.session,
+      message: clearSessionValue(req.session, 'message'),
+      messageType: clearSessionValue(req.session, 'messageType'),
+      helpers: req.handlebars.helpers,
+      showFooter: 'showFooter'
+    });
+});
+
+router.get('/delivery', (req, res) => {
+    const config = req.app.config;
+
+    res.render(`${config.themeViews}delivery`, {
+      title: 'Delivery Information',
+      page: req.query.path,
+      config,
+      session: req.session,
+      message: clearSessionValue(req.session, 'message'),
+      messageType: clearSessionValue(req.session, 'messageType'),
+      helpers: req.handlebars.helpers,
+      showFooter: 'showFooter'
+    });
+});
+
+router.get('/terms', (req, res) => {
+    const config = req.app.config;
+
+    res.render(`${config.themeViews}terms`, {
+      title: 'Terms & Conditions',
+      page: req.query.path,
+      config,
+      session: req.session,
+      message: clearSessionValue(req.session, 'message'),
+      messageType: clearSessionValue(req.session, 'messageType'),
+      helpers: req.handlebars.helpers,
+      showFooter: 'showFooter'
+    });
+});
+
 router.get('/emptycart', async (req, res, next) => {
     emptyCart(req, res, '');
 });
