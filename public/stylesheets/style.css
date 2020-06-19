@@ -922,6 +922,9 @@ a {
   .mainNavBar input {
     width: 250px !important;
   }
+  .cart-card {
+    width: 95%;
+  }
 }
 @media only screen and (max-width: 480px) {
   .nav-upper {
@@ -942,10 +945,21 @@ a {
   .mainNavBar input {
     width: 145px !important;
   }
+  .cart-image{
+    width: 45%;
+  }
+  .cart-details{
+    width: 55%;
+  }
 }
 @media screen and (max-width: 360px){
   .mainNavBar input {
     width: 100px !important;
+  }
+}
+@media screen and (max-width: 350px){
+  .cart-main-details .description {
+    display: none;
   }
 }
 @media only screen and (min-width: 768px) {
