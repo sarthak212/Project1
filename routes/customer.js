@@ -301,52 +301,6 @@ router.delete('/admin/customer', restrict, async (req, res) => {
     }
 });
 
-// Extra Pages
-router.get('/customer/privacy', (req, res) => {
-    const config = req.app.config;
-
-    res.render(`${config.themeViews}privacy`, {
-      title: 'Privacy Policy',
-      page: req.query.path,
-      config,
-      session: req.session,
-      message: clearSessionValue(req.session, 'message'),
-      messageType: clearSessionValue(req.session, 'messageType'),
-      helpers: req.handlebars.helpers,
-      showFooter: 'showFooter'
-    });
-});
-
-router.get('/customer/delivery', (req, res) => {
-    const config = req.app.config;
-
-    res.render(`${config.themeViews}delivery`, {
-      title: 'Delivery Information',
-      page: req.query.path,
-      config,
-      session: req.session,
-      message: clearSessionValue(req.session, 'message'),
-      messageType: clearSessionValue(req.session, 'messageType'),
-      helpers: req.handlebars.helpers,
-      showFooter: 'showFooter'
-    });
-});
-
-router.get('/terms', (req, res) => {
-    const config = req.app.config;
-
-    res.render(`${config.themeViews}terms`, {
-      title: 'Terms & Conditions',
-      page: req.query.path,
-      config,
-      session: req.session,
-      message: clearSessionValue(req.session, 'message'),
-      messageType: clearSessionValue(req.session, 'messageType'),
-      helpers: req.handlebars.helpers,
-      showFooter: 'showFooter'
-    });
-});
-
 // render the customer view
 router.get('/admin/customer/view/:id?', restrict, async (req, res) => {
     const db = req.app.db;
@@ -482,6 +436,8 @@ router.get('/customer/login', async (req, res, next) => {
         helpers: req.handlebars.helpers
     });
 });
+
+// Extra Pages
 router.get('/customer/contact', async (req, res, next) => {
     const config = req.app.config;
 
@@ -504,6 +460,51 @@ router.get('/customer/aboutus', async (req, res, next) => {
         message: clearSessionValue(req.session, 'message'),
         messageType: clearSessionValue(req.session, 'messageType'),
         helpers: req.handlebars.helpers
+    });
+});
+
+router.get('/customer/privacy', (req, res) => {
+    const config = req.app.config;
+
+    res.render(`${config.themeViews}privacy`, {
+      title: 'Privacy Policy',
+      page: req.query.path,
+      config,
+      session: req.session,
+      message: clearSessionValue(req.session, 'message'),
+      messageType: clearSessionValue(req.session, 'messageType'),
+      helpers: req.handlebars.helpers,
+      showFooter: 'showFooter'
+    });
+});
+
+router.get('/customer/delivery', (req, res) => {
+    const config = req.app.config;
+
+    res.render(`${config.themeViews}delivery`, {
+      title: 'Delivery Information',
+      page: req.query.path,
+      config,
+      session: req.session,
+      message: clearSessionValue(req.session, 'message'),
+      messageType: clearSessionValue(req.session, 'messageType'),
+      helpers: req.handlebars.helpers,
+      showFooter: 'showFooter'
+    });
+});
+
+router.get('/customer/terms', (req, res) => {
+    const config = req.app.config;
+
+    res.render(`${config.themeViews}terms`, {
+      title: 'Terms & Conditions',
+      page: req.query.path,
+      config,
+      session: req.session,
+      message: clearSessionValue(req.session, 'message'),
+      messageType: clearSessionValue(req.session, 'messageType'),
+      helpers: req.handlebars.helpers,
+      showFooter: 'showFooter'
     });
 });
 
