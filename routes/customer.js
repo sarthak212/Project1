@@ -447,7 +447,8 @@ router.get('/customer/contact', async (req, res, next) => {
         session: req.session,
         message: clearSessionValue(req.session, 'message'),
         messageType: clearSessionValue(req.session, 'messageType'),
-        helpers: req.handlebars.helpers
+        helpers: req.handlebars.helpers,
+        showFooter: true
     });
 });
 router.get('/customer/aboutus', async (req, res, next) => {
@@ -459,7 +460,8 @@ router.get('/customer/aboutus', async (req, res, next) => {
         session: req.session,
         message: clearSessionValue(req.session, 'message'),
         messageType: clearSessionValue(req.session, 'messageType'),
-        helpers: req.handlebars.helpers
+        helpers: req.handlebars.helpers,
+        showFooter: true
     });
 });
 
