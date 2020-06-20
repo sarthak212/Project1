@@ -6754,8 +6754,14 @@ a.close.disabled {
 
 .carousel-inner {
   position: relative;
-  width: 100%;
-  overflow: hidden
+  width: 85%;
+  overflow: hidden;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.carousel-inner:hover {
+  
 }
 
 .carousel-inner::after {
@@ -6859,11 +6865,11 @@ a.close.disabled {
 }
 
 .carousel-control-prev {
-  left: 0
+  left: 3%;
 }
 
 .carousel-control-next {
-  right: 0
+  right: 3%
 }
 
 .carousel-control-prev-icon,
@@ -14647,7 +14653,7 @@ a.nav-link:hover .media-tab-media {
   min-height: .01px
 }
 
-.breadcrumb-item {
+.cart-page .breadcrumb-item {
   font-size: .8125rem;
   font-weight: normal
 }

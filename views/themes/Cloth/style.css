@@ -25,3 +25,11 @@
 .close .czi-trash {
   color: white;
 }
+
+.navbar .container {
+  max-width: 1600px;
+}
+
+.carousel:not[data-slide] {
+  opacity: 0;
+}

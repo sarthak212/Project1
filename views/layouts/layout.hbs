@@ -398,13 +398,6 @@
                                         <div data-simplebar data-simplebar-auto-hide="false">
                                             {{#each @root.session.cart}}
                                             <div class="widget-cart-item py-2 border-bottom">
-
-                                                {{!-- <div class="cart-delete">
-                                                    <button class="btn btn-delete-from-cart"
-                                                        data-cartid="{{@key}}" type="button"><span
-                                                            aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div> --}}
                                                 <div class="cart-delete">
                                                     <button class="close btn-delete-from-cart"
                                                         data-cartid="{{@key}}"
@@ -461,7 +454,7 @@
                                                     class="text-accent font-size-base ml-1">{{currencySymbol @root.config.currencySymbol}}{{formatAmount @root.session.totalCartAmount}}</span>
                                             </div>
                                         </div><a class="btn btn-primary btn-sm btn-block" href="/checkout/cart"><i
-                                                class="czi-card mr-2 font-size-base align-middle"></i>Checkout</a>
+                                                class="czi-forward mr-2 font-size-base align-middle"></i>Full Cart</a>
                                     </div>
 
                                 </div>
@@ -609,7 +602,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="nav-item dropdown active"><a class="nav-link dropdown-toggle" href="#"
+                                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#"
                                         data-toggle="dropdown">Beverages</a>
                                     <div class="dropdown-menu p-0">
                                         <div class="d-flex flex-wrap flex-md-nowrap px-2">
@@ -823,95 +816,11 @@
                 </div>
             </div>
         </header>
-        {{!-- <div class="nav-upper">
-            <nav class="navbar navbar-expand-lg justify-content-between mainNavBar">
-                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fas fa-ellipsis-v"></i><i class="fas fa-ellipsis-v"></i>
-                </button>
-            <a class="navbar-brand logo" href="/">
-            <img src="/images/loogo.jpg" alt="">
-            </a>
-            <form class="form-inline my-2 my-lg-0">
-                <ul class="navbar-nav categories">
-                <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Categories
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-                </li>
-                </ul>
-                <input class="" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0 search" type="submit"><i class="fas fa-search"></i></button>
-            </form>
-            <div id="navbarText" class="navtext">
-                <ul class="navbar-nav ml-auto">
-                    {{#if @root.session.customerPresent}}
-                    <div class="dropdown d-none d-sm-block">
-                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-user-alt i"></i>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item" href="/customer/account">Account</a></li>
-                            <li><a class="dropdown-item" href="/customer/logout">Logout</a></li>
-                        </div>
-                    </div>
-                    {{else}}
-                        <li class="nav-item ml-3"><a href="/customer/account" class="btn" style=""><i class="fas fa-user-alt i"></i></a></li>
-                    {{/if}}
-                    {{#if @root.session.cart}}
-                        <li class="nav-item"><a href="/checkout/cart" class="btn menu-btn"><i class="fas fa-shopping-bag i"></i> <span class="badge badge-danger" id="cart-count">{{@root.session.totalCartItems}}</span></a></li>
-                        {{else}}
-                        <li class="nav-item"><a href="/checkout/cart" class="btn menu-btn"><i class="fas fa-shopping-bag i"></i> <span class="badge badge-danger" id="cart-count">0</span></a></li>
-                    {{/if}}
-                </ul>
-            </div>
-        </nav>
-        </div> --}}
-        {{!-- <div class="nav-lower">
-            <div class="navbar navbar-expand-lg navbar-light">
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Fruits</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Beverages</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Flours
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dairy Products
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div> --}}
         </div>
         {{/unless}}
         <div class="site-overlay"></div>
+
+        {{!-- Full Cart Page --}}
         {{#unless admin}}
         {{#ifCond page '!=' 'checkout'}}
         {{#ifCond page '!=' 'pay'}}

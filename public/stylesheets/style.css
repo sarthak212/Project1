@@ -853,7 +853,7 @@ a {
   flex-direction: row;
   justify-content: space-around;
 }
-.cart-buttons .cart-quantity{
+.cart-quantity{
   margin: 3px 23px 3px 0;
   background-color: white;
   border: 1px solid rgb(201, 201, 201);
@@ -862,11 +862,11 @@ a {
   border-radius: 5px;
   justify-content: center;
 }
-.cart-buttons .cart-quantity button{
+.cart-quantity button{
   border: none;
   background-color: transparent;
 }
-.cart-buttons .cart-quantity input{
+.cart-quantity input{
   border: none;
   background-color: transparent;
   width: 25px;
@@ -876,7 +876,7 @@ a {
   background-color: transparent;
   color: #cc3a2c;
 }
-.cart-buttons .cart-quantity button .fas{
+.cart-quantity button .fas{
   font-size: 13px;
 }
 .cart-contents-shipping .text-right {
