@@ -3058,7 +3058,6 @@ a.btn1-goback:hover {
   text-align: center;
 }
 .privacy-header h2 span {
-  font-size: 42px;
   font-weight: bold;
   border: 3px solid white;
   border-width: 3px 0 3px 0;
@@ -3101,4 +3100,47 @@ a.btn1-goback:hover {
 }
 .privacy-content .privacy-item p {
   padding: 12px 24px;
+}
+
+/* Delivery Page */
+.delivery-container {
+  width: 70%;
+  margin: 40px auto;
+}
+.delivery-header h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.delivery-header h2 span {
+  font-weight: bold;
+  font-family: 'Roboto';
+  border: 3px solid white;
+  border-width: 3px 0 3px 0;
+}
+.delivery-header h2 span:hover {
+  border: 3px solid black; 
+  border-width: 3px 0 3px 0;
+  transition: 0.5s ease-in-out;
+}
+.delivery-container img {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+.delivery-content {
+  margin: 40px 16px;
+}
+.delivery-content p {
+  margin-top: 24px;
+  text-align: center;
+}
+.delivery-list {
+  line-height: 1.6rem;
+}
+.delivery-list ul li {
+  margin-top: 20px;
+}
+.delivery-list ul li span {
+  font-weight: bold;
+  color: #28a745;
 }
