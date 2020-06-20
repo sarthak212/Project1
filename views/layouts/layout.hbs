@@ -51,8 +51,8 @@
     <link rel="stylesheet" href="/stylesheets/admin{{config.env}}.css">
     {{/if}}
     <link rel="stylesheet" href="/stylesheets/owl.carousel.min.css">
+    {{!-- <link rel="stylesheet" href="/stylesheets/vendor.css"> --}}
     <link rel="stylesheet" href="/stylesheets/style.css">
-    <link rel="stylesheet" href="/stylesheets/vendor.css">
     {{!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -474,7 +474,7 @@
                                     placeholder="Search for products" aria-label="Search">
                             </div>
                             <!-- Departments menu-->
-                            <ul class="navbar-nav mega-nav pr-lg-2 mr-lg-2">
+                            {{!-- <ul class="navbar-nav mega-nav pr-lg-2 mr-lg-2">
                                 <li class="nav-item dropdown"><a class="nav-link dropdown-toggle pl-0" href="#"
                                         data-toggle="dropdown"><i class="czi-view-grid mr-2"></i>Departments</a>
                                     <div class="dropdown-menu px-2 pl-0 pb-4">
@@ -574,9 +574,9 @@
                                         </div>
                                     </div>
                                 </li>
-                            </ul>
+                            </ul> --}}
                             <!-- Primary menu-->
-                            <ul class="navbar-nav">
+                            <ul class="navbar-nav mx-auto">
                                 <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#"
                                         data-toggle="dropdown">Fruits</a>
                                     <ul class="dropdown-menu">
@@ -853,7 +853,7 @@
         {{/ifCond}}
         {{/ifCond}}
         {{/unless}}
-        <div class="nav-top container-fluid h-100" id="container">
+        <div class="nav-top container-fluid h-100 top-marg-150" id="container">
             <div class="row">
                 {{{body}}}
             </div>
@@ -901,7 +901,7 @@
                         <i class="far fa-plus-square"></i>
                     </button>
                     <ul class="collapse navbar-collapse" id="extras">
-                        <li><a href="">About Us</a></li>
+                        <li><a href="/customer/aboutus">About Us</a></li>
                         <li><a href="/customer/contact">Contact Us</a></li>
                         <li><a href="">Privacy Policy</a></li>
                         <li><a href="">Delivery Information</a></li>
@@ -992,7 +992,7 @@
                 rewind: true,
                 responsive: {
                     0: {
-                        items: 1,
+                        items: 2,
                         nav: true
                     },
                     600: {

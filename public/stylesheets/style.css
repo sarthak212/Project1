@@ -246,7 +246,9 @@ input[type=number]::-webkit-outer-spin-button {
 .top-marg-25 {
   margin-top: 25px;
 }
-
+.top-marg-150 {
+  margin-top: 150px;
+}
 .top-pad-5 {
   padding-top: 10px;
 }
@@ -1924,69 +1926,19 @@ a {
   border-radius: 5px;
 }
 
-.offer2 .second-offer {
-  width: 39%;
-  display: flex;
-  flex-direction: column;
-  align-content: space-between;
-  justify-content: space-between;
-}
-
-.offer2 .third-offer {
-  width: 59%;
-}
-
-.offer2 .second-offer a:nth-child(1) {
-  height: 49%;
-}
-
-.offer2 .second-offer a:nth-child(2) {
-  height: 49%;
-}
 
 @media screen and (max-width: 800px) {
   .offer2 {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     height: auto;
   }
-
-  .offer2 .second-offer {
-    width: 39%;
-    display: flex;
-    flex-direction: column;
-    align-content: space-between;
-    justify-content: space-between;
-  }
-
-  .offer2 .third-offer {
-    width: 59%;
-  }
-
-  .offer2 .second-offer a:nth-child(1) {
-    height: 49%;
-  }
-
-  .offer2 .second-offer a:nth-child(2) {
-    height: 49%;
-  }
-
-  @media screen and (max-width: 800px) {
-    .offer2 {
-      flex-direction: column;
-      height: auto;
-    }
-
-    .offer2 .second-offer {
-      width: 100%;
-      margin-top: 10px;
-    }
-
-    .offer2 .third-offer {
-      width: 100%;
-      margin: 5px 0px;
-    }
+  .offer2 a{
+    width: 80%;
+    margin: 20px auto;
   }
 }
+  
 
 /* Product category Page */
 .Wrapper-product{
@@ -3003,5 +2955,96 @@ a.btn1-goback:hover {
 @media screen and (max-width: 500px){
   .contact-form form .contact-item input{
     width: auto;
+  }
+}
+.about-container{
+  width: 70%;
+  margin: 40px auto;
+}
+.about-mission ,.about-about{
+  margin: 35px 0px;
+}
+.about-mission p,.about-about p{
+  font-size: 16px;
+  line-height: 1.5rem;
+  font-family: 'Roboto';
+  margin: 25px 0px;
+  color: rgb(133, 131, 131);
+}
+.about-mission h2{
+  font-size: 30px;
+  font-family: 'Roboto';
+  margin: 15px auto;
+  font-weight: 600;
+  text-align: center;
+}
+.about-mission h2 hr{
+  width: 30px;
+  background-color: rgb(48, 47, 47);
+  height: 2px;
+  margin: 10px auto;
+}
+.about-about h2{
+  text-align: center;
+  margin: 25px auto;
+  font-family: 'Roboto';
+  font-size: 25px;
+}
+.about-crew {
+  margin: 40px auto;
+}
+.about-crew h2{
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+  margin: 30px auto;
+}
+.about-crew h6 {
+  width: 55%;
+  margin: 20px auto;
+  text-align: center;
+}
+.about-crew .crew-images {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 50px auto;
+  justify-content: space-around;
+}
+.crew-images .crew-details{
+  width: 250px;
+  position: relative;
+  margin-top: 25px;
+}
+.crew-details img{
+  max-width: 100%;
+  border-radius: 5px;
+}
+.crew-details .crew-info {
+  background-color: white;
+  position: absolute;
+  width: 200px;
+  bottom: 0;
+  left: 0;
+  padding: 25px 10px 25px 15px;
+}
+.crew-details .crew-info h3{
+  font-size: 16px;
+  font-weight: bolder;
+}
+.crew-details .crew-info h3 hr{
+  background-color: #222;
+  width: 20px;
+  height: 2px;
+  display: inline-block;
+  margin: 0.2rem 10px;
+}
+.crew-details .crew-info h5{
+  font-size: 14px;
+  color: #777;
+}
+@media screen and (max-width: 700px){
+  .about-crew h6{
+    width: 80%;
   }
 }
