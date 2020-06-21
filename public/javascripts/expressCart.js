@@ -746,48 +746,39 @@ function updateCartDiv() {
                     }
 
                     // Setup the product html
-                    productHtml += `
-                <div class="d-flex flex-row bottom-pad-15">
-                    <div class="p-2 cart-product">
-                        <div class="row h-200">
-                            <div class="col-4 col-md-3 no-pad-left">
-                                ${productImage}
-                            </div>
-                            <div class="col-8 col-md-9">
-                                <div class="row">
-                                    <div class="col-12 no-pad-left mt-md-4">
-                                        <h6><a href="/product/${item.link}">${item.title}</a></h6>
-                                        ${variantHtml}
-                                    </div>
-                                    <div class="col-12 col-md-6 no-pad-left mb-2">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <button class="btn btn-primary btn-qty-minus" type="button">-</button>
-                                            </div>
-                                            <input 
-                                                type="number" 
-                                                class="form-control cart-product-quantity text-center"
-                                                data-cartid="${cartId}"
-                                                data-id="${item.productId}" 
-                                                maxlength="2" 
-                                                value="${item.quantity}"
-                                            >
-                                            <div class="input-group-append">
-                                                <button class="btn btn-primary btn-qty-add" type="button">+</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-4 col-md-2 no-pad-left">
-                                        <button class="btn btn-danger btn-delete-from-cart" data-cartid="${cartId}" type="button"><i class="feather" data-feather="trash-2" data-cartid="${cartId}"></i></button>
-                                    </div>
-                                    <div class="col-8 col-md-4 align-self-center text-right">
-                                        <strong class="my-auto">${result.currencySymbol}${productTotalAmount}</strong>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    productHtml += ` 
+                <div class="cartBodyWrapper">
+                <div class="d-sm-flex justify-content-between align-items-center my-4 pb-3 border-bottom">
+                  <div class="media media-ie-fix d-block d-sm-flex align-items-center text-center text-sm-left">
+                    <a class="d-inline-block mx-auto mr-sm-4" href="/product/${item.link}" style="width: 5rem;">
+                      ${productImage}
+                    </a>
+                    <div class="media-body pt-2">
+                      <h3 class="product-title font-size-base mb-1"><a
+                          href="/product/${item.link}">${item.title}</a></h3>
+                      <div class="font-size-lg text-accent">
+                      ${result.currencySymbol}${productTotalAmount}</div>
                     </div>
-                </div>`;
+                  </div>
+                  <div class="pt-2 pt-sm-0 pl-sm-3 mx-auto mx-sm-0 text-center text-sm-left"
+                    style="max-width: 9rem;">
+                    <div class="form-group mb-0">
+                      <label class="font-weight-medium" for="quantity1">Quantity</label>
+                      <div class="cart-quantity">
+                        <button class="btn-qty-minus" type="button"><i class="fas fa-minus"></i></button>
+                        <input type="number" class="cart-product-quantity text-center" data-cartid="${cartId}"
+                          data-id="${item.productId}" maxlength="2" value="${item.quantity}">
+                        <button class="btn-qty-add" type="button"><i class="fas fa-plus"></i></button>
+                      </div>
+                    </div>
+                    <button data-cartid="{${cartId}" class="btn btn-link px-0 text-danger btn-delete-from-cart"
+                      type="button">
+                      <i class="czi-close-circle mr-2"></i>
+                      <span class="font-size-sm">Remove</span>
+                    </button>
+                  </div>
+                </div>
+              </div>`
                 });
 
                 $('.cartBodyWrapper').html(productHtml);
