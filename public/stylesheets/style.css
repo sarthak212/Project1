@@ -1,6 +1,7 @@
 html {
   position: relative;
   min-height: 100%;
+  background: #F6F9FC;
 }
 
 body {
@@ -332,6 +333,10 @@ input[type=number]::-webkit-outer-spin-button {
 
 #account nav {
   margin-top: 30px;
+}
+
+#account .pagewrap {
+  z-index: 10000;
 }
 
 .breadcrumbProPerRow-3 {
@@ -1200,7 +1205,7 @@ a {
 }
 
 .parent-box {
-  background-color: white;
+  /* background-color: white; */
   display: flex;
 }
 
@@ -1455,13 +1460,13 @@ a {
 }
 
 .grocery-background {
-  position: absolute;
+  position: fixed;
   background-image: url("/images/grocery.png");
   background-repeat: no-repeat;
   width: 720px;
   height: 435px;
   margin-left: 53%;
-  margin-top: 4%;
+  margin-top: 10rem;
 }
 
 .breadcrumb-item {
@@ -1517,7 +1522,7 @@ a {
   }
 
   #account .breadcrumb {
-    background-color: #f5f5f5;
+    background-color: #F6F9FC;
     width: 580px;
     min-width: 388px;
     margin-bottom: 15px;
@@ -1549,7 +1554,7 @@ a {
     }
   }
 
-  @media screen and (max-width: 799px) {
+  @media screen and (max-width: 650px) {
     .row .acc-box {
       width: 400px;
       min-width: 400px;
@@ -1886,7 +1891,7 @@ a {
 .offers1 {
   display: flex;
   flex-direction: row;
-  width: 85%;
+  width: 80%;
   margin: 50px auto;
 }
 
@@ -1950,6 +1955,7 @@ a {
 }
 .Wrapper-product .filter{
   width: 22%;
+  background: white;
   display: flex;
   flex-direction: column;
   border-radius: 5px;
@@ -1969,12 +1975,13 @@ a {
   margin-top: 30px;
 }
 .product-results{
-  background-color: #eeeeee;
+  background-color: white;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
   align-content: center;
   padding: 15px;
+  border: 1px solid #e2e2e2;
 }
 .product-results h1{
   font-size: 16px;
@@ -3083,4 +3090,15 @@ a.btn1-goback:hover {
 
 .carousel:not[data-slide] {
   opacity: 0;
+}
+
+.media-body .font-size-base {
+  font-size: 0.825rem !important;
+}
+
+@media screen and (min-width: 730px) {
+  .sidebar-fixed-enabled {
+    padding-left: 10rem; 
+    padding-right: 10rem;
+  }
 }

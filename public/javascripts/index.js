@@ -22,8 +22,8 @@ $(document).ready(function () {
   });
 
   $('#etalage1').etalage({
-    thumb_image_width: 350,
-    thumb_image_height: 400,
+    thumb_image_width: 300,
+    thumb_image_height: 250,
   });
 
 
