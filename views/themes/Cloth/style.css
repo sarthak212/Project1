@@ -1,35 +1,10 @@
-.widget-links img {
-  width: 150px;
+.media-body .font-size-base {
+  font-size: 0.825rem !important;
 }
 
-.nav-top {
-  margin-top: 80px;
-}
-
-@media screen and (min-width: 992px) {
-  .nav-top {
-    margin-top: 135px;
+@media screen and (min-width: 730px) {
+  .sidebar-fixed-enabled {
+    padding-left: 10rem; 
+    padding-right: 10rem;
   }
-}
-
-.quantityMinus {
-  margin: 0 15px;
-}
-
-.cart-delete .close {
-  padding: 15px;
-  padding-left: 10px;
-  background-color: #FE696A;
-}
-
-.close .czi-trash {
-  color: white;
-}
-
-.navbar .container {
-  max-width: 1600px;
-}
-
-.carousel:not[data-slide] {
-  opacity: 0;
 }

@@ -377,19 +377,19 @@
                             {{!-- Cart Starts here --}}
                             <div class="navbar-tool dropdown ml-3">
                                 {{#if @root.session.cart}}
-                                <a class="navbar-tool-icon-box bg-secondary dropdown-toggle" href="/checkout/cart">
+                                <a class="navbar-tool-icon-box bg-secondary dropdown-toggle" href="/checkout/information">
                                     <span class="navbar-tool-label"
                                         id="cart-count">{{@root.session.totalCartItems}}</span>
                                     <i class="navbar-tool-icon czi-cart"></i>
                                 </a>
-                                <a class="navbar-tool-text" href="/checkout/cart"><small>My
+                                <a class="navbar-tool-text" href="/checkout/information"><small>My
                                         Cart</small>{{currencySymbol config.currencySymbol}}{{formatAmount @root.session.totalCartAmount}}</a>
                                 {{else}}
-                                <a class="navbar-tool-icon-box bg-secondary dropdown-toggle" href="/checkout/cart">
+                                <a class="navbar-tool-icon-box bg-secondary dropdown-toggle" href="/checkout/information">
                                     <span class="navbar-tool-label" id="cart-count">0</span>
                                     <i class="navbar-tool-icon czi-cart"></i>
                                 </a>
-                                <a class="navbar-tool-text" href="/checkout/cart"><small>My
+                                <a class="navbar-tool-text" href="/checkout/information"><small>My
                                         Cart</small>{{currencySymbol @root.config.currencySymbol}}0</a>
                                 {{/if}}
                                 <!-- Cart dropdown-->
@@ -453,8 +453,8 @@
                                                     class="text-muted">Subtotal:</span><span
                                                     class="text-accent font-size-base ml-1">{{currencySymbol @root.config.currencySymbol}}{{formatAmount @root.session.totalCartAmount}}</span>
                                             </div>
-                                        </div><a class="btn btn-primary btn-sm btn-block" href="/checkout/cart"><i
-                                                class="czi-forward mr-2 font-size-base align-middle"></i>Full Cart</a>
+                                        </div><a class="btn btn-primary btn-sm btn-block" href="/checkout/information"><i
+                                                class="czi-card mr-2 font-size-base align-middle"></i>Checkout</a>
                                     </div>
 
                                 </div>
@@ -853,7 +853,7 @@
         {{/ifCond}}
         {{/ifCond}}
         {{/unless}}
-        <div class="nav-top container-fluid h-100 top-marg-150" id="container">
+        <div class="nav-top container-fluid h-100" id="container">
             <div class="row">
                 {{{body}}}
             </div>
