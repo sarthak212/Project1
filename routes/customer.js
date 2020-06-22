@@ -462,6 +462,19 @@ router.get('/customer/aboutus', async (req, res, next) => {
         showFooter: true
     });
 });
+router.get('/customer/forgot-password', async (req, res, next) => {
+    const config = req.app.config;
+
+    res.render(`${config.themeViews}customer-forgot-password`, {
+        title: 'Forgot Password',
+        config: req.app.config,
+        session: req.session,
+        message: clearSessionValue(req.session, 'message'),
+        messageType: clearSessionValue(req.session, 'messageType'),
+        helpers: req.handlebars.helpers,
+        showFooter: true
+    });
+});
 
 // login the customer and check the password
 router.post('/customer/login_action', async (req, res) => {
