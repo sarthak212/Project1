@@ -168,6 +168,27 @@
                                   <h3>
                                     {{this.productTitle}}
                                   </h3>
+                                     {{#if variants}}
+                       
+                            {{#if @root.config.showHomepageVariants}}
+                            <select id="productVariant-{{this._id}}">
+                            {{#each variants}}
+                              <option value="{{this._id}}" data-price="{{this.price}}">{{this.title}} - {{currencySymbol @root.config.currencySymbol}}{{this.price}}</option>
+                            {{/each}}
+                            </select>
+                            {{else}}
+                            <p>
+                                {{currencySymbol @root.config.currencySymbol}}{{formatAmount variants.0.price}}
+                            </p>
+                            {{/if}}
+                
+                    {{else}}
+                        <p>
+                            {{currencySymbol @root.config.currencySymbol}}{{formatAmount productPrice}}
+                            <span>₹950</span>
+                        </p>
+                    {{/if}}
+                    <span class="save">Save ₹32</span>
                                 </div>
                             </a>
                         
@@ -185,11 +206,7 @@
                            <div class="product-title">
                            <h3>         {{this.productTitle}}
                            </h3>
-                        
-                        </a>
-                    
-                    {{/if}}
-                    {{#if variants}}
+                              {{#if variants}}
                        
                             {{#if @root.config.showHomepageVariants}}
                             <select id="productVariant-{{this._id}}">
@@ -202,14 +219,20 @@
                                 {{currencySymbol @root.config.currencySymbol}}{{formatAmount variants.0.price}}
                             </p>
                             {{/if}}
-                        </div>
+                
                     {{else}}
                         <p>
                             {{currencySymbol @root.config.currencySymbol}}{{formatAmount productPrice}}
+                            <span>₹950</span>
                         </p>
                     {{/if}}
-              
-                    </div>
+                          <span class="save">Save ₹32</span>
+                           </div>
+                        
+                        </a>
+                    
+                    {{/if}}
+                 
           </div>
         </div>
         {{/each}}
