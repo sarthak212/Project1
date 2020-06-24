@@ -281,49 +281,12 @@
                             <button class="btn btn-primary btn-block btn-shadow" id="customerloginForm"
                                 type="submit">Sign in</button>
                         </form>
-                        {{!-- <form class="needs-validation tab-pane fade" autocomplete="off" novalidate id="signup-tab">
-                            <div class="form-group">
-                                <label for="su-name">Full name</label>
-                                <input class="form-control" type="text" id="su-name" placeholder="John Doe" required>
-                                <div class="invalid-feedback">Please fill in your name.</div>
-                            </div>
-                            <div class="form-group">
-                                <label for="su-email">Email address</label>
-                                <input class="form-control" type="email" id="su-email" placeholder="johndoe@example.com"
-                                    required>
-                                <div class="invalid-feedback">Please provide a valid email address.</div>
-                            </div>
-                            <div class="form-group">
-                                <label for="su-password">Password</label>
-                                <div class="password-toggle">
-                                    <input class="form-control" type="password" id="su-password" required>
-                                    <label class="password-toggle-btn">
-                                        <input class="custom-control-input" type="checkbox"><i
-                                            class="czi-eye password-toggle-indicator"></i><span class="sr-only">Show
-                                            password</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="su-password-confirm">Confirm password</label>
-                                <div class="password-toggle">
-                                    <input class="form-control" type="password" id="su-password-confirm" required>
-                                    <label class="password-toggle-btn">
-                                        <input class="custom-control-input" type="checkbox"><i
-                                            class="czi-eye password-toggle-indicator"></i><span class="sr-only">Show
-                                            password</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <button class="btn btn-primary btn-block btn-shadow" type="submit">Sign up</button>
-                        </form> --}}
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Navbar 3 Level (Light)-->
+
         <header class="box-shadow-sm fixed-top">
-            <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page.-->
             <div class="bg-light">
                 <div class="navbar navbar-expand-lg navbar-light">
                     <div class="container"><a class="navbar-brand d-none d-sm-block mr-3 flex-shrink-0" href="/"
@@ -348,15 +311,6 @@
                                 <div class="navbar-tool-icon-box"><i class="navbar-tool-icon czi-heart"></i></div>
                             </a>
                             {{#if @root.session.customerPresent}}
-                            {{!-- <a class="navbar-tool ml-1 ml-lg-0 mr-n1 mr-lg-2" href="#" data-toggle="modal">
-                                <div class="navbar-tool-icon-box"><i
-                                        class="navbar-tool-icon czi-user"></i>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <li><a class="dropdown-item" href="/customer/account">Account</a></li>
-                                        <li><a class="dropdown-item" href="/customer/logout">Logout</a></li>
-                                    </div>
-                                </div>
-                            </a> --}}
                             <div class="dropdown ml-1 ml-lg-0 mr-n1 mr-lg-2">
                                 <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -364,6 +318,7 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <li><a class="dropdown-item" href="/customer/account">Account</a></li>
+                                    <li><a class="dropdown-item" href="/checkout/cart">Cart</a></li>
                                     <li><a class="dropdown-item" href="/customer/logout">Logout</a></li>
                                 </div>
                             </div>
@@ -473,108 +428,7 @@
                                 <input class="form-control prepended-form-control" type="search"
                                     placeholder="Search for products" aria-label="Search">
                             </div>
-                            <!-- Departments menu-->
-                            {{!-- <ul class="navbar-nav mega-nav pr-lg-2 mr-lg-2">
-                                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle pl-0" href="#"
-                                        data-toggle="dropdown"><i class="czi-view-grid mr-2"></i>Departments</a>
-                                    <div class="dropdown-menu px-2 pl-0 pb-4">
-                                        <div class="d-flex flex-wrap flex-md-nowrap">
-                                            <div class="mega-dropdown-column pt-4 px-3">
-                                                <div class="widget widget-links"><a
-                                                        class="d-block overflow-hidden rounded-lg mb-3" href="#"><img
-                                                            src="/images/flour.jpg" alt="Shoes" /></a>
-                                                    <h6 class="font-size-base mb-2">Flour</h6>
-                                                    <ul class="widget-list">
-                                                        <li class="widget-list-item"><a class="widget-list-link"
-                                                                href="#">Flour 1</a></li>
-                                                        <li class="widget-list-item"><a class="widget-list-link"
-                                                                href="#">Flour 2</a></li>
-                                                        <li class="widget-list-item"><a class="widget-list-link"
-                                                                href="#">Flour 3</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="mega-dropdown-column pt-4 px-3">
-                                                <div class="widget widget-links"><a
-                                                        class="d-block overflow-hidden rounded-lg mb-3" href="#"><img
-                                                            src="/images/fruit.jpg" alt="Shoes" /></a>
-                                                    <h6 class="font-size-base mb-2">Fruit</h6>
-                                                    <ul class="widget-list">
-                                                        <li class="widget-list-item"><a class="widget-list-link"
-                                                                href="#">Fruit 1</a></li>
-                                                        <li class="widget-list-item"><a class="widget-list-link"
-                                                                href="#">Fruit 2</a></li>
-                                                        <li class="widget-list-item"><a class="widget-list-link"
-                                                                href="#">Fruit 3</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="mega-dropdown-column pt-4 px-3">
-                                                <div class="widget widget-links"><a
-                                                        class="d-block overflow-hidden rounded-lg mb-3" href="#"><img
-                                                            src="/images/milk.jpg" alt="Shoes" /></a>
-                                                    <h6 class="font-size-base mb-2">Milk</h6>
-                                                    <ul class="widget-list">
-                                                        <li class="widget-list-item"><a class="widget-list-link"
-                                                                href="#">Milk 1</a></li>
-                                                        <li class="widget-list-item"><a class="widget-list-link"
-                                                                href="#">Milk 2</a></li>
-                                                        <li class="widget-list-item"><a class="widget-list-link"
-                                                                href="#">EMilk 3</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex flex-wrap flex-md-nowrap">
-                                            <div class="mega-dropdown-column pt-4 px-3">
-                                                <div class="widget widget-links"><a
-                                                        class="d-block overflow-hidden rounded-lg mb-3" href="#"><img
-                                                            src="/images/non-veg.jpg" alt="Shoes" /></a>
-                                                    <h6 class="font-size-base mb-2">Non-Veg</h6>
-                                                    <ul class="widget-list">
-                                                        <li class="widget-list-item"><a class="widget-list-link"
-                                                                href="#">Non-Veg 1</a></li>
-                                                        <li class="widget-list-item"><a class="widget-list-link"
-                                                                href="#">Non-Veg 2</a></li>
-                                                        <li class="widget-list-item"><a class="widget-list-link"
-                                                                href="#">Non-Veg 3</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="mega-dropdown-column pt-4 px-3">
-                                                <div class="widget widget-links"><a
-                                                        class="d-block overflow-hidden rounded-lg mb-3" href="#"><img
-                                                            src="/images/eggs.jpg" alt="Shoes" /></a>
-                                                    <h6 class="font-size-base mb-2">Accessories</h6>
-                                                    <ul class="widget-list">
-                                                        <li class="widget-list-item"><a class="widget-list-link"
-                                                                href="#">Eggs 1</a></li>
-                                                        <li class="widget-list-item"><a class="widget-list-link"
-                                                                href="#">Eggs 2</a></li>
-                                                        <li class="widget-list-item"><a class="widget-list-link"
-                                                                href="#">Eggs 3</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="mega-dropdown-column pt-4 px-3">
-                                                <div class="widget widget-links"><a
-                                                        class="d-block overflow-hidden rounded-lg mb-3" href="#"><img
-                                                            src="/images/veget.jpg" alt="Shoes" /></a>
-                                                    <h6 class="font-size-base mb-2">Vegetables</h6>
-                                                    <ul class="widget-list">
-                                                        <li class="widget-list-item"><a class="widget-list-link"
-                                                                href="#">Vegetable 1</a></li>
-                                                        <li class="widget-list-item"><a class="widget-list-link"
-                                                                href="#">Vegetable 2</a></li>
-                                                        <li class="widget-list-item"><a class="widget-list-link"
-                                                                href="#">Vegetable 3</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul> --}}
+
                             <!-- Primary menu-->
                             <ul class="navbar-nav mx-auto">
                                 <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#"
@@ -868,15 +722,6 @@
         <div id="notify_message"></div>
         {{#if showFooter}}
         <div class="footer">
-            {{!-- <div class="d-flex h-100">
-                    <div class="col-12 align-self-center">
-                    {{#isNull @root.config.footerHtml}}
-                        <h5 class="text-center">Powered by expressCart</h5>
-                    {{else}}
-                        {{{@root.config.footerHtml}}}
-                    {{/isNull}}
-                    </div>
-                </div> --}}
             <div class="upper-footer">
                 <div class="contactus navbar-expand-lg">
                     <h3>Contact Us
@@ -903,9 +748,9 @@
                     <ul class="collapse navbar-collapse" id="extras">
                         <li><a href="/customer/aboutus">About Us</a></li>
                         <li><a href="/customer/contact">Contact Us</a></li>
-                        <li><a href="">Privacy Policy</a></li>
-                        <li><a href="">Delivery Information</a></li>
-                        <li><a href="">Terms & Conditions</a></li>
+                        <li><a href="/customer/privacy">Privacy Policy</a></li>
+                        <li><a href="/customer/delivery">Delivery Information</a></li>
+                        <li><a href="/customer/terms">Terms & Conditions</a></li>
                     </ul>
                 </div>
                 <div class="Account navbar-expand-lg">
@@ -917,44 +762,13 @@
                         <i class="far fa-plus-square"></i>
                     </button>
                     <ul class="collapse navbar-collapse" id="myaccount">
-                        <li><a href="">My Account</a></li>
-                        <li><a href="">Cart</a></li>
-                        <li><a href="">Order History</a></li>
-                        <li><a href="">Wishlist</a></li>
+                        <li><a href="/customer/account">My Account</a></li>
+                        <li><a href="/checkout/cart">Cart</a></li>
+                        <li><a href="/customer/account">Order History</a></li>
                     </ul>
                 </div>
             </div>
-            {{!-- <div class="extra navbar-expand-lg">
-                    <h3>Extra
-                        <hr>
-                    </h3>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#extras"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="far fa-plus-square"></i>
-                    </button>
-                    <ul class="collapse navbar-collapse" id="extras">
-                        <li><a href="">About Us</a></li>
-                        <li><a href="">Contact Us</a></li>
-                        <li><a href="">Privacy Policy</a></li>
-                        <li><a href="">Delivery Information</a></li>
-                        <li><a href="">Terms & Conditions</a></li>
-                    </ul>
-                </div>
-                <div class="Account navbar-expand-lg">
-                    <h3>Account
-                        <hr>
-                    </h3>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myaccount"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="far fa-plus-square"></i>
-                    </button>
-                    <ul class="collapse navbar-collapse" id="myaccount">
-                        <li><a href="">My Account</a></li>
-                        <li><a href="">Cart</a></li>
-                        <li><a href="">Order History</a></li>
-                        <li><a href="">Wishlist</a></li>
-                    </ul>
-                </div> --}}
+          
             <div class="lower-footer">
                 <ul>
                     <li><a href=""><i class="fab fa-facebook-square"></i></a></li>
