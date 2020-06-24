@@ -2302,7 +2302,9 @@ Price Range */
 .customer-details-login .frame {
   height: 575px;
   width: 436px;
+
   background:rgb(33, 136, 67);
+
   background-size: cover;
   margin-left: auto;
   margin-right: auto;
@@ -2347,18 +2349,30 @@ Price Range */
 
 /* .customer-details-login .frame .nav .signin-active a {
   padding-bottom: 10px;
+<<<<<<< HEAD
   color: white;
   font-size: 24px;
   text-decoration: none;
   text-transform: uppercase;
   border-bottom: solid 2px #e7e7e7;
+=======
+  color: #74b72e;
+  font-size: 24px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-bottom: solid 2px #74b72e;
+>>>>>>> a2b410a850f8f62f9081ff363edc7842db4cee94
   transition: all .25s ease;
   cursor: pointer;
 } */
 
 /* .customer-details-login .frame .nav .signin-inactive a {
   padding-bottom: 0;
+<<<<<<< HEAD
   color: white;
+=======
+  color: rgba(45,72,18,.4);
+>>>>>>> a2b410a850f8f62f9081ff363edc7842db4cee94
    text-transform: uppercase;
   text-decoration: none;
   border-bottom: none;
@@ -2369,9 +2383,15 @@ Price Range */
 .customer-details-login .frame .nav .signup-active a {
   cursor: pointer;
   text-decoration: none;
+<<<<<<< HEAD
   color: white;
   font-size: 24px;
   border-bottom: solid 2px white;
+=======
+  color: #74b72e;
+  font-size: 24px;
+  border-bottom: solid 2px #74b72e;
+>>>>>>> a2b410a850f8f62f9081ff363edc7842db4cee94
   text-transform: uppercase;
   transition: all .25s ease;
   padding-bottom: 10px;
@@ -2379,7 +2399,11 @@ Price Range */
 
 .customer-details-login .frame .nav .signup-inactive a {
   cursor: pointer;
+<<<<<<< HEAD
   color: white;
+=======
+  color: rgba(45,72,18,.4);
+>>>>>>> a2b410a850f8f62f9081ff363edc7842db4cee94
    text-transform: uppercase;
   text-decoration: none;
   transition: all .25s ease;
@@ -2472,7 +2496,9 @@ Price Range */
 .customer-details-login .frame .form-signin input, .customer-details-login .frame .form-signup input {
   color: black;
   font-size: 15px;
+
   background: white;
+
 }
 
 .customer-details-login .frame .form-styling {
@@ -2481,9 +2507,11 @@ Price Range */
   padding-left: 15px;
   border: none;
 
+
   border-radius: 5px;
   margin-bottom: 20px;
   background: rgba(255,255,255);
+
 
 }
 
@@ -2493,7 +2521,7 @@ Price Range */
   font-size: 15px;
   padding-left: 15px;
   padding-bottom: 10px;
-  color: white;
+  color: green;
   display: block;
 }
 
@@ -2612,6 +2640,7 @@ Price Range */
   background-color: #cc3a2c;
   color: white !important;
 
+
 }
 
 .btn1-signin {
@@ -2621,12 +2650,14 @@ Price Range */
   height: 35px;
   border: none;
 
+
   border-radius: 5px;
   margin-top: -8px;
   background-color: #cc3a2c;
   color: white !important;
 
   
+
 
 }
 
@@ -2673,7 +2704,8 @@ a.btn1-signup:hover, a.btn1-signin:hover {
   text-align: center;
   padding-top: 24px;
   margin-top: -535px;
-  border-top: solid 1px white;
+
+
   transition: all 0.5s ease;
 }
 
@@ -2687,7 +2719,9 @@ a.btn1-signup:hover, a.btn1-signin:hover {
 }
 
 .forgot a {
+
   color: white;
+
   font-weight: 400;
   font-size: 20px;
   text-decoration: none;
@@ -2773,9 +2807,12 @@ a.btn1-goback:hover {
   width: 100%;
   height: 100%;
   position: relative;
+
   background-color: #fdfdfd;
+
  
 }
+
 
 
 .log .content{
@@ -2783,6 +2820,7 @@ a.btn1-goback:hover {
   background-color: #227e38;
   border-radius: 5px;
   box-shadow: 0px 0px 4px 4px rgb(165, 165, 165);
+
   margin: 40px auto;
 }
 
