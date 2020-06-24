@@ -40,14 +40,15 @@
                             {{else}}
                             <img src="/uploads/placeholder.png" alt="{{this.title}} product image"></a>
                             {{/if}}
+                            </div>
                             <div class="media-body pt-2">
                                 <h3 class="product-title font-size-base mb-2"><a
                                         href="/product/{{this.link}}">{{this.title}}</a></h3>
                                 <div class="font-size-lg text-accent pt-2">
                                     {{currencySymbol @root.config.currencySymbol}}
-                                    <span>{{formatAmount this.totalItemPrice}}</div>
+                                    <span>{{formatAmount this.totalItemPrice}}</span></div>
                             </div>
-                        </div>
+                     
                         <div class="pt-2 pt-sm-0 pl-sm-3 mx-auto mx-sm-0 text-center text-sm-left"
                             style="max-width: 9rem;">
                             <div class="form-group mb-0">
@@ -60,6 +61,12 @@
                                         value="{{../this.quantity}}">
                                     <button class="btn-qty-add" type="button"><i class="fas fa-plus"></i></button>
                                 </div>
+                                 <div class="cart-delete">
+                                 <button data-cartid="{{@key}}" class="btn btn-link px-0 text-danger btn-delete-from-cart" type="button">
+                                <i class="czi-close-circle mr-2"></i>
+                                <span class="font-size-sm">Remove</span>
+                                    </button>
+                                </div>
 
                                 {{else}}
                                 <div class="col-4 col-md-6 col-lg-5 col-xl-7 no-pad-left mb-2">
@@ -67,12 +74,8 @@
 
                                 {{/ifCond}}
                             </div>
-                            <button data-cartid="{{@key}}" class="btn btn-link px-0 text-danger btn-delete-from-cart"
-                                type="button">
-                                <i class="czi-close-circle mr-2"></i>
-                                <span class="font-size-sm">Remove</span>
-                            </button>
-                        </div>
+                           
+                        
                     </div>
                     {{/each}}
                 </div>
@@ -102,12 +105,15 @@
                                 id="discount-amount">{{currencySymbol @root.config.currencySymbol}}{{formatAmount @root.session.totalCartDiscount}}</strong>
                         </div>
                         {{/ifCond}}
+                         
+
                         <div class="text-center mb-4 pb-3 border-bottom">
                             <h2 class="h6 mb-2">Subtotal</h2>
-                            <h3 class="font-weight-normal">
-                                {{currencySymbol @root.config.currencySymbol}}{{formatAmount @root.session.totalCartAmount}}
+                            <h3 class="font-weight-normal"><strong id="total-cart-amount">
+                                {{currencySymbol @root.config.currencySymbol}}{{formatAmount @root.session.totalCartAmount}}</strong>
                             </h3>
                         </div>
+                     
                     </div>
                     <div class="form-group mb-4">
                         <label class="mb-3" for="order-comments"><span
