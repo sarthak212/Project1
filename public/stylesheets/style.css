@@ -327,6 +327,12 @@ input[type=number]::-webkit-outer-spin-button {
 .search-bar {
   margin-top: 10px;
 }
+.search-button {
+  border-top-right-radius: .3125rem !important;
+  border-bottom-right-radius: .3125rem !important;
+  border: 1px solid #dae1e7;
+  border-left: none;
+}
 
 #account .breadcrumb {
   background-color: #f8f9fa;
