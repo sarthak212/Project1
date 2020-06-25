@@ -294,12 +294,20 @@
                                 alt="Cartzilla" /></a><a class="navbar-brand d-sm-none mr-2" href="/"
                             style="min-width: 4.625rem;"><img width="74" src="/images/logo-icon.png"
                                 alt="Cartzilla" /></a>
-                        <div class="input-group-overlay d-none d-lg-flex mx-4">
+                         <div class="input-group-overlay d-none d-lg-flex mx-4">
                             <input class="form-control appended-form-control" type="text"
                                 placeholder="Search for products">
                             <div class="input-group-append-overlay"><span class="input-group-text"><i
                                         class="czi-search"></i></span></div>
+                        </div> 
+                   <form class="form-inline ml-auto">
+                        <div class="input-group">
+                            <input class="form-control" name="frm_search" id="frm_search" type="search" placeholder="{{ @root.__ "Search shop" }}" aria-label="Search">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-success" id="btn_search" type="submit">{{ @root.__ "Search" }}</button>
+                            </div>
                         </div>
+                    </form> 
                         <div class="navbar-toolbar d-flex flex-shrink-0 align-items-center">
                             <button class="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarCollapse"><span class="navbar-toggler-icon"></span></button><a
