@@ -216,15 +216,15 @@ $(document).ready(function () {
             });
     });
 
-    $('#loginForm').on('click', function (e) {
+    $('#adminloginForm').on('click', function (e) {
         if (!e.isDefaultPrevented()) {
             e.preventDefault();
             $.ajax({
                     method: 'POST',
                     url: '/admin/login_action',
                     data: {
-                        email: $('#email').val(),
-                        password: $('#password').val()
+                        adminemail: document.getElementById("adminemail").value,
+                        adminpassword: document.getElementById("adminpassword").value
                     }
                 })
                 .done(function (msg) {

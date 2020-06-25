@@ -69,18 +69,19 @@ router.get('/admin/login', async (req, res) => {
 // login the user and check the password
 router.post('/admin/login_action', async (req, res) => {
     const db = req.app.db;
-
-    const user = await db.users.findOne({ userEmail: common.mongoSanitize(req.body.email) });
+    
+    const user = await db.users.findOne({ userEmail: common.mongoSanitize(req.body.adminemail) });
     if(!user || user === null){
-        res.status(400).json({ message: 'A user with that email does not exist.' });
+        messages = 'A user with that email does not exist.';
+        res.status(400).json({ message: messages });
         return;
     }
 
     // we have a user under that email so we compare the password
-    bcrypt.compare(req.body.password, user.userPassword)
+    bcrypt.compare(req.body.adminpassword, user.userPassword)
         .then((result) => {
             if(result){
-                req.session.user = req.body.email;
+                req.session.user = req.body.adminemail;
                 req.session.usersName = user.usersName;
                 req.session.userId = user._id.toString();
                 req.session.isAdmin = user.isAdmin;
