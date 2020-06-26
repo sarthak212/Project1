@@ -6,7 +6,7 @@
 
             <div class="row bg-scr">
                 <ul id="etalage">
-                    {{#each @root.images}}
+                    {{#each result.productImage}}
                     <li>
                         <img class="etalage_thumb_image" src="{{this.path}}">
                         <img class="etalage_source_image" src="{{this.path}}">
@@ -17,7 +17,7 @@
 
             <div class="row sm-scr">
                 <ul id="etalage1">
-                    {{#each @root.images}}
+                    {{#each result.productImage}}
                     <li>
                         <img class="etalage_thumb_image" src="{{this.path}}">
                         <img class="etalage_source_image" src="{{this.path}}">

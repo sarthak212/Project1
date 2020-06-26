@@ -14,6 +14,7 @@ const { validateJson } = require('../lib/schema');
 const ObjectId = require('mongodb').ObjectID;
 const router = express.Router();
 const csrfProtection = csrf({ cookie: true });
+var cloudinary = require('cloudinary').v2;
 
 // Regex
 const emailRegex = /\S+@\S+\.\S+/;
@@ -664,11 +665,22 @@ router.post('/admin/file/upload', restrict, checkAccess, upload.single('uploadFi
         fs.unlinkSync(file.path);
 
         const imagePath = path.join('/uploads', productPath, file.originalname.replace(/ /g, '_'));
-
+        cloudinary.uploader.upload(imagePath, 
+        function(error, result) {
+            if(result){
+                var urlimagepath = [result.secure_url];
+                if(!product.productImage){
+                    await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: urlimagepath } }, { multi: false });
+                }
+                else{
+                    var tempproduct = await db.products.findOne({ _id: common.getId(req.body.productId) });
+                    var listimage = tempproduct.productImage;
+                    listimage.push(urlimagepath[0]);
+                    await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: listimage } }, { multi: false });
+                }
+            }
+        });
         // if there isn't a product featured image, set this one
-        if(!product.productImage){
-            await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: imagePath } }, { multi: false });
-        }
         // Return success message
         res.status(200).json({ message: 'File uploaded successfully' });
         return;

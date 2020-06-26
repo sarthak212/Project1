@@ -7,7 +7,6 @@ const colors = require('colors');
 const rimraf = require('rimraf');
 const fs = require('fs');
 const path = require('path');
-var cloudinary = require('cloudinary').v2;
 const router = express.Router();
 
 router.get('/admin/products/:page?', restrict, async (req, res, next) => {
