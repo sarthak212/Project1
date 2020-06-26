@@ -683,12 +683,12 @@ router.post('/admin/file/upload', restrict, checkAccess, upload.single('uploadFi
                 if(!product.productImage){
                     await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: urlimagepath } });
                 }
-                // else{
-                //     var tempproduct = await db.products.findOne({ _id: common.getId(req.body.productId) });
-                //     var listimage = tempproduct.productImage;
-                //     listimage.push(urlimagepath[0]);
-                //     await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: listimage } });
-                // }
+                else{
+                    var tempproduct = await db.products.findOne({ _id: common.getId(req.body.productId) });
+                    var listimage = tempproduct.productImage;
+                    listimage.push(urlimagepath[0]);
+                    await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: listimage } });
+                }
             }
         });
         // if there isn't a product featured image, set this one
