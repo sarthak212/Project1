@@ -666,7 +666,7 @@ router.post('/admin/file/upload', restrict, checkAccess, upload.single('uploadFi
 
         const imagePath = path.join('/uploads', productPath, file.originalname.replace(/ /g, '_'));
         cloudinary.uploader.upload(imagePath, 
-        function(error, result) {
+        async function(error, result) {
             if(result){
                 var urlimagepath = [result.secure_url];
                 if(!product.productImage){
