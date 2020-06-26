@@ -673,25 +673,25 @@ router.post('/admin/file/upload', restrict, checkAccess, upload.single('uploadFi
         const imagePath = path.join('/uploads', productPath, file.originalname.replace(/ /g, '_'));
         var hostingurl = "https://jammubasket.herokuapp.com"
         var tempImagePath = hostingurl.concat(imagePath);
-        
+        var urlimagepath;
         cloudinary.uploader.upload(tempImagePath, 
         async function(error, result) {
             if(result){
-                var urlimagepath = [result.secure_url];
+                urlimagepath = new Array(result.secure_url);
                 if(!product.productImage){
-                    await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: urlimagepath } }, { multi: false });
+                    await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: urlimagepath } });
                 }
                 else{
                     var tempproduct = await db.products.findOne({ _id: common.getId(req.body.productId) });
                     var listimage = tempproduct.productImage;
                     listimage.push(urlimagepath[0]);
-                    await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: listimage } }, { multi: false });
+                    await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: listimage } });
                 }
             }
         });
         // if there isn't a product featured image, set this one
         // Return success message
-        res.status(200).json({ message: 'File uploaded successfully'+tempImagePath });
+        res.status(200).json({ message: 'File uploaded successfully'+urlimagepath[0] });
         return;
     }
     // Return error
