@@ -16,6 +16,12 @@ const router = express.Router();
 const csrfProtection = csrf({ cookie: true });
 var cloudinary = require('cloudinary').v2;
 
+cloudinary.config({ 
+    cloud_name: 'hoiuqedcf', 
+    api_key: '849651669432825', 
+    api_secret: 'FdsuCdcqhNFa-7vCU8GZfExKA_Y' 
+  });
+
 // Regex
 const emailRegex = /\S+@\S+\.\S+/;
 const numericRegex = /^\d*\.?\d*$/;
