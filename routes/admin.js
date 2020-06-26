@@ -672,6 +672,7 @@ router.post('/admin/file/upload', restrict, checkAccess, upload.single('uploadFi
 
         const imagePath = path.join('/uploads', productPath, file.originalname.replace(/ /g, '_'));
         var tempImagePath = path.join('https://jammubasket.herokuapp.com',imagePath);
+        
         cloudinary.uploader.upload(tempImagePath, 
         async function(error, result) {
             if(result){
@@ -689,7 +690,7 @@ router.post('/admin/file/upload', restrict, checkAccess, upload.single('uploadFi
         });
         // if there isn't a product featured image, set this one
         // Return success message
-        res.status(200).json({ message: 'File uploaded successfully' });
+        res.status(200).json({ message: 'File uploaded successfully'+tempImagePath });
         return;
     }
     // Return error
