@@ -665,7 +665,7 @@ router.post('/admin/file/upload', restrict, checkAccess, upload.single('uploadFi
         fs.unlinkSync(file.path);
 
         const imagePath = path.join('/uploads', productPath, file.originalname.replace(/ /g, '_'));
-        var tempImagePath = path.join('/public',imagePath);
+        var tempImagePath = path.join('https://jammubasket.herokuapp.com',imagePath);
         cloudinary.uploader.upload(tempImagePath, 
         async function(error, result) {
             if(result){
