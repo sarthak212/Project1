@@ -425,7 +425,7 @@ router.post('/admin/product/deleteimage', restrict, checkAccess, async (req, res
     var i;
     var found_item = false;
     for(i=0;i<product.productImage.length;i++){
-        if(product.productImage[i]['id'] == req.body.productlink){
+        if(product.productImage[i]['id'] == req.body.productImage){
             found_item = true;
             res.status(200).json({ message: 'Image found in database'});
         }
@@ -436,7 +436,7 @@ router.post('/admin/product/deleteimage', restrict, checkAccess, async (req, res
             await db.products.updateOne({ _id: common.getId(req.body.product_id) }, { $set: { productImage: null } });
         }
         else{
-            await db.products.updateOne({ _id: common.getId(req.body.product_id) }, { $pull: { productImage: { id: req.body.productlink, path: req.body.productImage} } });
+            await db.products.updateOne({ _id: common.getId(req.body.product_id) }, { $pull: { productImage: { id: req.body.productImage, path: req.body.productlink} } });
         }
         
 
@@ -447,7 +447,7 @@ router.post('/admin/product/deleteimage', restrict, checkAccess, async (req, res
         });
         
     }else{
-        res.status(400).json({ message: 'Image not found in database'+req.body.productlink});
+        res.status(400).json({ message: 'Image not found in database'});
     }
 });
 
