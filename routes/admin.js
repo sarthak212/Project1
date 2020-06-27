@@ -683,17 +683,17 @@ router.post('/admin/file/upload', restrict, checkAccess, upload.single('uploadFi
                 if(!urlimagepath){
                     urlimagepath = obj.url;
                 }
-                // path1 = obj["secure_url"].toString;
-                await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: urlimagepath } });
-                // if(!product.productImage){
-                //     await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: urlimagepath } });
-                // }
-                // else{
-                //     var tempproduct = await db.products.findOne({ _id: common.getId(req.body.productId) });
-                //     var listimage = tempproduct.productImage;
-                //     listimage.push(urlimagepath[0]);
-                //     await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: listimage } });
-                // }
+                var imageArray = [];
+                if(!product.productImage){
+                    imageArray.push(urlimagepath)
+                    await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: imageArray } });
+                }
+                else{
+                    var tempproduct = await db.products.findOne({ _id: common.getId(req.body.productId) });
+                    var listimage = tempproduct.productImage;
+                    listimage.push(urlimagepath);
+                    await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: listimage } });
+                }
                 var str = "File uploaded successfully";
                 res.status(200).json({ message:  str});
             }
