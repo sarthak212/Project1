@@ -425,8 +425,9 @@ router.post('/admin/product/deleteimage', restrict, checkAccess, async (req, res
     var i;
     var found_item = false;
     for(i=0;i<product.productImage.length;i++){
-        if(product.productImage[i].id == req.body.productlink){
+        if(product.productImage[i]['id'] == req.body.productlink){
             found_item = true;
+            res.status(200).json({ message: 'Image found in database'});
         }
     }
     if(found_item){
@@ -446,7 +447,7 @@ router.post('/admin/product/deleteimage', restrict, checkAccess, async (req, res
         });
         
     }else{
-        res.status(400).json({ message: 'Image not found in database'+found_item});
+        res.status(400).json({ message: 'Image not found in database'+req.body.productlink});
     }
 });
 
