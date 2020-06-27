@@ -440,10 +440,12 @@ router.post('/admin/product/deleteimage', restrict, checkAccess, async (req, res
         
 
         // remove the image from cloudinary
-        cloudinary.uploader.destroy(req.body.productImage, function(result) { 
-            console.log(result);
+        cloudinary.uploader.destroy(req.body.productImage, function(error, result) { 
             if(result){
                 res.status(200).json({ message: 'Image deleted successfull'});
+            }
+            else{
+                res.status(400).json({ message: 'Image Not deleted'+error});
             }
         });
         
