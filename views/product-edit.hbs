@@ -155,7 +155,7 @@
                         {{#each images}}
                         <div class="col-sm-3">
                             <p>
-                                <a data-id="{{this}}" class="btn-delete-image btn btn-outline-danger">{{ @root.__ "Delete" }}</a>
+                                <a data-id="{{this.id}}" data-path="{{this.path}}" class="btn-delete-image btn btn-outline-danger">{{ @root.__ "Delete" }}</a>
                                 {{#ifCond images.[0] '==' this}}
                                     <span class="label label-info">{{ @root.__ "main image" }}</span>
                                 {{else}}
@@ -209,8 +209,8 @@
             reader.onload = function (e) {
                 $('#blah')
                     .attr('src', e.target.result)
-                    .width(150)
-                    .height(200);
+                    .width(80)
+                    .height(100);
             };
 
             reader.readAsDataURL(input.files[0]);

@@ -417,18 +417,21 @@ router.post('/admin/product/deleteimage', restrict, checkAccess, async (req, res
         res.status(400).json({ message: 'Product not found' });
         return;
     }
-    if(product.productImage.includes(req.body.productImage)){
+    var objtemp = {}
+    objtemp.id = req.body.productImage;
+    objtemp.path = req.body.productlink;
+    if(product.productImage.includes(objtemp)){
         // set the productImage to null
         if(product.productImage.length == 1){
             await db.products.updateOne({ _id: common.getId(req.body.product_id) }, { $set: { productImage: null } });
         }
         else{
-            await db.products.updateOne({ _id: common.getId(req.body.product_id) }, { $pull: { productImage: req.body.productImage } });
+            await db.products.updateOne({ _id: common.getId(req.body.product_id) }, { $pull: { productImage: objtemp } });
         }
         
 
         // remove the image from disk
-        cloudinary.uploader.destroy(req.body.productImage.id, function(result) { 
+        cloudinary.uploader.destroy(req.body.productlink, function(result) { 
             console.log(result);
             res.status(200).json({ message: 'Image deleted successfull'});
         });

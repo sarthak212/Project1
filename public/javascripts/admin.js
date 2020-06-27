@@ -296,7 +296,7 @@ $(document).ready(function (){
             $.ajax({
                 method: 'POST',
                 url: '/admin/product/deleteimage',
-                data: { product_id: $('#productId').val(), productImage: $(this).attr('data-id') }
+                data: { product_id: $('#productId').val(), productImage: $(this).attr('data-id'), productlink: $(this).attr('data-path') }
             })
             .done(function(msg){
                 showNotification(msg.message, 'success', true);
