@@ -416,27 +416,21 @@ router.post('/admin/product/deleteimage', restrict, checkAccess, async (req, res
         res.status(400).json({ message: 'Product not found' });
         return;
     }
-    if(req.body.productImage === product.productImage){
+    if(product.productImage.includes(req.body.productImage)){
         // set the productImage to null
-        await db.products.updateOne({ _id: common.getId(req.body.product_id) }, { $set: { productImage: null } }, { multi: false });
+        if(product.productImage.length == 1){
+            await db.products.updateOne({ _id: common.getId(req.body.product_id) }, { $set: { productImage: null } });
+        }
+        else{
+            await db.products.updateOne({ _id: common.getId(req.body.product_id) }, { $pull: { productImage: req.body.productImage } });
+        }
+        
 
         // remove the image from disk
-        fs.unlink(path.join('public', req.body.productImage), (err) => {
-            if(err){
-                res.status(400).json({ message: 'Image not removed, please try again.' });
-            }else{
-                res.status(200).json({ message: 'Image successfully deleted' });
-            }
-        });
+        
+        
     }else{
-        // remove the image from disk
-        fs.unlink(path.join('public', req.body.productImage), (err) => {
-            if(err){
-                res.status(400).json({ message: 'Image not removed, please try again.' });
-            }else{
-                res.status(200).json({ message: 'Image successfully deleted' });
-            }
-        });
+        res.status(400).json({ message: 'Image not found in database'});
     }
 });
 

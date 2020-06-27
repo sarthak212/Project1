@@ -673,23 +673,26 @@ router.post('/admin/file/upload', restrict, checkAccess, upload.single('uploadFi
         const imagePath = path.join('/uploads', productPath, file.originalname.replace(/ /g, '_'));
         var hostingurl = "https://jammubasket.herokuapp.com"
         var tempImagePath = hostingurl.concat(imagePath);
-        var path1 = '';
         cloudinary.uploader.upload(tempImagePath, 
         async function(error, result) {
             if(result){
                 var json_String = JSON.stringify(result);
                 var obj = JSON.parse(json_String);
                 var urlimagepath = obj.secure_url;
+                var image_id = obj.public_id;
                 if(!urlimagepath){
                     urlimagepath = obj.url;
                 }
                 var imageArray = [];
+                var img_obj = {};
+                img_obj.id = image_id;
+                img_obj.path = urlimagepath;
                 if(!product.productImage){
-                    imageArray.push(urlimagepath)
+                    imageArray.push(img_obj)
                     await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: imageArray } });
                 }
                 else{
-                    await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $push: { productImage: urlimagepath } });
+                    await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $push: { productImage: img_obj } });
                 }
                 var str = "File uploaded successfully";
                 res.status(200).json({ message:  str});
