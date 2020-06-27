@@ -677,9 +677,8 @@ router.post('/admin/file/upload', restrict, checkAccess, upload.single('uploadFi
         cloudinary.uploader.upload(tempImagePath, 
         async function(error, result) {
             if(result){
-                var obj = JSON.parse(result);
                 console.log(obj)
-                var urlimagepath = obj["secure_url"];
+                var urlimagepath = result["secure_url"];
                 // path1 = obj["secure_url"].toString;
                 await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: urlimagepath } });
                 // if(!product.productImage){
@@ -691,7 +690,7 @@ router.post('/admin/file/upload', restrict, checkAccess, upload.single('uploadFi
                 //     listimage.push(urlimagepath[0]);
                 //     await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: listimage } });
                 // }
-                var str = "File uploaded successfully".concat(urlimagepath);
+                var str = "File uploaded successfully";
                 res.status(200).json({ message:  str});
             }
         });
