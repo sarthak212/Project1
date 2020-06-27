@@ -677,9 +677,9 @@ router.post('/admin/file/upload', restrict, checkAccess, upload.single('uploadFi
         cloudinary.uploader.upload(tempImagePath, 
         async function(error, result) {
             if(result){
-                var obj = JSON.stringify(result);
+                var obj = JSON.parse(result);
                 console.log(obj)
-                var urlimagepath = obj;
+                var urlimagepath = obj["secure_url"];
                 // path1 = obj["secure_url"].toString;
                 await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: urlimagepath } });
                 // if(!product.productImage){
