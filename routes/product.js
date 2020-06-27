@@ -9,6 +9,11 @@ const fs = require('fs');
 const path = require('path');
 const router = express.Router();
 var cloudinary = require('cloudinary').v2;
+cloudinary.config({ 
+    cloud_name: 'hoiuqedcf', 
+    api_key: '849651669432825', 
+    api_secret: 'FdsuCdcqhNFa-7vCU8GZfExKA_Y' 
+  });
 
 router.get('/admin/products/:page?', restrict, async (req, res, next) => {
     let pageNum = 1;
