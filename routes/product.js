@@ -420,7 +420,14 @@ router.post('/admin/product/deleteimage', restrict, checkAccess, async (req, res
     var objtemp = {}
     objtemp.id = req.body.productImage;
     objtemp.path = req.body.productlink;
-    if(product.productImage.includes(objtemp)){
+    var i;
+    var found_item = false;
+    for(i=0;i<product.productImage.length;i++){
+        if(product.productImage[i].id == objtemp.id){
+            found_item = true;
+        }
+    }
+    if(found_item){
         // set the productImage to null
         if(product.productImage.length == 1){
             await db.products.updateOne({ _id: common.getId(req.body.product_id) }, { $set: { productImage: null } });
