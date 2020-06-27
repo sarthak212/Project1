@@ -155,14 +155,14 @@
                         {{#each images}}
                         <div class="col-sm-3">
                             <p>
-                                <a data-id="{{this.path}}" class="btn-delete-image btn btn-outline-danger">{{ @root.__ "Delete" }}</a>
+                                <a data-id="{{this}}" class="btn-delete-image btn btn-outline-danger">{{ @root.__ "Delete" }}</a>
                                 {{#ifCond this.productImage '==' true}}
                                     <span class="label label-info">{{ @root.__ "main image" }}</span>
                                 {{else}}
-                                    <a data-id="{{../this.path}}" class="set-as-main-image btn btn-outline-success">{{ @root.__ "Set as main image" }}</a>
+                                    <a data-id="{{../this}}" class="set-as-main-image btn btn-outline-success">{{ @root.__ "Set as main image" }}</a>
                                 {{/ifCond}}
                             </p>
-                            <img src="{{this.path}}" class="product-main-image img-fluid">
+                            <img src="{{this}}" class="product-main-image img-fluid">
                         </div>
                         {{/each}}
                     </div>
