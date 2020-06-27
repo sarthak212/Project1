@@ -699,7 +699,6 @@ router.post('/admin/file/upload', restrict, checkAccess, upload.single('uploadFi
                 return;
             }
         });
-        // if there isn't a product featured image, set this one
         // Return success message
         return;
     }
