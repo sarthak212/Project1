@@ -253,7 +253,7 @@ input[type=number]::-webkit-outer-spin-button {
   margin-top: 150px;
 }
 .marg-left-5 {
-  margin-left: 5px;
+  margin-left: 5px !important;
 }
 .top-pad-5 {
   padding-top: 10px;
