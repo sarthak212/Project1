@@ -679,7 +679,7 @@ router.post('/admin/file/upload', restrict, checkAccess, upload.single('uploadFi
             if(result){
                 var obj = JSON.parse(result);
                 var urlimagepath = new Array(obj["secure_url"]);
-                path1 = obj["secure_url"];
+                path1 = obj["secure_url"].toString;
                 if(!product.productImage){
                     await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: urlimagepath } });
                 }
@@ -689,7 +689,7 @@ router.post('/admin/file/upload', restrict, checkAccess, upload.single('uploadFi
                     listimage.push(urlimagepath[0]);
                     await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: listimage } });
                 }
-                res.status(200).json({ message: 'File uploaded successfully'+path1 });
+                res.status(200).json({ message: 'File uploaded successfully'+typeof(path1)+path1 });
             }
         });
         // if there isn't a product featured image, set this one
