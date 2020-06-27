@@ -689,13 +689,16 @@ router.post('/admin/file/upload', restrict, checkAccess, upload.single('uploadFi
                     await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: imageArray } });
                 }
                 else{
-                    var tempproduct = await db.products.findOne({ _id: common.getId(req.body.productId) });
-                    var listimage = tempproduct.productImage;
+                    var listimage = product.productImage;
                     listimage.push(urlimagepath);
                     await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: listimage } });
                 }
                 var str = "File uploaded successfully";
                 res.status(200).json({ message:  str});
+            }
+            else {
+                res.status(400).json({ message: 'File upload error. Please try again.' });
+                return;
             }
         });
         // if there isn't a product featured image, set this one
