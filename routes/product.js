@@ -427,7 +427,6 @@ router.post('/admin/product/deleteimage', restrict, checkAccess, async (req, res
     for(i=0;i<product.productImage.length;i++){
         if(product.productImage[i]['id'] == req.body.productImage){
             found_item = true;
-            res.status(200).json({ message: 'Image found in database'});
         }
     }
     if(found_item){
@@ -441,7 +440,7 @@ router.post('/admin/product/deleteimage', restrict, checkAccess, async (req, res
         
 
         // remove the image from cloudinary
-        cloudinary.uploader.destroy(req.body.productlink, function(result) { 
+        cloudinary.uploader.destroy(req.body.productImage, function(result) { 
             console.log(result);
             res.status(200).json({ message: 'Image deleted successfull'});
         });
