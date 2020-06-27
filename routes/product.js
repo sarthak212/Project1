@@ -401,17 +401,19 @@ router.post('/admin/product/setasmainimage', restrict, checkAccess, async (req, 
     try{
         const product = await db.products.findOne({ _id: common.getId(req.body.product_id) });
         var i;
-        var index = -1;
+        var j;
         var updatedImageList = [];
         for(i=0; i< product.productImage.length; i++){
             if(product.productImage[i].id == req.body.productImage){
-                index = i;
                 updatedImageList.push(product.productImage[i]);
                 break;
             }
         }
-        updatedImageList = updatedImageList.concat(product.productImage.slice(0,index));
-        updatedImageList = updatedImageList.concat(product.productImage.slice(index+1,product.productImage.length))
+        for(j=0; j< product.productImage.length; j++){
+            if(product.productImage[j].id != req.body.productImage){
+                updatedImageList.push(product.productImage[j]);
+            }
+        }
         await db.products.updateOne({ _id: common.getId(req.body.product_id) }, { $set: { productImage: updatedImageList } }, { multi: false });
         res.status(200).json({ message: 'Main image successfully set' });
     }catch(ex){
