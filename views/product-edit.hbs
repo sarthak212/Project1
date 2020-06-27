@@ -182,13 +182,14 @@
         <div class="modal-content">
             <form method="post" id="uploadForm" enctype="multipart/form-data"></form>
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <button type="button" class="close marg-left-5" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <h4 class="modal-title" id="myModalLabel">{{ @root.__ "Product image upload" }}</h4>
             </div>
             <div class="modal-body">
                 <span class="btn btn-outline-info btn-file">
-                    {{ @root.__ "Select file" }}<input type="file" name="uploadFile" id="uploadFile" form="uploadForm">
+                    {{ @root.__ "Select file" }}<input type="file" name="uploadFile" id="uploadFile" form="uploadForm" onchange="readURL(this);">
                 </span>
+                 <img id="blah" src="#" alt="your image" />
                 <input type="hidden" id="productId" name="productId" value="{{result._id}}"/>
             </div>
             <div class="modal-footer">
@@ -202,6 +203,20 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" integrity="sha256-f/v2ew/bb0v4el1ALE7bOoXGUDWGk2k+dkPLo3JPhLw=" crossorigin="anonymous" />
 <script>
     $(document).ready(function() {
+        function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result)
+                    .width(150)
+                    .height(200);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
         $('#productDescription').summernote({
             height: 300,
             minHeight: null
