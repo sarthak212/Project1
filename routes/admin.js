@@ -677,19 +677,22 @@ router.post('/admin/file/upload', restrict, checkAccess, upload.single('uploadFi
         cloudinary.uploader.upload(tempImagePath, 
         async function(error, result) {
             if(result){
-                var obj = JSON.parse(result);
-                var urlimagepath = new Array(obj["secure_url"]);
-                path1 = obj["secure_url"].toString;
-                if(!product.productImage){
-                    await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: urlimagepath } });
-                }
-                else{
-                    var tempproduct = await db.products.findOne({ _id: common.getId(req.body.productId) });
-                    var listimage = tempproduct.productImage;
-                    listimage.push(urlimagepath[0]);
-                    await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: listimage } });
-                }
-                res.status(200).json({ message: 'File uploaded successfully'+typeof(path1)+path1 });
+                var obj = JSON.stringify(result);
+                console.log(obj)
+                var urlimagepath = obj;
+                // path1 = obj["secure_url"].toString;
+                await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: urlimagepath } });
+                // if(!product.productImage){
+                //     await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: urlimagepath } });
+                // }
+                // else{
+                //     var tempproduct = await db.products.findOne({ _id: common.getId(req.body.productId) });
+                //     var listimage = tempproduct.productImage;
+                //     listimage.push(urlimagepath[0]);
+                //     await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: listimage } });
+                // }
+                var str = "File uploaded successfully".concat(urlimagepath);
+                res.status(200).json({ message:  str});
             }
         });
         // if there isn't a product featured image, set this one
