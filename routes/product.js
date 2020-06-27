@@ -8,6 +8,7 @@ const rimraf = require('rimraf');
 const fs = require('fs');
 const path = require('path');
 const router = express.Router();
+var cloudinary = require('cloudinary').v2;
 
 router.get('/admin/products/:page?', restrict, async (req, res, next) => {
     let pageNum = 1;
@@ -427,7 +428,10 @@ router.post('/admin/product/deleteimage', restrict, checkAccess, async (req, res
         
 
         // remove the image from disk
-        
+        cloudinary.uploader.destroy(req.body.productImage.id, function(result) { 
+            console.log(result);
+            res.status(200).json({ message: 'Image deleted successfull'});
+        });
         
     }else{
         res.status(400).json({ message: 'Image not found in database'});

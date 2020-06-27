@@ -154,7 +154,7 @@
                             <a href="/product/{{this.productPermalink}}">
                                 <div class="product-thumb">
                                     {{#if productImage}}
-                                        <img src="{{this.productImage.[0]}}" alt="...">
+                                        <img src="{{this.productImage.[0].path}}" alt="...">
                                     {{else}}
                                         <img src="/uploads/placeholder.png" alt="...">
                                     {{/if}}
@@ -193,7 +193,7 @@
                         <a href="/product/{{this._id}}">
                             <div class="product-thumb">
                                 {{#if productImage}}
-                                    <img src="{{this.productImage.[0]}}" alt="...">
+                                    <img src="{{this.productImage.[0].path}}" alt="...">
                                 {{else}}
                                     <img src="/uploads/placeholder.png" alt="...">
                                 {{/if}}
