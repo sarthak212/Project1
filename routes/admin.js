@@ -689,9 +689,7 @@ router.post('/admin/file/upload', restrict, checkAccess, upload.single('uploadFi
                     await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: imageArray } });
                 }
                 else{
-                    var listimage = product.productImage;
-                    listimage.push(urlimagepath);
-                    await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: listimage } });
+                    await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $push: { productImage: urlimagepath } });
                 }
                 var str = "File uploaded successfully";
                 res.status(200).json({ message:  str});
