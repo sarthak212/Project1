@@ -159,7 +159,7 @@
                                 {{#ifCond images.[0] '==' this}}
                                     <span class="label label-info">{{ @root.__ "main image" }}</span>
                                 {{else}}
-                                    <a data-id="{{../this}}" class="set-as-main-image btn btn-outline-success">{{ @root.__ "Set as main image" }}</a>
+                                    <a data-id="{{this.id}}" class="set-as-main-image btn btn-outline-success">{{ @root.__ "Set as main image" }}</a>
                                 {{/ifCond}}
                             </p>
                             <img src="{{this.path}}" class="product-main-image img-fluid">

@@ -314,7 +314,6 @@ router.post('/admin/product/update', restrict, checkAccess, async (req, res) => 
         return;
     }
 
-    const images = product.productImage;
     const productDoc = {
         productId: req.body.productId,
         productPermalink: req.body.productPermalink,
@@ -340,11 +339,7 @@ router.post('/admin/product/update', restrict, checkAccess, async (req, res) => 
 
     // if no featured image
     if(!product.productImage){
-        if(images.length > 0){
-            productDoc.productImage = images[0].path;
-        }else{
-            productDoc.productImage = '/uploads/placeholder.png';
-        }
+        productDoc.productImage = '/uploads/placeholder.png';
     }else{
         productDoc.productImage = product.productImage;
     }
@@ -404,8 +399,20 @@ router.post('/admin/product/setasmainimage', restrict, checkAccess, async (req, 
     const db = req.app.db;
 
     try{
-        // update the productImage to the db
-        await db.products.updateOne({ _id: common.getId(req.body.product_id) }, { $set: { productImage: req.body.productImage } }, { multi: false });
+        const product = await db.products.findOne({ _id: common.getId(req.body.product_id) });
+        var i;
+        var index = -1;
+        var updatedImageList = [];
+        for(i=0; i< product.productImage.length; i++){
+            if(product.productImage[i].id == req.body.productImage){
+                index = i;
+                updatedImageList.push(product.productImage[i]);
+                break;
+            }
+        }
+        updatedImageList = updatedImageList.concat(product.productImage.slice(0,index));
+        updatedImageList = updatedImageList.concat(product.productImage.slice(index+1,product.productImage.length))
+        await db.products.updateOne({ _id: common.getId(req.body.product_id) }, { $set: { productImage: updatedImageList } }, { multi: false });
         res.status(200).json({ message: 'Main image successfully set' });
     }catch(ex){
         res.status(400).json({ message: 'Unable to set as main image. Please try again.' });
@@ -427,6 +434,7 @@ router.post('/admin/product/deleteimage', restrict, checkAccess, async (req, res
     for(i=0;i<product.productImage.length;i++){
         if(product.productImage[i]['id'] == req.body.productImage){
             found_item = true;
+            break;
         }
     }
     if(found_item){
