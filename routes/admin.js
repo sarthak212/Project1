@@ -689,11 +689,11 @@ router.post('/admin/file/upload', restrict, checkAccess, upload.single('uploadFi
                     listimage.push(urlimagepath[0]);
                     await db.products.updateOne({ _id: common.getId(req.body.productId) }, { $set: { productImage: listimage } });
                 }
+                res.status(200).json({ message: 'File uploaded successfully'+path1 });
             }
         });
         // if there isn't a product featured image, set this one
         // Return success message
-        res.status(200).json({ message: 'File uploaded successfully'+path1 });
         return;
     }
     // Return error

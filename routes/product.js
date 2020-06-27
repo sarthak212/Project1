@@ -139,8 +139,8 @@ router.post('/admin/product/insert', restrict, checkAccess, async (req, res) => 
 router.get('/admin/product/edit/:id', restrict, checkAccess, async (req, res) => {
     const db = req.app.db;
 
-    const images = await common.getImages(req.params.id, req, res);
     const product = await db.products.findOne({ _id: common.getId(req.params.id) });
+    const images = product.productImage;
     if(!product){
         // If API request, return json
         if(req.apiAuthenticated){
@@ -308,7 +308,7 @@ router.post('/admin/product/update', restrict, checkAccess, async (req, res) => 
         return;
     }
 
-    const images = await common.getImages(req.body.productId, req, res);
+    const images = product.productImage;
     const productDoc = {
         productId: req.body.productId,
         productPermalink: req.body.productPermalink,
