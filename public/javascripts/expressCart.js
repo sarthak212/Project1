@@ -433,6 +433,7 @@ $(document).ready(function () {
     });
 
     $(document).on('click', '.btn-round', function (e) {
+        console.log('clicked');
         $.ajax({
                 method: 'POST',
                 url: '/product/addtocart',
