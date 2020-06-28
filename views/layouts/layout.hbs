@@ -713,11 +713,19 @@
         {{/ifCond}}
         {{/ifCond}}
         {{/unless}}
+        {{#if admin}}
+        <div class="container-fluid h-100" id="container">
+            <div class="row">
+                {{{body}}}
+            </div>
+        </div>
+        {{else}}
         <div class="nav-top container-fluid h-100" id="container">
             <div class="row">
                 {{{body}}}
             </div>
         </div>
+        {{/if}}
         <input type="hidden" id="input_notify_message" value="{{message}}">
         <input type="hidden" id="input_notify_messageType" value="{{messageType}}">
         <input type="hidden" id="cartCheckout" value="{{checkout}}">
