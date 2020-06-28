@@ -231,6 +231,7 @@ body .popover {
 }
 .sidebar-brand {
   width: 80%;
+  max-width: 300px;
 }
 .sidebar-search {
   text-align: center;
@@ -254,13 +255,13 @@ body .popover {
   padding-top: 20px;
   margin-bottom: 20px;
 }
-@media (min-width: 768px) {
+@media (min-width: 990px) {
   [role="main"] {
     padding-top: 20px;
     padding-bottom: 20px;
   }
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 990px) {
   .navbar-default .navbar-brand {
     padding-top: 10px;
   }
@@ -293,4 +294,9 @@ body .popover {
   .footer {
     padding-top: 10px;
   }
+}
+
+.czi-add {
+  padding-left: 2rem;
+  padding-top: 1.3rem;
 }
