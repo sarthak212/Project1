@@ -116,7 +116,7 @@
     <div class="row product-layout">
         {{#ifCond results.length '==' 0}}
             <div class="col-sm-12">
-                <p class="text-danger">{{ @root.__ "No products found" }}</p>
+                <img src="/images/no-product-found.png" alt="No Product Found" class="mx-auto">
             </div>
         {{/ifCond}}
         {{#each results}}
