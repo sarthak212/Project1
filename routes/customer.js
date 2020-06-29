@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const router = express.Router();
 const colors = require('colors');
@@ -16,10 +17,95 @@ const { indexCustomers } = require('../lib/indexing');
 const { validateJson } = require('../lib/schema');
 const { restrict } = require('../lib/auth');
 
+const Nexmo = require('nexmo');
 const apiLimiter = rateLimit({
     windowMs: 300000, // 5 minutes
     max: 5
 });
+
+  
+//registred for the customer
+const nexmo = new Nexmo({
+    apiKey:"9193766f",
+    apiSecret: "YeWaia8Ylv4ugKD3"
+  });
+  
+router.get('/customer/verify',async (req,res) => {
+    console.log("in the verify section");
+    res.render('verify');
+  });
+  
+  router.post('/customer/register',async (req, res) => {
+    const config = req.app.config;
+    console.log("IN THE REGISTRED ACCOUNT");
+    // A user registers with a mobile phone number
+    let phoneNumber = req.body.shipPhoneNumber;
+    let message = req.body.message;
+    
+    console.log(phoneNumber);
+    console.log(message);
+    nexmo.verify.request({number: phoneNumber, brand: message}, (err, result) => {
+      if(err) {
+        //res.sendStatus(500);
+        console.log("error here in the customer section");
+        res.render('status', {message: 'Server Error'});
+      } else {
+        console.log(result);
+        let requestId = result.request_id;
+        if(result.status == '0') {
+            console.log("in the result status section");
+             res.render('verify', {
+                requestId: requestId,
+                title: 'Registration help',
+                config: req.app.config,
+                helpers: req.handlebars.helpers,
+                showFooter: true
+            });
+          //res.render('verify', {requestId: requestId});
+        } else {
+          //res.status(401).send(result.error_text);
+          res.render('customer', 
+          {message: result.error_text, 
+           requestId: requestId,
+           config: req.app.config,
+           helpers: req.handlebars.helpers,
+           showFooter: true
+        });
+        }
+      }
+    });
+  });
+  
+  router.post('/customer/confirm', (req, res) => {
+    // Checking to see if the code matches
+    const config = req.app.config;
+    let pin = req.body.pin;
+    let requestId = req.body.requestId;
+  console.log('value of requestid in verify post handler is ' + requestId);
+    nexmo.verify.check({request_id: requestId, code: pin}, (err, result) => {
+      if(err) {
+        //res.status(500).send(err);
+        res.render('status', {message: 'Server Error'});
+      } else {
+        console.log(result);
+        // Error status code: https://docs.nexmo.com/verify/api-reference/api-reference#check
+        if(result && result.status == '0') {
+          //res.status(200).send('Account verified!');
+          console.log("verified account yrr");
+          res.render('status', {message: 'Account verified! 🎉'});
+        } else {
+          //res.status(401).send(result.error_text);
+          res.render('status',
+           {message: result.error_text, requestId: requestId});
+        }
+      }
+    });
+  });
+
+  router.get('/customer/status',async(req, res, next)=> {
+    res.render('status');
+  });
+  
 
 // insert a customer
 router.post('/customer/create', async (req, res) => {
