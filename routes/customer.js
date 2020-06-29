@@ -49,16 +49,20 @@ const nexmo = new Nexmo({
         phoneNumber = phoneNumber;
     }
     else{
-        res.status(401).send('Enter Correct Phone Number For OTP');
+        req.session.message = 'Enter Correct Number';
+        req.session.messageType = 'danger';
         res.redirect('/checkout/information');
+        return;
     }
     nexmo.verify.request({number: phoneNumber, brand: message}, (err, result) => {
         console.log(phoneNumber);
         console.log(result);
       if(err) {
         //res.sendStatus(500);
-        res.status(401).send('Error Sending Otp');
+        req.session.message = 'Error Sending Otp';
+        req.session.messageType = 'danger';
         res.redirect('/checkout/information');
+        return;
       } 
       else {
         let requestId = result.request_id;
@@ -71,8 +75,10 @@ const nexmo = new Nexmo({
                 showFooter: true
             });
         } else {
-            res.status(401).send('Error in Status Code');
+            req.session.message = 'Error in status code';
+            req.session.messageType = 'danger';
             res.redirect('/checkout/information');
+            return;
         }
       }
     });
