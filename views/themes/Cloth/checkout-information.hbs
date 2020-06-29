@@ -12,7 +12,7 @@
           </nav>
           <!-- Content-->
           <!-- Checkout form-->
-          <form>
+          <form action="/customer/register" method="post">
             <div class="row no-gutters pb-5 mb-xl-3">
               <!-- Delivery details-->
               <div class="col-xl-6 mb-3">
@@ -83,7 +83,7 @@
                   <div class="col-sm-12">
                     <div class="form-group">
                       <label for="co-note">Order note</label>
-                      <textarea class="form-control" id="co-note" rows="6"
+                      <textarea class="form-control" name="message" id="co-note" rows="6"
                         placeholder="Please write here any additional information..."></textarea>
                     </div>
                   </div>
@@ -296,9 +296,10 @@
                   </div>
                 </div>
                 <div class="pt-2">
-                  <button class="btn btn-primary btn-block" type="submit">Place Order</button>
+                  <button class="btn btn-primary btn-block" id="add-to-reg" type="submit">Place Order</button>
                 </div>
               </div>
+
             </div>
         </div>
         </form>
