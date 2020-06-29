@@ -39,7 +39,6 @@ const nexmo = new Nexmo({
 
     // A user registers with a mobile phone number
     let phoneNumber = req.body.shipPhoneNumber;
-    let firstName = req.body.shipFirstname;
     let message = "Hello Your Otp";
     
     if(phoneNumber.length == 10){
@@ -55,8 +54,6 @@ const nexmo = new Nexmo({
         return;
     }
     nexmo.verify.request({number: phoneNumber, brand: message}, (err, result) => {
-        console.log(phoneNumber);
-        console.log(result);
       if(err) {
         //res.sendStatus(500);
         req.session.message = 'Error Sending Otp';
@@ -66,16 +63,27 @@ const nexmo = new Nexmo({
       } 
       else {
         let requestId = result.request_id;
+        let paymentType = '';
+        if(req.session.cartSubscription){
+            paymentType = '_subscription';
+        }
         if(result.status == '0') {
-             res.render('verify', {
-                requestId: requestId,
-                title: 'Registration help',
+            res.render(`${config.themeViews}checkout-information`, {
+                title: 'Checkout - Information',
                 config: req.app.config,
+                session: req.session,
+                paymentType,
+                requestId: requestId,
+                cartClose: false,
+                page: 'checkout-information',
+                countryList,
+                message: clearSessionValue(req.session, 'message'),
+                messageType: clearSessionValue(req.session, 'messageType'),
                 helpers: req.handlebars.helpers,
-                showFooter: true
+                showFooter: 'showFooter'
             });
         } else {
-            req.session.message = 'Error in status code';
+            req.session.message = 'Error in Sending Otp';
             req.session.messageType = 'danger';
             res.redirect('/checkout/information');
             return;
@@ -98,7 +106,7 @@ const nexmo = new Nexmo({
         console.log(result);
         // Error status code: https://docs.nexmo.com/verify/api-reference/api-reference#check
         if(result && result.status == '0') {
-          //res.status(200).send('Account verified!');
+          res.status(200).send('Account verified!');
           console.log("verified account yrr");
           res.render('success', {
               message: 'Account verified! 🎉',
