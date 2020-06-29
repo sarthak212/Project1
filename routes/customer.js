@@ -29,31 +29,40 @@ const nexmo = new Nexmo({
     apiKey:"9193766f",
     apiSecret: "YeWaia8Ylv4ugKD3"
   });
-  
-router.get('/customer/verify',async (req,res) => {
+  router.get('/customer/verify',async (req,res) => {
     console.log("in the verify section");
     res.render('verify');
   });
   
   router.post('/customer/register',async (req, res) => {
     const config = req.app.config;
-    console.log("IN THE REGISTRED ACCOUNT");
+
     // A user registers with a mobile phone number
     let phoneNumber = req.body.shipPhoneNumber;
-    let message = req.body.message;
+    let firstName = req.body.shipFirstname;
+    let message = "Hello Your Otp";
     
-    console.log(phoneNumber);
-    console.log(message);
+    if(phoneNumber.length == 10){
+        phoneNumber = '91'+phoneNumber;
+    }
+    else if(phoneNumber.slice(0,2) == '91'){
+        phoneNumber = phoneNumber;
+    }
+    else{
+        res.status(401).send('Enter Correct Phone Number For OTP');
+        res.redirect('/checkout/information');
+    }
     nexmo.verify.request({number: phoneNumber, brand: message}, (err, result) => {
+        console.log(phoneNumber);
+        console.log(result);
       if(err) {
         //res.sendStatus(500);
-        console.log("error here in the customer section");
-        res.render('status', {message: 'Server Error'});
-      } else {
-        console.log(result);
+        res.status(401).send('Error Sending Otp');
+        res.redirect('/checkout/information');
+      } 
+      else {
         let requestId = result.request_id;
         if(result.status == '0') {
-            console.log("in the result status section");
              res.render('verify', {
                 requestId: requestId,
                 title: 'Registration help',
@@ -61,16 +70,9 @@ router.get('/customer/verify',async (req,res) => {
                 helpers: req.handlebars.helpers,
                 showFooter: true
             });
-          //res.render('verify', {requestId: requestId});
         } else {
-          //res.status(401).send(result.error_text);
-          res.render('customer', 
-          {message: result.error_text, 
-           requestId: requestId,
-           config: req.app.config,
-           helpers: req.handlebars.helpers,
-           showFooter: true
-        });
+            res.status(401).send('Error in Status Code');
+            res.redirect('/checkout/information');
         }
       }
     });
@@ -84,27 +86,29 @@ router.get('/customer/verify',async (req,res) => {
   console.log('value of requestid in verify post handler is ' + requestId);
     nexmo.verify.check({request_id: requestId, code: pin}, (err, result) => {
       if(err) {
-        //res.status(500).send(err);
-        res.render('status', {message: 'Server Error'});
+        res.status(500).send('Server Error');
+        res.redirect('/checkout/information');
       } else {
         console.log(result);
         // Error status code: https://docs.nexmo.com/verify/api-reference/api-reference#check
         if(result && result.status == '0') {
           //res.status(200).send('Account verified!');
           console.log("verified account yrr");
-          res.render('status', {message: 'Account verified! 🎉'});
+          res.render('success', {
+              message: 'Account verified! 🎉',
+              title: 'Success',
+              config: req.app.config,
+              helpers: req.handlebars.helpers,
+              showFooter: true
+            });
         } else {
-          //res.status(401).send(result.error_text);
-          res.render('status',
-           {message: result.error_text, requestId: requestId});
+          res.status(401).send(result.error_text);
+          res.redirect('/checkout/information');
         }
       }
     });
   });
 
-  router.get('/customer/status',async(req, res, next)=> {
-    res.render('status');
-  });
   
 
 // insert a customer
