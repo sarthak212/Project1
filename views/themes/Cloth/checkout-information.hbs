@@ -44,7 +44,7 @@
             <h1 class="h2 mb-4">Checkout</h1>
             <button class="btn col-2 btn-primary btn-shadow mb-3" href="#signin-modal" data-toggle="modal"
               id="customerloginForm" type="submit">Login</button>
-            <h2 class="h5 mb-4">Delivery details</h2>
+            <h2 class="h5 mb-4">Fill Information</h2>
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
@@ -101,6 +101,18 @@
                   <textarea class="form-control" name="message" id="co-note" rows="6"
                     placeholder="Please write here any additional information..."></textarea>
                 </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                  <label style="margin-bottom: 0px;" class="form-check-labelcustom-control-label font-weight-medium text-dark" for="inlineCheckbox1">Create New Account</label>
+              </div>
+                {{!-- <div class="custom-control custom-radio">
+                    <input class="custom-control-input" type="radio" name="license" id="new-account">
+                    <label class="custom-control-label font-weight-medium text-dark" for="new-account"
+                      data-toggle="collapse" data-target="">Create New Account<i
+                        class="czi-wallet text-muted font-size-lg align-middle mt-n1 ml-2"></i></label>
+                  </div> --}}
               </div>
             </div>
             <div class="rounded-lg border p-4 my-3">
@@ -275,7 +287,7 @@
                             <input class="form-control" type="text" placeholder="CVC">
                           </div>
                         </div> --}}
-         git            <p class="font-size-sm mb-0">You will be redirected to the Payment Gateway to complete your
+                   <p class="font-size-sm mb-0">You will be redirected to the Payment Gateway to complete your
                       order.</p>
                   </div>
                 </div>
