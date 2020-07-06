@@ -17,112 +17,172 @@ const { indexCustomers } = require('../lib/indexing');
 const { validateJson } = require('../lib/schema');
 const { restrict } = require('../lib/auth');
 
-const Nexmo = require('nexmo');
+//*********************************//
+
+const authy = require('authy')('XZZ8npIOx0PTZI6JfNFLAawZJFwWDshz');
+
 const apiLimiter = rateLimit({
     windowMs: 300000, // 5 minutes
     max: 5
 });
 
-  
-//registred for the customer
-const nexmo = new Nexmo({
-    apiKey:"9193766f",
-    apiSecret: "YeWaia8Ylv4ugKD3"
-  });
-  router.get('/customer/verify',async (req,res) => {
-    console.log("in the verify section");
-    res.render('verify');
-  });
-  
-  router.post('/customer/register',async (req, res) => {
+router.post('/customer/register', function(req, res) {
+    const config = req.app.config;
+	console.log('New register request...');
+
+	var isSuccessful = false;
+
+	var email = req.body.shipEmail;
+	var phone = req.body.shipPhoneNumber;;
+	var countryCode = '+91';
+	
+	authy.register_user(email, phone, countryCode, function (regErr, regRes) {
+    	console.log('In Registration...');
+    	if (regErr) {
+       		console.log(regErr);
+               res.send('There was some error registering the user.');
+               res.redirect('/checkout/information');
+               return;
+    	} else if (regRes) {
+			console.log(regRes);
+			console.log("Here we go for the practice part"+regRes.user.id);
+
+            // Set the customer into the session
+            req.session.customerEmail = req.body.shipEmail;
+            req.session.customerFirstname = req.body.shipFirstname;
+            req.session.customerLastname = req.body.shipLastname;
+            req.session.customerAddress1 = req.body.shipAddr1;
+            req.session.customerState = req.body.shipState;
+            req.session.customerPostcode = req.body.shipPostcode;
+            req.session.customerPhone = req.body.shipPhoneNumber;
+
+
+
+    		authy.request_sms(regRes.user.id, function (smsErr, smsRes) {
+				console.log('Requesting SMS...');
+    			if (smsErr) {
+    				console.log(smsErr);
+					res.send('There was some error sending OTP to cell phone.');
+                    req.session.message = result.error_text;
+                    req.session.messageType = 'danger';
+                    res.redirect('/checkout/information');
+                    return;
+    			} else if (smsRes) {
+                    let paymentType = '';
+                    if(req.session.cartSubscription){
+                        paymentType = '_subscription';
+                    }
+                        res.render(`${config.themeViews}checkout-information`, {
+                            title: 'Checkout - Information',
+                            config: req.app.config,
+                            session: req.session,
+                            paymentType,
+                            requestId: regRes.user.id,
+                            cartClose: false,
+                            page: 'checkout-information',
+                            message: clearSessionValue(req.session, 'message'),
+                            messageType: clearSessionValue(req.session, 'messageType'),
+                            helpers: req.handlebars.helpers,
+                            showFooter: 'showFooter'
+                        });
+    			}
+			});
+    	}
+   	});
+});
+
+router.post('/customer/confirm', async (req, res)=> {
+	console.log('New verify request...');
     const config = req.app.config;
 
-    // A user registers with a mobile phone number
-    let phoneNumber = req.body.shipPhoneNumber;
-    let message = "Hello Your Otp";
-    
-    if(phoneNumber.length == 10){
-        phoneNumber = '91'+phoneNumber;
-    }
-    else if(phoneNumber.slice(0,2) == '91'){
-        phoneNumber = phoneNumber;
-    }
-    else{
-        req.session.message = 'Enter Correct Number';
-        req.session.messageType = 'danger';
-        res.redirect('/checkout/information');
-        return;
-    }
-    nexmo.verify.request({number: phoneNumber, brand: message}, (err, result) => {
-      if(err) {
-        //res.sendStatus(500);
-        req.session.message = 'Error Sending Otp';
-        req.session.messageType = 'danger';
-        res.redirect('/checkout/information');
-        return;
-      } 
-      else {
-        let requestId = result.request_id;
-        let paymentType = '';
-        if(req.session.cartSubscription){
-            paymentType = '_subscription';
-        }
-        if(result.status == '0') {
-            res.render(`${config.themeViews}checkout-information`, {
-                title: 'Checkout - Information',
-                config: req.app.config,
-                session: req.session,
-                paymentType,
-                requestId: requestId,
-                cartClose: false,
-                page: 'checkout-information',
-                message: clearSessionValue(req.session, 'message'),
-                messageType: clearSessionValue(req.session, 'messageType'),
-                helpers: req.handlebars.helpers,
-                showFooter: 'showFooter'
-            });
-        } else {
-            req.session.message = result.error_text;
-            req.session.messageType = 'danger';
+	const id = req.body.requestId;
+	const token = req.body.pin;
+
+	authy.verify(id, token, async (verifyErr, verifyRes)=> {
+		console.log('In Verification...');
+		if (verifyErr) {
+			console.log(verifyErr);
+            res.send('OTP verification failed.');
             res.redirect('/checkout/information');
             return;
-        }
-      }
-    });
-  });
-  
-  router.post('/customer/confirm', (req, res) => {
-    // Checking to see if the code matches
-    const config = req.app.config;
-    let pin = req.body.pin;
-    let requestId = req.body.requestId;
-  console.log('value of requestid in verify post handler is ' + requestId);
-    nexmo.verify.check({request_id: requestId, code: pin}, (err, result) => {
-      if(err) {
-        res.status(500).send('Server Error');
-        res.redirect('/checkout/information');
-      } else {
-        console.log(result);
-        // Error status code: https://docs.nexmo.com/verify/api-reference/api-reference#check
-        if(result && result.status == '0') {
-        //   res.status(200).send('Account verified!');
-          console.log("verified account yrr");
-          res.render('success', {
-              message: 'Account verified! 🎉',
-              title: 'Success',
-              config: req.app.config,
-              helpers: req.handlebars.helpers,
-              showFooter: true
-            });
-        } else {
-          res.status(401).send(result.error_text);
-          res.redirect('/checkout/information');
-        }
-      }
-    });
-  });
+		} else if (verifyRes) {
+            console.log("Is session working properly"+req.session.customerEmail);
+            const db = req.app.db;
+    
+            const customerObj = {
+                email: req.session.customerEmail,
+                firstName: req.session.customerFirstname,
+                lastName: req.session.customerLastname,
+                address1: req.session.customerAddress1,
+                state: req.session.customerState,
+                postcode: req.session.customerPostcode,
+                phone: req.session.customerPhone,
+                password: bcrypt.hashSync(req.body.shipPassword, 10),
+                created: new Date()
+            };
+        
+            const schemaResult = validateJson('newCustomer', customerObj);
+            if(!schemaResult.result){
+                console.log("validation occur due to deleted some items here");
+                res.status(400).json(schemaResult.errors);
+                return;
+            }
+        
+            // check for existing customer
+            const customer =  await db.customers.findOne({ email: req.session.customerEmail });
+            if(customer){
+                res.status(400).json({
+                    message: 'A customer already exists with that phone number'
+                });
+                return;
+            } 
+            // email is ok to be used.
+            try{
+                const newCustomer = await db.customers.insertOne(customerObj);
+                indexCustomers(req.app)
+                .then(() => {
+                    // Return the new customer
+                    const customerReturn = newCustomer.ops[0];
+                    delete customerReturn.password;
+        
+                    // Set the customer into the session
+                    req.session.customerPresent = true;
+                    req.session.customerId = customerReturn._id;
+                    req.session.customerEmail = customerReturn.email;
+                    req.session.customerFirstname = customerReturn.firstName;
+                    req.session.customerLastname = customerReturn.lastName;
+                    req.session.customerAddress1 = customerReturn.address1;
+                    req.session.customerState = customerReturn.state;
+                    req.session.customerPostcode = customerReturn.postcode;
+                    req.session.customerPhone = customerReturn.phone;
+                //    req.session.orderComment = req.body.orderComment;
+    
+                    // Return customer oject
+                   // res.status(200).json(customerReturn);
+                    res.render('login', {
+                        message: 'Account verified! 🎉',
+                        title: 'Success',
+                        config: req.app.config,
+                        helpers: req.handlebars.helpers,
+                        showFooter: true
+                      });
+                });
+            }catch(ex){
+                console.error(colors.red('Failed to insert customer: ', ex));
+                res.status(400).json({
+                    message: 'Customer creation failed.'
+                });
+            }
+            } else {
+              res.status(401).send(result.error_text);
+              res.redirect('/checkout/information');
+              return;
+            }
+	});
+});
 
-  
+
+//*************************************//
 
 // insert a customer
 router.post('/customer/create', async (req, res) => {
