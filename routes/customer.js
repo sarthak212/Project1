@@ -132,7 +132,7 @@ router.post('/customer/confirm', async (req, res)=> {
             const customer =  await db.customers.findOne({ email: req.session.customerEmail });
             if(customer){
                 res.status(400).json({
-                    message: 'A customer already exists with that phone number'
+                    message: 'A customer already exists with that email'
                 });
                 return;
             } 
@@ -140,7 +140,7 @@ router.post('/customer/confirm', async (req, res)=> {
             try{
                 const newCustomer = await db.customers.insertOne(customerObj);
                 indexCustomers(req.app)
-                .then(() => {
+                .then(async () => {
                     // Return the new customer
                     const customerReturn = newCustomer.ops[0];
                     delete customerReturn.password;
@@ -158,14 +158,43 @@ router.post('/customer/confirm', async (req, res)=> {
                 //    req.session.orderComment = req.body.orderComment;
     
                     // Return customer oject
-                   // res.status(200).json(customerReturn);
-                    res.render('login', {
-                        message: 'Account verified! 🎉',
-                        title: 'Success',
-                        config: req.app.config,
-                        helpers: req.handlebars.helpers,
-                        showFooter: true
-                      });
+
+                    const db = req.app.db;
+
+                    const customer = await db.customers.findOne({ email: mongoSanitize(req.session.customerEmail ) });
+                    // check if customer exists with that email
+                    if(customer === undefined || customer === null){
+                        res.status(400).json({
+                            message: 'A customer with that email does not exist.'
+                        });
+                        return;
+                    }
+                    // we have a customer under that email so we compare the password
+                    bcrypt.compare(req.body.shipPassword, customer.password)
+                    .then((result) => {
+                        if(!result){
+                            // password is not correct
+                            res.status(400).json({
+                                message: 'Access denied. Check password and try again.'
+                            });
+                            return;
+                        }
+                      /*  res.render(`${config.themeViews}checkout-information`, {
+                            message: 'Account verified! 🎉',
+                            title: 'Success',
+                            config: req.app.config,
+                            helpers: req.handlebars.helpers,
+                            showFooter: true
+                          });  */
+                        //  res.send('Verified Account');
+                          res.redirect('/checkout/information');
+                          return;
+                    })
+                    .catch((err) => {
+                        res.status(400).json({
+                            message: 'Access denied. Check password and try again.'
+                        });
+                    });
                 });
             }catch(ex){
                 console.error(colors.red('Failed to insert customer: ', ex));
