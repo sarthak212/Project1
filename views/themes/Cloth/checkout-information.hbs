@@ -49,74 +49,65 @@
           <!-- Delivery details-->
           <div class="col-xl-6 mb-3">
             <h1 class="h2 mb-4">Checkout</h1>
-            <button class="btn col-2 btn-primary btn-shadow mb-3" href="#signin-modal" data-toggle="modal"
-              id="customerloginForm" type="submit">Login</button>
-            <h2 class="h5 mb-4">Fill Information</h2>
+            <h2 class="h5 mb-4">Your Information</h2>
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
                   <label for="co-fn">First name <span class='text-danger'>*</span></label>
                   <input class="form-control" id="shipFirstname" name="shipFirstname" placeholder="First name"
-                    value="{{@root.session.customerFirstname}}" required>
+                    value="{{@root.session.customerFirstname}}" disabled>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
                   <label for="co-ln">Last name <span class='text-danger'>*</span></label>
                   <input class="form-control" id="shipLastname" name="shipLastname" placeholder="Last name"
-                    value="{{@root.session.customerLastname}}" required>
+                    value="{{@root.session.customerLastname}}" disabled>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
                   <label for="co-ln">Phone number <span class='text-danger'>*</span></label>
                   <input class="form-control" id="shipPhoneNumber" name="shipPhoneNumber" placeholder="Phone number"
-                    value="{{@root.session.customerPhone}}" required>
+                    value="{{@root.session.customerPhone}}" disabled>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
                   <label for="co-fn">Email address</label>
                   <input class="form-control" id="shipEmail" name="shipEmail" placeholder="Email address"
-                    value="{{@root.session.customerEmail}}">
+                    value="{{@root.session.customerEmail}}" disabled>
                 </div>
               </div>
               <div class="col-sm-12">
                 <div class="form-group">
                   <label for="co-address">Address <span class='text-danger'>*</span></label>
                   <input class="form-control" id="shipAddr1" name="shipAddr1" placeholder="Address 1"
-                    value="{{@root.session.customerAddress1}}" required>
+                    value="{{@root.session.customerAddress1}}" disabled>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
                   <label for="co-ln">State <span class='text-danger'>*</span></label>
                   <input class="form-control" id="shipState" name="shipState" placeholder="State"
-                    value="{{@root.session.customerState}}" required>
+                    value="{{@root.session.customerState}}" disabled>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
                   <label for="co-fn">Pin Code <span class='text-danger'>*</span></label>
                   <input class="form-control" id="shipPostcode" name="shipPostcode" placeholder="Pin code"
-                    value="{{@root.session.customerPostcode}}" required>
+                    value="{{@root.session.customerPostcode}}" disabled>
                 </div>
               </div>
               <div class="col-sm-12">
                 <div class="form-group">
                   <label for="co-note">Order note</label>
                   <textarea class="form-control" name="message" id="co-note" rows="6"
-                    placeholder="Please write here any additional information..."></textarea>
+                    placeholder="Please write here any additional information..." disabled></textarea>
                 </div>
               </div>
             
-              <div class="col-sm-12">
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                  <label style="margin-bottom: 0px;" class="form-check-labelcustom-control-label font-weight-medium text-dark" for="inlineCheckbox1">Create New Account</label>
-              </div>
-          
-              </div>
             </div>
             <div class="rounded-lg border p-4 my-3">
               <h2 class="h6 pb-2">Do you have a coupon code?</h2>
@@ -127,7 +118,7 @@
             </div>
           </div>
           <!-- Order summary + payment-->
-          <div class="col-xl-5 offset-xl-1 mb-3">
+          <div class="col-xl-5 offset-xl-1 mb-3 mtr-8">
             <div class="bg-light rounded-lg py-5 px-4 px-sm-5">
               <h2 class="h5 pb-3">Your order</h2>
               <div class="cartBodyWrapper">
@@ -207,36 +198,6 @@
               <div class="card">
                 <div class="card-header py-3 px-3">
                   <div class="custom-control custom-radio">
-                    <input class="custom-control-input" type="radio" name="license" id="payment-card" checked>
-                    <label class="custom-control-label font-weight-medium text-dark" for="payment-card"
-                      data-toggle="collapse" data-target="#credit-card">Credit card / Debit Card / UPI /
-                      Netbanking<i class="czi-card text-muted font-size-lg align-middle mt-n1 ml-2"></i></label>
-                  </div>
-                </div>
-                <div class="collapse show" id="credit-card" data-parent="#payment-methods">
-                  <div class="card-body pb-2">
-                  
-                   <p class="font-size-sm mb-0">You will be redirected to the Payment Gateway to complete your
-                      order.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-header py-3 px-3">
-                  <div class="custom-control custom-radio">
-                    <input class="custom-control-input" type="radio" name="license" id="payment-paypal">
-                    <label class="custom-control-label font-weight-medium text-dark" for="payment-paypal"
-                      data-toggle="collapse" data-target="#paypal">PayPal<i
-                        class="czi-paypal text-muted font-size-base align-middle mt-n1 ml-2"></i></label>
-                  </div>
-                </div>
-                <div class="collapse" id="paypal" data-parent="#payment-methods">
-                  <div class="card-body"><a class="btn btn-primary btn-sm" href="#">Proceed with PayPal</a></div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-header py-3 px-3">
-                  <div class="custom-control custom-radio">
                     <input class="custom-control-input" type="radio" name="license" id="payment-cash">
                     <label class="custom-control-label font-weight-medium text-dark" for="payment-cash"
                       data-toggle="collapse" data-target="#cash">Cash on delivery<i
@@ -252,7 +213,7 @@
             </div>
             <div class="pt-2">
               {{!-- id="add-to-reg" type="submit"  --}}
-              <button class="btn btn-primary btn-block" href="#otp-modal" data-toggle="otpmodal">Place Order</button>
+              <button class="btn btn-primary btn-block">Place Order</button>
             </div>
           </div>
 
@@ -262,8 +223,8 @@
     </div>
   </section>
 </main>
-{{/if}}
 
+{{else}}
 <main class="sidebar-fixed-enabled" style="background: #F6F9FC">
   <section class="px-lg-3 pt-4">
     <div class="px-3 pt-2">
@@ -309,9 +270,9 @@
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="co-fn">Email address</label>
+                  <label for="co-fn">Email address <span class='text-danger'>*</span></label>
                   <input class="form-control" id="shipEmail" name="shipEmail" placeholder="Email address"
-                    value="{{@root.session.customerEmail}}">
+                    value="{{@root.session.customerEmail}}" required>
                 </div>
               </div>
               <div class="col-sm-12">
@@ -330,9 +291,9 @@
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="co-fn">Pin Code</label>
+                  <label for="co-fn">Pin Code <span class='text-danger'>*</span></label>
                   <input class="form-control" id="shipPostcode" name="shipPostcode" placeholder="Pin code"
-                    value="{{@root.session.customerPostcode}}">
+                    value="{{@root.session.customerPostcode}}" required>
                 </div>
               </div>
               <div class="col-sm-12">
@@ -343,10 +304,7 @@
                 </div>
               </div>
               <div class="col-sm-12">
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                  <label style="margin-bottom: 0px;" class="form-check-labelcustom-control-label font-weight-medium text-dark" for="inlineCheckbox1">Create New Account</label>
-              </div>
+                
                 {{!-- <div class="custom-control custom-radio">
                     <input class="custom-control-input" type="radio" name="license" id="new-account">
                     <label class="custom-control-label font-weight-medium text-dark" for="new-account"
@@ -364,7 +322,7 @@
             </div>
           </div>
           <!-- Order summary + payment-->
-          <div class="col-xl-5 offset-xl-1 mb-3">
+          <div class="col-xl-5 offset-xl-1 mb-3 mtr-8">
             <div class="bg-light rounded-lg py-5 px-4 px-sm-5">
               <h2 class="h5 pb-3">Your order</h2>
               <div class="cartBodyWrapper">
@@ -440,56 +398,9 @@
             {{/if}}
             <h3 class="font-weight-normal text-center my-4 py-2">
               {{currencySymbol @root.config.currencySymbol}}{{formatAmount @root.session.totalCartAmount}}</h3>
-            <div class="accordion box-shadow-sm mb-4" id="payment-methods">
-              <div class="card">
-                <div class="card-header py-3 px-3">
-                  <div class="custom-control custom-radio">
-                    <input class="custom-control-input" type="radio" name="license" id="payment-card" checked>
-                    <label class="custom-control-label font-weight-medium text-dark" for="payment-card"
-                      data-toggle="collapse" data-target="#credit-card">Credit card / Debit Card / UPI /
-                      Netbanking<i class="czi-card text-muted font-size-lg align-middle mt-n1 ml-2"></i></label>
-                  </div>
-                </div>
-                <div class="collapse show" id="credit-card" data-parent="#payment-methods">
-                  <div class="card-body pb-2">
-          
-                   <p class="font-size-sm mb-0">You will be redirected to the Payment Gateway to complete your
-                      order.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-header py-3 px-3">
-                  <div class="custom-control custom-radio">
-                    <input class="custom-control-input" type="radio" name="license" id="payment-paypal">
-                    <label class="custom-control-label font-weight-medium text-dark" for="payment-paypal"
-                      data-toggle="collapse" data-target="#paypal">PayPal<i
-                        class="czi-paypal text-muted font-size-base align-middle mt-n1 ml-2"></i></label>
-                  </div>
-                </div>
-                <div class="collapse" id="paypal" data-parent="#payment-methods">
-                  <div class="card-body"><a class="btn btn-primary btn-sm" href="#">Proceed with PayPal</a></div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-header py-3 px-3">
-                  <div class="custom-control custom-radio">
-                    <input class="custom-control-input" type="radio" name="license" id="payment-cash">
-                    <label class="custom-control-label font-weight-medium text-dark" for="payment-cash"
-                      data-toggle="collapse" data-target="#cash">Cash on delivery<i
-                        class="czi-wallet text-muted font-size-lg align-middle mt-n1 ml-2"></i></label>
-                  </div>
-                </div>
-                <div class="collapse" id="cash" data-parent="#payment-methods">
-                  <div class="card-body">
-                    <p class="font-size-sm mb-0">You can pay cash when you receive your order.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
             <div class="pt-2">
               {{!-- id="add-to-reg" type="submit"  --}}
-              <button class="btn btn-primary btn-block" href="#otp-modal" data-toggle="otpmodal">Place Order</button>
+              <button class="btn btn-primary btn-block">Create Account</button>
             </div>
           </div>
 
@@ -499,7 +410,7 @@
     </div>
   </section>
 </main>
-
+{{/if}}
 <a class="btn-scroll-top" href="#top" data-scroll><span
     class="btn-scroll-top-tooltip text-muted font-size-sm mr-2">Top</span><i class="btn-scroll-top-icon czi-arrow-up">
   </i></a>
