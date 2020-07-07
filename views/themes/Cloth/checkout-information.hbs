@@ -19,7 +19,7 @@
             <div class="form-group">
                   <label for="co-note">Enter password</label>
                   <input class="form-control" id="shipPassword" name="shipPassword" id="co-note" rows="6"
-                    placeholder="password"></input>
+                   type="password" placeholder="Password"></input>
               </div>
           </div>
           <button class="btn btn-primary btn-block btn-shadow"  type="submit">Verify</button>
@@ -97,9 +97,9 @@
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="co-fn">Pin Code</label>
+                  <label for="co-fn">Pin Code <span class='text-danger'>*</span></label>
                   <input class="form-control" id="shipPostcode" name="shipPostcode" placeholder="Pin code"
-                    value="{{@root.session.customerPostcode}}">
+                    value="{{@root.session.customerPostcode}}" required>
                 </div>
               </div>
               <div class="col-sm-12">
