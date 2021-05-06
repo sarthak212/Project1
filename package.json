@@ -72,7 +72,7 @@
     "paypal-rest-sdk": "^1.6.9",
     "rand-token": "^1.0.1",
     "rimraf": "^3.0.2",
-    "sanitize-html": "^1.26.0",
+    "sanitize-html": "^2.3.2",
     "sitemap": "^6.1.5",
     "string-strip-html": "^4.4.7",
     "strip-bom": "^4.0.0",
